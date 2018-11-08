@@ -1,7 +1,8 @@
 package jmt.mvc.model.dao;
 
+import java.sql.SQLException;
 import java.util.List;
-
+import java.util.Map;
 
 import jmt.mvc.model.dto.MemberDTO;
 
@@ -34,4 +35,8 @@ public interface MemberDAO {
 	 * ¼öÁ¤
 	 * */
 	int update(MemberDTO memberDTO);
+	
+	public int[] selectBookmarkById(String id) throws SQLException;
+
+	Map<String, String> selectReviewByResName(int[] resName);
 }
