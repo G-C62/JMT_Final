@@ -14,7 +14,8 @@ public class SelectContoller implements Controller {
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// select«’¥œ¥Ÿ
+		String hi="hi";
 		return null;
 	}
 
