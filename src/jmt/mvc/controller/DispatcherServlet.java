@@ -35,6 +35,7 @@ public class DispatcherServlet extends HttpServlet {
 		if(mv.isRedirect()) {	// redirect 방식으로 이동
 			response.sendRedirect(mv.getPath());
 		}else {	//forward 방식으로 이동
+			
 			request.getRequestDispatcher(mv.getPath()).forward(request, response);
 		}
 	}

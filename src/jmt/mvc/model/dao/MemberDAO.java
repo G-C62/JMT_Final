@@ -1,7 +1,7 @@
 package jmt.mvc.model.dao;
 
+import java.sql.SQLException;
 import java.util.List;
-
 
 import jmt.mvc.model.dto.MemberDTO;
 
@@ -12,7 +12,7 @@ public interface MemberDAO {
 	/**
 	 * 로그인
 	 * */
-	List<MemberDTO>selectByInfo(String memberId, String memberPwd);
+	boolean selectByInfo(MemberDTO memberDTO) throws SQLException;
 	
 	/**
 	 * 삭제하기
@@ -22,7 +22,7 @@ public interface MemberDAO {
 	/**
 	 * 가입(등록)하기
 	 * */
-	int insert(MemberDTO memberDTO);
+	int insert(MemberDTO memberDTO) throws SQLException;
 	
 	/**
 	 * 등록할때 필요한 id중복체크

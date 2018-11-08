@@ -23,6 +23,12 @@ public class MemberDTO {
 	}
 
 
+	public MemberDTO(String memberId, String memberPwd) {
+		
+		this.memberId = memberId;
+		this.memberPwd = memberPwd;
+	}
+
 	public String getMemberId() {
 		return memberId;
 	}
