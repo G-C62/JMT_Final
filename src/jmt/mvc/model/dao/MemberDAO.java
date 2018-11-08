@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import jmt.mvc.model.dto.MemberDTO;
+import jmt.mvc.model.dto.RestaurantDTO;
+import jmt.mvc.model.dto.ReviewDTO;
 
 
 public interface MemberDAO {
@@ -36,7 +38,9 @@ public interface MemberDAO {
 	 * */
 	int update(MemberDTO memberDTO);
 	
-	public int[] selectBookmarkById(String id) throws SQLException;
+	public List<String> selectBookmarkById(String id) throws SQLException;
 
-	Map<String, String> selectReviewByResName(int[] resName);
+	public List<ReviewDTO> selectReviewByResName(List<String> list) throws SQLException;
+
+	List<RestaurantDTO> selectCategoryDAO(String category) throws SQLException;
 }

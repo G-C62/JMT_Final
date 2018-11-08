@@ -8,6 +8,8 @@ import java.util.Map;
 import jmt.mvc.model.dao.MemberDAO;
 import jmt.mvc.model.dao.MemberDAOImpl;
 import jmt.mvc.model.dto.MemberDTO;
+import jmt.mvc.model.dto.RestaurantDTO;
+import jmt.mvc.model.dto.ReviewDTO;
 
 public class MemberServiceImpl implements MemberService {
 	private MemberDAO dao = new MemberDAOImpl();
@@ -41,13 +43,19 @@ public class MemberServiceImpl implements MemberService {
 		return 0;
 	}
 
-	public Map<String, String> selectBookmarkById(String id) throws SQLException{
-		int [] resId = dao.selectBookmarkById(id);
-		Map<String, String> map = dao.selectReviewByResName(resId);
+	public List<ReviewDTO> selectBookmarkById(String id) throws SQLException{
+		List<String> list = dao.selectBookmarkById(id);
+		List<ReviewDTO> lists = dao.selectReviewByResName(list);
 		
-		return map;
+		return lists;
 		
 		
+	}
+
+	@Override
+	public List<RestaurantDTO> selectCategoryService(String category) throws SQLException {
+		List<RestaurantDTO> list = dao.selectCategoryDAO(category);
+		return list;
 	}
 	
 }

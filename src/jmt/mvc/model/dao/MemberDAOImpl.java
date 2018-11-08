@@ -4,16 +4,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import jmt.mvc.model.dto.MemberDTO;
+import jmt.mvc.model.dto.RestaurantDTO;
+import jmt.mvc.model.dto.ReviewDTO;
 import jmt.mvc.model.util.DbUtil;
 
 public class MemberDAOImpl implements MemberDAO {
 	
-	private static final int HashMap = 0;
 
 	@Override
 	public List<MemberDTO> selectByInfo(String memberId, String memberPwd) {
@@ -45,48 +47,44 @@ public class MemberDAOImpl implements MemberDAO {
 		return 0;
 	}
 
-	public int[] selectBookmarkById(String id) throws SQLException {
+	public List<String> selectBookmarkById(String id) throws SQLException {
 		Connection con =null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		int [] resId = null;
-		int count = 0;
+		List<String> list = new ArrayList<>();
 		try {
 			con= DbUtil.getConnection();
-			ps = con.prepareStatement("SELECT RES_ID FROM BOOKMARK WHERE ID=?");
+			ps = con.prepareStatement("SELECT RES_ID FROM BOOKMARK WHERE MEMBER_ID=?");
 			ps.setString(1, id);
 			rs=ps.executeQuery();
+			
 			while(rs.next()) {
-				resId[count] = rs.getInt(1);
-				count++;
+				System.out.println(rs.getInt(1));
+				list.add(Integer.toString(rs.getInt(1)));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DbUtil.dbClose(rs, ps, con);
 		}
-		return resId;
+		return list;
 	}
 
 	@Override
-	public Map<String, String> selectReviewByResName(int[] resId) {
+	public List<ReviewDTO> selectReviewByResName(List<String> list) throws SQLException {
 		Connection con =null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		Map<String, String> map = new HashMap<>();
+		List<ReviewDTO> lists=new ArrayList<>();
 		
 		try {
 			con=DbUtil.getConnection();
-			for(int i=0;i<resId.length; i++) {
-				ps = con.prepareStatement("SELECT RES_NAME,REVIEW_IMG1 FROM REVIEW WHERE RES_ID=?");
-				ps.setInt(1, resId[i]);
+			ps=con.prepareStatement("SELECT RES_NAME,REVIEW_IMG1 FROM REVIEW WHERE RES_ID=?");
+			for(int i=0;i<list.size();i++) {
+				ps.setInt(1, Integer.parseInt(list.get(i)));
 				rs=ps.executeQuery();
 				while(rs.next()) {
-					if(rs.getString(2)!=null) {
-						map.put(rs.getString(1), rs.getString(2));
-					}else {
-						map.put(rs.getString(1), null);
-					}
+					lists.add(new ReviewDTO(rs.getString(1), rs.getString(2)));
 				}
 			}
 		} catch (SQLException e) {
@@ -95,6 +93,29 @@ public class MemberDAOImpl implements MemberDAO {
 		} finally {
 			DbUtil.dbClose(rs, ps, con);
 		}
-		return map;
+		return lists;
+	}
+
+	@Override
+	public List<RestaurantDTO> selectCategoryDAO(String category) throws SQLException {
+		Connection con =null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		List<RestaurantDTO> list = new ArrayList<>();
+		try {
+			con=DbUtil.getConnection();
+			ps=con.prepareStatement("SELECT * FROM RESTAURANT WHERE RES_CATEGORY=?");
+			ps.setString(1, category);
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				list.add(new RestaurantDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), 
+						rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getDouble(10), rs.getDouble(11)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return list;
 	}
 }

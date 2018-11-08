@@ -8,6 +8,6 @@
 	
 </head>
 <body>
-	<img src='<%=application.getAttribute("1") %>'>
+<a href="jmt?command=myBookmark">눌러</a>
 </body>
 </html>
