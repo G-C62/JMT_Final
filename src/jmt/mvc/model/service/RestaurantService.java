@@ -1,14 +1,13 @@
-package jmt.mvc.model.dao;
+package jmt.mvc.model.service;
 
 import java.sql.SQLException;
 import java.util.List;
 
-
 import jmt.mvc.model.dto.RestaurantDTO;
 import jmt.mvc.model.dto.ReviewDTO;
 
-public interface RestaurantDAO {
-	
+public interface RestaurantService
+{
 	/**
 	 * 전체검색
 	 * */
@@ -49,6 +48,4 @@ public interface RestaurantDAO {
 	 * 리뷰검색
 	 * */
 	ReviewDTO selectReview(int resId);
-	
-	
 }

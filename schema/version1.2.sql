@@ -245,13 +245,11 @@ select * from restaurant;
 delete from restaurant;
 ----------½ÃÄö½º
 
-
 drop sequence res_seq;
 CREATE SEQUENCE RES_SEQ 
 START WITH 1
 INCREMENT BY 1
 NOCACHE;
-
 
 drop sequence review_seq;
 CREATE SEQUENCE REVIEW_SEQ 

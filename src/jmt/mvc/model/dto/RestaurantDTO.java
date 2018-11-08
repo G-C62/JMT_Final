@@ -1,6 +1,7 @@
 package jmt.mvc.model.dto;
 
-public class RestaurantDTO {
+public class RestaurantDTO
+{
 	private int resId;
 	private String resName;
 	private String resChainName;
@@ -12,17 +13,15 @@ public class RestaurantDTO {
 	private String resHo;
 	private double resLong;
 	private double resLat;
-	
-	
-	
-	public RestaurantDTO() {
-		
+
+	public RestaurantDTO()
+	{
+
 	}
 
-
-
 	public RestaurantDTO(int resId, String resName, String resChainName, String resCategory, String resSubCategory,
-			String resDong, String resAddr, String resFloor, String resHo, double resLong, double resLat) {
+			String resDong, String resAddr, String resFloor, String resHo, double resLong, double resLat)
+	{
 		super();
 		this.resId = resId;
 		this.resName = resName;
@@ -37,142 +36,114 @@ public class RestaurantDTO {
 		this.resLat = resLat;
 	}
 
-
-
-	public int getResId() {
+	public int getResId()
+	{
 		return resId;
 	}
 
-
-
-	public void setResId(int resId) {
+	public void setResId(int resId)
+	{
 		this.resId = resId;
 	}
 
-
-
-	public String getResName() {
+	public String getResName()
+	{
 		return resName;
 	}
 
-
-
-	public void setResName(String resName) {
+	public void setResName(String resName)
+	{
 		this.resName = resName;
 	}
 
-
-
-	public String getResChainName() {
+	public String getResChainName()
+	{
 		return resChainName;
 	}
 
-
-
-	public void setResChainName(String resChainName) {
+	public void setResChainName(String resChainName)
+	{
 		this.resChainName = resChainName;
 	}
 
-
-
-	public String getResCategory() {
+	public String getResCategory()
+	{
 		return resCategory;
 	}
 
-
-
-	public void setResCategory(String resCategory) {
+	public void setResCategory(String resCategory)
+	{
 		this.resCategory = resCategory;
 	}
 
-
-
-	public String getResSubCategory() {
+	public String getResSubCategory()
+	{
 		return resSubCategory;
 	}
 
-
-
-	public void setResSubCategory(String resSubCategory) {
+	public void setResSubCategory(String resSubCategory)
+	{
 		this.resSubCategory = resSubCategory;
 	}
 
-
-
-	public String getResDong() {
+	public String getResDong()
+	{
 		return resDong;
 	}
 
-
-
-	public void setResDong(String resDong) {
+	public void setResDong(String resDong)
+	{
 		this.resDong = resDong;
 	}
 
-
-
-	public String getResAddr() {
+	public String getResAddr()
+	{
 		return resAddr;
 	}
 
-
-
-	public void setResAddr(String resAddr) {
+	public void setResAddr(String resAddr)
+	{
 		this.resAddr = resAddr;
 	}
 
-
-
-	public String getResFloor() {
+	public String getResFloor()
+	{
 		return resFloor;
 	}
 
-
-
-	public void setResFloor(String resFloor) {
+	public void setResFloor(String resFloor)
+	{
 		this.resFloor = resFloor;
 	}
 
-
-
-	public String getResHo() {
+	public String getResHo()
+	{
 		return resHo;
 	}
 
-
-
-	public void setResHo(String resHo) {
+	public void setResHo(String resHo)
+	{
 		this.resHo = resHo;
 	}
 
-
-
-	public double getResLong() {
+	public double getResLong()
+	{
 		return resLong;
 	}
 
-
-
-	public void setResLong(double resLong) {
+	public void setResLong(double resLong)
+	{
 		this.resLong = resLong;
 	}
 
-
-
-	public double getResLat() {
+	public double getResLat()
+	{
 		return resLat;
 	}
 
-
-
-	public void setResLat(double resLat) {
+	public void setResLat(double resLat)
+	{
 		this.resLat = resLat;
 	}
-	
 
-	
-	
-	
-	
-	
 }
