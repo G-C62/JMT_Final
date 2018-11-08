@@ -1,5 +1,6 @@
 package jmt.mvc.model.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 
@@ -16,7 +17,7 @@ public interface RestaurantDAO {
 	/**
 	 * 상세보기(by resId)
 	 * */
-	RestaurantDTO selectById(int resId);
+	RestaurantDTO selectById(int resId) throws SQLException;
 	
 	/**
 	 * 조건검색(by category)
