@@ -8,7 +8,7 @@ import jmt.mvc.model.dto.ReviewDTO;
 public interface ReviewDAO {
 	
 	/**
-	 * 내가 쓴 리뷰 검색
+	 * 내가 쓴 리뷰 검색 지혜 수정
 	 * */
 	List<ReviewDTO> myReviewSelectAll();
 	
