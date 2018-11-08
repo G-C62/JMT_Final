@@ -3,8 +3,11 @@ package jmt.mvc.model.service;
 import java.sql.SQLException;
 
 import java.util.List;
+import java.util.Map;
 
 import jmt.mvc.model.dto.MemberDTO;
+import jmt.mvc.model.dto.RestaurantDTO;
+import jmt.mvc.model.dto.ReviewDTO;
 
 public interface MemberService {
 	/**
@@ -32,4 +35,8 @@ public interface MemberService {
 	 * ¼öÁ¤
 	 * */
 	int update(MemberDTO memberDTO);
+	
+	public List<ReviewDTO> selectBookmarkById(String id) throws SQLException;
+
+	public List<RestaurantDTO> selectCategoryService(String category) throws SQLException;
 }
