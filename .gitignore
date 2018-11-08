@@ -62,4 +62,3 @@ local.properties
 .recommenders/
 Thumbs.db
 build/classes/.gitignore
-/build/
