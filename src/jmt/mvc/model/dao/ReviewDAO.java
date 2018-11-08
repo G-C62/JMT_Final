@@ -9,8 +9,9 @@ public interface ReviewDAO {
 	
 	/**
 	 * 내가 쓴 리뷰 검색 지혜 수정
+	 * @throws SQLException 
 	 * */
-	List<ReviewDTO> myReviewSelectAll();
+	List<ReviewDTO> myReviewSelectAll(String id) throws SQLException;
 	
 	
 	/**
