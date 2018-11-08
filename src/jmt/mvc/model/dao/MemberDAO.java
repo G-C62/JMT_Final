@@ -1,3 +1,4 @@
+
 package jmt.mvc.model.dao;
 
 import java.sql.SQLException;
@@ -44,3 +45,4 @@ public interface MemberDAO {
 
 	List<RestaurantDTO> selectCategoryDAO(String category) throws SQLException;
 }
+
