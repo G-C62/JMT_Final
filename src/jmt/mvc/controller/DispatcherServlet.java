@@ -1,6 +1,8 @@
+
 package jmt.mvc.controller;
 
 import java.io.IOException;
+
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -24,7 +26,7 @@ public class DispatcherServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String key = request.getParameter("command");
 		if(key==null || key.equals("")) {
-			key="selectCategory";
+			//key="selectCategory"; 기본경로(command로 전달된 값이 없을경우)
 		}
 		ModelAndView mv = map.get(key).execute(request, response);
 		if(mv.isRedirect()) {	// redirect 방식으로 이동
@@ -34,3 +36,4 @@ public class DispatcherServlet extends HttpServlet {
 		}
 	}
 }
+

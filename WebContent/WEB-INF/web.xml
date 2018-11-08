@@ -17,4 +17,5 @@
   	<param-name>foodPicture</param-name>
   	<param-value>jmt/mvc/listener/foodImg</param-value>
   </context-param>
+
 </web-app>
