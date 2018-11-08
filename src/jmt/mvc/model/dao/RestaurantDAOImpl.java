@@ -93,7 +93,34 @@ public class RestaurantDAOImpl implements RestaurantDAO
 	@Override
 	public ReviewDTO selectReview(int resId)
 	{
-		// TODO Auto-generated method stub
+		/*Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+	
+		ReviewDTO dto = null;
+
+		String sql = "select * from review where res_id=?";		
+		
+		try
+		{
+			//로드 연결 실행 닫기	
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			
+			ps.setInt(1, resId);		
+			rs = ps.executeQuery();
+			
+			if (rs.next())
+			{
+				dto = new ReviewDTO(reviewId, reviewTitle, reviewContents, memberId, resId, resName); 
+						
+			}
+			
+		} finally 
+		{
+			DbUtil.dbClose(rs, ps, con);
+		}*/
+		
 		return null;
 	}
 

@@ -11,7 +11,8 @@ CREATE TABLE RESTAURANT(
     RES_LONG NUMBER(12,9),
     RES_LAT NUMBER(13,10)
 );
-
+delete from restaurant;
+select * from restaurant;
 CREATE TABLE MEMBER(
     MEMBER_ID VARCHAR2(20 CHAR) PRIMARY KEY,
     MEMBER_PWD VARCHAR2(20 CHAR) NOT NULL,
@@ -47,15 +48,32 @@ CREATE TABLE RECOMMEND(
     REVIEW_ID NUMBER(5) REFERENCES REVIEW(REVIEW_ID)
 );
 
+insert into member values('aaa', 'aaa', '가가가', '010-1111-1111', 
+	'남', 'aaa@gmail.com');
+insert into review (REVIEW_ID, REVIEW_TITLE, REVIEW_CONTENTS, 
+	REVIEW_DATE, MEMBER_ID, RES_ID, RES_NAME, REVIEW_ISLIKE) 
+	values (REVIEW_SEQ.NEXTVAL,'맛있어요', '정말 추천해요!', 
+			sysdate, 'aaa', 25398530, '봉우리한정식', 'true');
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 1);
+insert into BOOKMARK values(BOOKMARK_SEQ.NEXTVAL, 'aaa', 25398530);
 
 
+select * from member;
+select * from review;
+select * from RECOMMEND;
+select * from bookmark;
+
+delete from review;
+delete from MEMBER;
+delete from RECOMMEND;
 ----------시퀀스
-CREATE SEQUENCE RES_SEQ 
-START WITH 1
-INCREMENT BY 1
-NOCACHE;
 
 CREATE SEQUENCE REVIEW_SEQ 
+START WITH 1
+INCREMENT BY 1
+NOCACHE; 
+
+CREATE SEQUENCE RECOMMEND_SEQ 
 START WITH 1
 INCREMENT BY 1
 NOCACHE; 
@@ -65,8 +83,10 @@ START WITH 1
 INCREMENT BY 1
 NOCACHE; 
 
-CREATE SEQUENCE RECOMMEND_SEQ 
-START WITH 1
-INCREMENT BY 1
-NOCACHE; 
+drop SEQUENCE RES_SEQ;
+drop SEQUENCE REVIEW_SEQ;
+drop SEQUENCE BOOKMARK_SEQ;
+drop SEQUENCE RECOMMEND_SEQ;
+
+CREATE SEQUENCE REVIEW_SEQ;
 
