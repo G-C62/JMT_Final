@@ -52,14 +52,14 @@ public class SignupController implements Controller {
          
       // url = "indexEx.html"; 
        mv.setRedirect(true);
-       mv.setPath("main/indexEx.jsp");
+       mv.setPath("seongho_view/indexEx.jsp");
 
       } catch (SQLException e) {
     	  e.printStackTrace();
          request.setAttribute("errorMsg", e.getMessage());
 
       }
-      mv.setPath("main/indexEx.html");
+      mv.setPath("seongho_view/indexEx.jsp");
       return mv;
    }
 

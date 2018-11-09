@@ -10,9 +10,13 @@ public interface MemberDAO {
 
 	
 	/**
-	 * 로그인
+	 * 로그인 
+	 * 박성호 
+	 * - list->boolean으로 변경 
+	 * - throws처리 완료
 	 * */
 	boolean selectByInfo(MemberDTO memberDTO) throws SQLException;
+	//l
 	
 	/**
 	 * 삭제하기
@@ -21,6 +25,7 @@ public interface MemberDAO {
 	
 	/**
 	 * 가입(등록)하기
+	 * - throws처리 완료
 	 * */
 	int insert(MemberDTO memberDTO) throws SQLException;
 	

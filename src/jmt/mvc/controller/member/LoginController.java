@@ -45,11 +45,11 @@ System.out.println(memberID);
 				
 				out.println("<script>alert('로그인 성공');</script>");
 				
-				mv.setPath("main/indexEx.jsp");// 로그인 페이지로 이동
+				mv.setPath("seongho_view/indexEx.jsp");// 로그인 페이지로 이동
 			} else {
 				System.out.println("result 가 false");
 				out.println("<script>alert('로그인 실패');</script>");
-				mv.setPath("main/indexEx.jsp");
+				mv.setPath("seongho_view/indexEx.jsp");
 			} // 최종 결과를 받아서 저장해서 뷰로 이동한다
 		} catch (SQLException e) {
 			mv.setPath("./errors/error.jsp");

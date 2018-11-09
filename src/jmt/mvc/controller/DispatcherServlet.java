@@ -26,7 +26,7 @@ public class DispatcherServlet extends HttpServlet {
 		
 		String key = request.getParameter("command");
 		if(key==null || key.equals("")) {
-			key="list";
+			//key="list";
 		}
 		
 		
