@@ -2,7 +2,11 @@ package jmt.mvc.model.service;
 
 import java.sql.SQLException;
 
+
+import java.util.List;
 import jmt.mvc.model.dto.MemberDTO;
+import jmt.mvc.model.dto.RestaurantDTO;
+import jmt.mvc.model.dto.ReviewDTO;
 
 public interface MemberService {
 	/**
@@ -30,4 +34,15 @@ public interface MemberService {
 	 * 수정
 	 * */
 	int update(MemberDTO memberDTO);
+	
+	/**
+	 * 호수 - 내가 즐겨찾기한 음식점(음식점이름, 사진) 가져오기
+	 * */
+	List<ReviewDTO> selectBookmarkById(String id) throws SQLException;
+
+	/**
+	 * 호수 - 메인 검색바에서 음식점 검색할 때 자동완성기능
+	 * */
+	List<String> autoCompleteRestaurant(String keyWord) throws SQLException ;
+
 }

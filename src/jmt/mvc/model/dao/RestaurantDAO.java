@@ -1,5 +1,6 @@
 package jmt.mvc.model.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 
@@ -48,6 +49,11 @@ public interface RestaurantDAO {
 	 * 리뷰검색
 	 * */
 	ReviewDTO selectReview(int resId);
+
+	/**
+	 * 호수 - 메인 검색바에서 음식점 검색할 때 자동완성기능
+	 * */
+	List<String> autoCompleteRestaurant(String keyWord) throws SQLException;
 	
 	
 }
