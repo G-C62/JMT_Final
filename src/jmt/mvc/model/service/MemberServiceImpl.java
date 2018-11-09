@@ -7,12 +7,15 @@ import java.util.Map;
 
 import jmt.mvc.model.dao.MemberDAO;
 import jmt.mvc.model.dao.MemberDAOImpl;
+import jmt.mvc.model.dao.RestaurantDAO;
+import jmt.mvc.model.dao.RestaurantDAOImpl;
 import jmt.mvc.model.dto.MemberDTO;
 import jmt.mvc.model.dto.RestaurantDTO;
 import jmt.mvc.model.dto.ReviewDTO;
 
 public class MemberServiceImpl implements MemberService {
-	private MemberDAO dao = new MemberDAOImpl();
+	private MemberDAO memDao = new MemberDAOImpl();
+	private RestaurantDAO resDao = new RestaurantDAOImpl();
 	@Override
 	public List<MemberDTO> selectByInfo(String memberId, String memberPwd) throws SQLException {
 		// TODO Auto-generated method stub
@@ -44,18 +47,18 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	public List<ReviewDTO> selectBookmarkById(String id) throws SQLException{
-		List<String> list = dao.selectBookmarkById(id);
-		List<ReviewDTO> lists = dao.selectReviewByResName(list);
+		List<String> list = memDao.selectBookmarkById(id);
+		List<ReviewDTO> lists = memDao.selectReviewByResName(list);
 		
 		return lists;
-		
-		
 	}
 
+	
 	@Override
-	public List<RestaurantDTO> selectCategoryService(String category) throws SQLException {
-		List<RestaurantDTO> list = dao.selectCategoryDAO(category);
+	public List<String> autoCompleteRestaurant(String keyWord) throws SQLException {
+		List<String> list = resDao.autoCompleteRestaurant(keyWord);
 		return list;
 	}
+
 	
 }

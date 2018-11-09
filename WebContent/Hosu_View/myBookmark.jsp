@@ -18,9 +18,9 @@
 <c:forEach items="${listMyBookMark}" var="bookMark" varStatus = "state">
     <h2>${state.count}번째 즐겨찾기한 음식점</h2>  
     음식점 이름 : ${bookMark.resName} <br>
-    <c:if test="${bookMark.review_img1}==null">${bookMark.review_img1}=<%=request.getParameter("1") %></c:if>
+    <c:if test="${bookMark.reviewImg1}==null">${bookMark.reviewImg1}=<%=request.getParameter("1") %></c:if>
     
-    음식점 사진 : <img src='${bookMark.review_img1}'><br>
+    음식점 사진 : <img src='${bookMark.reviewImg1}'><br>
     
  </c:forEach>
 </body>

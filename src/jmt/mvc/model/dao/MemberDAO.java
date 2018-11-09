@@ -38,9 +38,12 @@ public interface MemberDAO {
 	 * */
 	int update(MemberDTO memberDTO);
 	
+	/**
+	 * 호수 - 내가 즐겨찾기한 음식점(음식점이름, 사진) 가져오기
+	 * */
 	public List<String> selectBookmarkById(String id) throws SQLException;
-
 	public List<ReviewDTO> selectReviewByResName(List<String> list) throws SQLException;
 
-	List<RestaurantDTO> selectCategoryDAO(String category) throws SQLException;
+
+
 }

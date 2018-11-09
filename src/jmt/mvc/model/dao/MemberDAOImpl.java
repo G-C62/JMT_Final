@@ -96,26 +96,5 @@ public class MemberDAOImpl implements MemberDAO {
 		return lists;
 	}
 
-	@Override
-	public List<RestaurantDTO> selectCategoryDAO(String category) throws SQLException {
-		Connection con =null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		List<RestaurantDTO> list = new ArrayList<>();
-		try {
-			con=DbUtil.getConnection();
-			ps=con.prepareStatement("SELECT * FROM RESTAURANT WHERE RES_CATEGORY=?");
-			ps.setString(1, category);
-			rs=ps.executeQuery();
-			while(rs.next()) {
-				list.add(new RestaurantDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), 
-						rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getDouble(10), rs.getDouble(11)));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			DbUtil.dbClose(rs, ps, con);
-		}
-		return list;
-	}
+	
 }

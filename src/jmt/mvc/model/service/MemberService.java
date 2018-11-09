@@ -36,7 +36,14 @@ public interface MemberService {
 	 * */
 	int update(MemberDTO memberDTO);
 	
-	public List<ReviewDTO> selectBookmarkById(String id) throws SQLException;
+	/**
+	 * 호수 - 내가 즐겨찾기한 음식점(음식점이름, 사진) 가져오기
+	 * */
+	List<ReviewDTO> selectBookmarkById(String id) throws SQLException;
 
-	public List<RestaurantDTO> selectCategoryService(String category) throws SQLException;
+	/**
+	 * 호수 - 메인 검색바에서 음식점 검색할 때 자동완성기능
+	 * */
+	List<String> autoCompleteRestaurant(String keyWord) throws SQLException ;
+
 }
