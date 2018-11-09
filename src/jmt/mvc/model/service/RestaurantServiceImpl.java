@@ -13,7 +13,7 @@ public class RestaurantServiceImpl implements RestaurantService
 	private static RestaurantDAO dao = new RestaurantDAOImpl();
 	
 	@Override
-	public List<RestaurantDTO> selectAll()
+	public List<RestaurantDTO> selectAll() throws SQLException
 	{
 		// TODO Auto-generated method stub
 		return null;
@@ -31,45 +31,62 @@ public class RestaurantServiceImpl implements RestaurantService
 	}
 
 	@Override
-	public List<RestaurantDTO> selectByCategory(String categroy)
+	public List<RestaurantDTO> selectByCategory(String categroy) throws SQLException
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<RestaurantDTO> selectBySubCategory(String subCategroy)
+	public List<RestaurantDTO> selectBySubCategory(String subCategroy) throws SQLException
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<RestaurantDTO> selectByName(String name)
+	public List<RestaurantDTO> selectByName(String name) throws SQLException
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<RestaurantDTO> selectByDong(String dong)
+	public List<RestaurantDTO> selectByDong(String dong) throws SQLException
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int insertBookMark(int resId, String memberId)
+	public int insertBookMark(int resId, String memberId) throws SQLException
 	{
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public ReviewDTO selectReview(int resId)
+	public List<ReviewDTO> recentOrderReview(int resId) throws SQLException
 	{
-		// TODO Auto-generated method stub
-		return null;
+		List<ReviewDTO> list = dao.recentOrderReview(resId);
+		
+		return list;
+	}
+	
+	@Override
+	public List<ReviewDTO> recommendOrderReview(int resId) throws SQLException
+	{
+		List<ReviewDTO> list = dao.recommendOrderReview(resId);
+		
+		return list;
+	}
+	
+	@Override
+	public int resLikeAcc(int resId) throws SQLException
+	{
+		int result = dao.resLikeAcc(resId);
+		
+		return result;
 	}
 
 }

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import jmt.mvc.model.dto.RestaurantDTO;
@@ -14,7 +15,7 @@ public class RestaurantDAOImpl implements RestaurantDAO
 {
 
 	@Override
-	public List<RestaurantDTO> selectAll()
+	public List<RestaurantDTO> selectAll() throws SQLException
 	{
 		// TODO Auto-generated method stub
 		return null;
@@ -56,50 +57,125 @@ public class RestaurantDAOImpl implements RestaurantDAO
 	}
 
 	@Override
-	public List<RestaurantDTO> selectByCategory(String categroy)
+	public List<RestaurantDTO> selectByCategory(String categroy) throws SQLException
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<RestaurantDTO> selectBySubCategory(String subCategroy)
+	public List<RestaurantDTO> selectBySubCategory(String subCategroy) throws SQLException
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<RestaurantDTO> selectByName(String name)
+	public List<RestaurantDTO> selectByName(String name) throws SQLException
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<RestaurantDTO> selectByDong(String dong)
+	public List<RestaurantDTO> selectByDong(String dong) throws SQLException
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int insertBookMark(int resId, String memberId)
+	public int insertBookMark(int resId, String memberId) throws SQLException
 	{
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public ReviewDTO selectReview(int resId)
+	public List<ReviewDTO> recentOrderReview(int resId) throws SQLException
+	{	
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;	
+		
+		List<ReviewDTO> list = new ArrayList<>();
+
+		String sql = "select * from review where res_id=? order by review_id desc";		
+		
+		try
+		{
+			//로드 연결 실행 닫기	
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			
+			ps.setInt(1, resId);		
+			rs = ps.executeQuery();
+
+			while (rs.next())
+			{		
+				ReviewDTO dto = null;
+				dto = new ReviewDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+						rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(7), rs.getString(7), rs.getString(7), rs.getString(7)); 
+				
+				boolean re = list.add(dto);					
+			}
+			
+		} finally 
+		{
+			DbUtil.dbClose(rs, ps, con);
+		}
+		
+		return list;
+	}
+
+	@Override
+	public List<ReviewDTO> recommendOrderReview(int resId) throws SQLException
 	{
-		/*Connection con = null;
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;	
+		
+		List<ReviewDTO> list = new ArrayList<>();
+
+		String sql = "";
+		//String sql = "select * from review where res_id=? order by  desc";		
+		
+		try
+		{
+			//로드 연결 실행 닫기	
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+			
+			ps.setInt(1, resId);		
+			rs = ps.executeQuery();
+
+			while (rs.next())
+			{		
+				ReviewDTO dto = null;
+				dto = new ReviewDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+						rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(7), rs.getString(7), rs.getString(7), rs.getString(7)); 
+				
+				boolean re = list.add(dto);					
+			}
+			
+		} finally 
+		{
+			DbUtil.dbClose(rs, ps, con);
+		}
+		
+		return list;
+	}
+	
+	@Override
+	public int resLikeAcc(int resId) throws SQLException
+	{
+		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-	
-		ReviewDTO dto = null;
-
-		String sql = "select * from review where res_id=?";		
+		
+		int result = 0;
+		
+		String sql = "select review_islike from review where res_id=? and review_islike='true'";		
 		
 		try
 		{
@@ -110,18 +186,18 @@ public class RestaurantDAOImpl implements RestaurantDAO
 			ps.setInt(1, resId);		
 			rs = ps.executeQuery();
 			
-			if (rs.next())
+			while (rs.next())
 			{
-				dto = new ReviewDTO(reviewId, reviewTitle, reviewContents, memberId, resId, resName); 
-						
+				result ++;	
 			}
 			
 		} finally 
 		{
 			DbUtil.dbClose(rs, ps, con);
-		}*/
+		}
 		
-		return null;
+		return result;
 	}
+
 
 }
