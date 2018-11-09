@@ -45,6 +45,14 @@ public interface RestaurantDAO {
 	 * */
 	int insertBookMark(int resId, String memberId) throws SQLException;
 	
+
+	
+
+	/**
+	 * 호수 - 메인 검색바에서 음식점 검색할 때 자동완성기능
+	 * */
+	List<String> autoCompleteRestaurant(String keyWord) throws SQLException;
+
 	/**
 	 * 상세보기에서 리뷰보기 - 최신순
 	 * */
@@ -59,6 +67,7 @@ public interface RestaurantDAO {
 	 * 상세보기에서 누적추천수 보기
 	 * */
 	int resLikeAcc (int resId) throws SQLException;
+
 
 	
 	

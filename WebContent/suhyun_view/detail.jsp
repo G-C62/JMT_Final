@@ -25,7 +25,7 @@ $(document).ready(function(){
 	                str += "<h3>" + (index+1) + "번째 리뷰</h3> ";
 	        		str += "리뷰 제목 : " + item.reviewTitle + " <br>";
 	        		str += "리뷰 내용 : " + item.reviewContents + "<br>";
-	        		str += "리뷰 쓴 날짜 : " + item.date + "<br>";
+	        		str += "리뷰 쓴 날짜 : " + item.reviewDate + "<br>";
 	        		str += "리뷰 쓴 사람 아이디 : " + item.memberId + "<br>";
 	        		str += "리뷰 이미지1  : " + item.reviewImg1 + "<br>";
 	        		str += "리뷰 이미지2 : " + item.reviewImg2 + "<br>";
@@ -83,7 +83,7 @@ $(document).ready(function(){
 		<h3>${state.count }번째 리뷰</h3>  
 		리뷰 제목 : ${review.reviewTitle } <br>
 		리뷰 내용 : ${review.reviewContents } <br>
-		리뷰 쓴 날짜 : ${review.date } <br>
+		리뷰 쓴 날짜 : ${review.reviewDate } <br>
 		리뷰 쓴 사람 아이디 : ${review.memberId } <br>
 		리뷰 이미지1 : ${review.reviewImg1 } <br>
 		리뷰 이미지2 : ${review.reviewImg2 } <br>

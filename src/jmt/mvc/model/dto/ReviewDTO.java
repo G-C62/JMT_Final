@@ -1,33 +1,51 @@
-package jmt.mvc.model.dto;
 
-import java.sql.Date;
+package jmt.mvc.model.dto;
 
 public class ReviewDTO
 {
 	private int reviewId;
 	private String reviewTitle;
 	private String reviewContents;
-	private String date;
+	private String reviewDate;
 	private String memberId;
 	private int resId;
 	private String resName;
 	private String reviewImg1;
 	private String reviewImg2;
 	private String reviewImg3;
-	private String reviewIsLike;	
+	private String reviewIsLike;
 
-	public ReviewDTO(){}
-
-	
-
-	public ReviewDTO(int reviewId, String reviewTitle, String reviewContents, String date, String memberId, int resId,
-			String resName, String reviewImg1, String reviewImg2, String reviewImg3, String reviewIsLike)
+	public ReviewDTO()
 	{
-		super();
+	}
+
+	public ReviewDTO(String resName, String reviewImg1)
+	{
+
+		this.resName = resName;
+		this.reviewImg1 = reviewImg1;
+
+	}
+
+	public ReviewDTO(int reviewId, String reviewTitle, String reviewContents, String memberId, int resId,
+			String resName)
+	{
+
 		this.reviewId = reviewId;
 		this.reviewTitle = reviewTitle;
 		this.reviewContents = reviewContents;
-		this.date = date;
+		this.memberId = memberId;
+		this.resId = resId;
+		this.resName = resName;
+	}
+
+	public ReviewDTO(int reviewId, String reviewTitle, String reviewContents, String reviewDate, String memberId,
+			int resId, String resName, String reviewImg1, String reviewImg2, String reviewImg3, String reviewIsLike)
+	{
+		this.reviewId = reviewId;
+		this.reviewTitle = reviewTitle;
+		this.reviewContents = reviewContents;
+		this.reviewDate = reviewDate;
 		this.memberId = memberId;
 		this.resId = resId;
 		this.resName = resName;
@@ -37,19 +55,55 @@ public class ReviewDTO
 		this.reviewIsLike = reviewIsLike;
 	}
 
-	public String getDate()
+	public String getReviewDate()
 	{
-		return date;
+		return reviewDate;
 	}
 
-
-
-	public void setDate(String date)
+	public void setReviewDate(String reviewDate)
 	{
-		this.date = date;
+		this.reviewDate = reviewDate;
 	}
 
+	public String getReviewImg1()
+	{
+		return reviewImg1;
+	}
 
+	public void setReviewImg1(String reviewImg1)
+	{
+		this.reviewImg1 = reviewImg1;
+	}
+
+	public String getReviewImg2()
+	{
+		return reviewImg2;
+	}
+
+	public void setReviewImg2(String reviewImg2)
+	{
+		this.reviewImg2 = reviewImg2;
+	}
+
+	public String getReviewImg3()
+	{
+		return reviewImg3;
+	}
+
+	public void setReviewImg3(String reviewImg3)
+	{
+		this.reviewImg3 = reviewImg3;
+	}
+
+	public String getReviewIsLike()
+	{
+		return reviewIsLike;
+	}
+
+	public void setReviewIsLike(String reviewIsLike)
+	{
+		this.reviewIsLike = reviewIsLike;
+	}
 
 	public int getReviewId()
 	{
@@ -111,45 +165,4 @@ public class ReviewDTO
 		this.resName = resName;
 	}
 
-	public String getReviewImg1()
-	{
-		return reviewImg1;
-	}
-
-	public void setReviewImg1(String reviewImg1)
-	{
-		this.reviewImg1 = reviewImg1;
-	}
-
-	public String getReviewImg2()
-	{
-		return reviewImg2;
-	}
-
-	public void setReviewImg2(String reviewImg2)
-	{
-		this.reviewImg2 = reviewImg2;
-	}
-
-	public String getReviewImg3()
-	{
-		return reviewImg3;
-	}
-
-	public void setReviewImg3(String reviewImg3)
-	{
-		this.reviewImg3 = reviewImg3;
-	}
-
-	public String getReviewIsLike()
-	{
-		return reviewIsLike;
-	}
-
-	public void setReviewIsLike(String reviewIsLike)
-	{
-		this.reviewIsLike = reviewIsLike;
-	}
-
-	
 }
