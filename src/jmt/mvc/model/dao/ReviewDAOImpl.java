@@ -10,6 +10,7 @@ import java.util.List;
 import jmt.mvc.model.dto.ReviewDTO;
 import jmt.mvc.model.util.DbUtil;
 
+
 public class ReviewDAOImpl implements ReviewDAO {
 	
 	/*
@@ -50,8 +51,8 @@ public class ReviewDAOImpl implements ReviewDAO {
 						 
 						);
 	
-			    boolean res = list.add(dto);
-			    System.out.println("들어왔나? " + res);
+			   list.add(dto);
+			  
 			 }
 		}finally{
 			DbUtil.dbClose(rs, ps, con);
@@ -67,8 +68,26 @@ public class ReviewDAOImpl implements ReviewDAO {
 
 	@Override
 	public int reivewUpdate(ReviewDTO reviewDTO) throws SQLException {
-		// TODO Auto-generated method stub
+		
+		/*	Connection con =DbUtil.getConnection();
+			PreparedStatement ps =null;
+			int result =0;
+			try{
+				ps = con.prepareStatement("update ReviewDTO set model_name=?,price=?,description=? where model_num=? and password=?");
+				
+				ps.setString(1, reviewDTO.getResName());
+				ps.setInt(2, reviewDTO.getMemberId());
+				ps.setString(3, reviewDTO.getReviewTitle());
+				ps.setString(4, reviewDTO.getReviewContents());
+				ps.setString(5, reviewDTO.);
+				
+				result = ps.executeUpdate();
+			}finally{
+				DbUtil.dbClose( ps, con);
+			}
+			return result;*/
 		return 0;
+	
 	}
 
 	@Override

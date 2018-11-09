@@ -123,4 +123,4 @@
 </table>
 <hr>
 <div align=right>
-<span style="font-size:9pt;">&lt;<a href="${path}/reviewView/reviewWrite.html">수정하기</a>&gt;</span></div>
+<span style="font-size:9pt;">&lt;<a href="${path}/reviewView/reviewWrite.html">리뷰등록하기</a>&gt;</span></div>

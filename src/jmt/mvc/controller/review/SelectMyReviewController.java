@@ -18,7 +18,7 @@ public class SelectMyReviewController implements Controller {
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url =  "reviewView/reviewView.jsp"; //default·Î
+		String url =  "jihye_View/reviewView.jsp"; //default·Î
 		String id = "aaa";
 		
 		try {

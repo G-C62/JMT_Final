@@ -5,6 +5,13 @@ public class ReviewDTO {
 	private String reviewTitle;
 	private String reviewContents;
 	private String reviewDate;
+	private String memberId;
+	private int resId;
+	private String resName;
+	private String reviewImg1;
+	private String reviewImg2;
+	private String reviewImg3;
+	private String reviewIsLike;
 	public String getReviewDate() {
 		return reviewDate;
 	}
@@ -35,13 +42,7 @@ public class ReviewDTO {
 	public void setReviewIsLike(String reviewIsLike) {
 		this.reviewIsLike = reviewIsLike;
 	}
-	private String memberId;
-	private int resId;
-	private String resName;
-	private String reviewImg1;
-	private String reviewImg2;
-	private String reviewImg3;
-	private String reviewIsLike;
+
 	
 	public ReviewDTO() {}
 	public ReviewDTO(int reviewId, String reviewTitle, String reviewContents, String reviewDate, String memberId,
