@@ -1,0 +1,18 @@
+h1,h2,h3,h4,h5{font-family:'Montserrat', sans-serif}
+.top-head h2 {color: blanchedalmond; font-size: 36px; font-weight: 600; margin: 18px 0 0;}
+.top-head h1 {color: blanchedalmond; font-size: 36px; font-weight: 600; margin: 18px 0 0;}
+
+.top-head{background: #141517; width: 100%; float: left; height: 250px;
+display:table;
+	width:100%;
+	background:url(../img/mainFood.jpg)center center no-repeat;
+	background-color:pink;
+	background-size:cover;
+	opacity: 0.7;
+}
+.row{
+	z-index:1;
+}
+#likeImg{width:25px; height:20px}
+.bestFiveImg{width: 250px; height:250px; float: left; padding:20px}
+.bestFiveResName{float:left; padding:17px; margin-rigth:30px;margin-left:70px}
