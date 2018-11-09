@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,11 +34,11 @@
 <script type="text/javascript">
 	$(function() {
 		$("#popbutton").click(function() {
-			$('div.modal').load("join.html")
+			$('div.modal').load("join.jsp")
 			$('div.modal').modal("show");
 		});
  		$("#login").click(function() {
-			$('div.modal').load("login.html")
+			$('div.modal').load("login.jsp")
 			$('div.modal').modal("show");
 		}); 
 	});
@@ -47,14 +46,14 @@
 </head>
 
 <body>
-<%@ include file="top.jsp" %>
+<%@ include file="mainTop.jsp" %>
 	<section id=search>
 		<div>
-			<h3>�ѽ� ��õ�޴�</h3>
+			<h3>한식 추천메뉴</h3>
 		</div>
 		<div class="row" style="padding-left:50px">
 			<div class="column">
-				<img src="../img/media-9.jpg" class="bestFiveImg">
+				<img src="../img/media-9.jpg" class="bestFiveImg" onclick="location.href='../restaurantDetail/detail.jsp'" style="cursor:pointer">
 			</div>
 			<div class="column">
 				<img src="../img/media-1.jpg" class="bestFiveImg">
@@ -68,11 +67,11 @@
 			<div class="column">
 				<img src="../img/media-9.jpg" class="bestFiveImg">
 			</div>
-			<a href="#">+������</a>
+			<a href="#">+더보기</a>
 		</div>
 		
 		<div>
-			<h3>�߽� ��õ�޴�</h3>
+			<h3>중식 추천메뉴</h3>
 		</div>
 		<div class="row" style="padding-left:50px">
 			<div class="column">
@@ -90,11 +89,11 @@
 			<div class="column">
 				<img src="../img/media-3.jpg" class="bestFiveImg">
 			</div>
-			<a href="#">+������</a>
+			<a href="#">+더보기</a>
 		</div>
 		
 		<div>
-			<h3>�Ͻ�/���깰 ��õ�޴�</h3>
+			<h3>일식/수산물 추천메뉴</h3>
 		</div>
 		<div class="row" style="padding-left:50px">
 			<div class="column">
@@ -112,11 +111,11 @@
 			<div class="column">
 				<img src="../img/media-4.jpg" class="bestFiveImg">
 			</div>
-			<a href="#">+������</a>
+			<a href="#">+더보기</a>
 		</div>
 		
 		<div>
-			<h3>�н�ƮǪ�� ��õ�޴�</h3>
+			<h3>패스트푸드 추천메뉴</h3>
 		</div>
 		<div class="row" style="padding-left:50px">
 			<div class="column">
@@ -134,11 +133,11 @@
 			<div class="column">
 				<img src="../img/media-9.jpg" class="bestFiveImg">
 			</div>
-			<a href="#">+������</a>
+			<a href="#">+더보기</a>
 		</div>
 		
 		<div>
-			<h3>�н� ��õ�޴�</h3>
+			<h3>분식 추천메뉴</h3>
 		</div>
 		<div class="row" style="padding-left:50px">
 			<div class="column">
@@ -156,11 +155,11 @@
 			<div class="column">
 				<img src="../img/media-9.jpg" class="bestFiveImg">
 			</div>
-			<a href="#">+������</a>
+			<a href="#">+더보기</a>
 		</div>
 		
 		<div>
-			<h3>��� ��õ�޴�</h3>
+			<h3>양식 추천메뉴</h3>
 		</div>
 		<div class="row" style="padding-left:50px">
 			<div class="column">
@@ -178,11 +177,11 @@
 			<div class="column">
 				<img src="../img/media-9.jpg" class="bestFiveImg">
 			</div>
-			<a href="#">+������</a>
+			<a href="#">+더보기</a>
 		</div>
 		
 		<div>
-			<h3>����/ǻ���丮 ��õ�޴�</h3>
+			<h3>뷔페/퓨전요리 추천메뉴</h3>
 		</div>
 		<div class="row" style="padding-left:50px">
 			<div class="column">
@@ -200,7 +199,7 @@
 			<div class="column">
 				<img src="../img/media-9.jpg" class="bestFiveImg">
 			</div>
-			<a href="#">+������</a>
+			<a href="#">+더보기</a>
 		</div>
 		
 	</section>

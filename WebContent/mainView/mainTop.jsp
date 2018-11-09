@@ -1,8 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<style>
-.top-head{height:300px}
-</style>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <header>
 	<div class="small-top">
 		<div class="container">
@@ -18,10 +14,11 @@
 				aria-controls="exCollapsingNavbar2" aria-expanded="false"
 				aria-label="Toggle navigation">&#9776;</button>
 			<div class="collapse navbar-toggleable-md" id="exCollapsingNavbar2">
-				<ul class="nav navbar-nav">
-					<li class="nav-item">
-						<input type="radio" name="subMenuCheck" value="sumnail" checked> 썸네일로 보기
-						<input type="radio" name="subMenuCheck" value="map"> 지도로 보기						
+				<ul class="nav navbar-nav ">
+					<li>
+						<input type="radio" name="subMenuCheck" value="sumnail"checked > 썸네일로 보기
+					
+						<input type="radio" name="subMenuCheck" value="map"> 지도로 보기
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#">한식</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">중식</a></li>
@@ -37,15 +34,36 @@
 		</div>
 	</div>
 	
-		<div class="top-head left">
-		<div class="row">
-			<div class="col-md-6 col-lg-4">
-				<div onclick="location.href='../mainView/JmtMain.jsp'" style="cursor:pointer">
-					<h2>#JMT<br> 판교 맛따라 멋따라</h2><br><br><br>
+	<div class="top-head left">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-lg-4">
+					<h1>
+						#JMT<br> 판교 맛따라 멋따라
+					</h1>
 				</div>
-				<h1>음식점 상세보기</h1>
+				<form id="loginFrom">
+					<input type="button" class="btn btn-default" id="login" value="로그인">
+
+					<input type="button" class="btn btn-default" id="popbutton" value="회원가입"><br/>
+					<!-- 모달 보여주는 곳  -->
+					
+				</form>
+				<div class="input-group">
+					<input type="text" placeholder="search for" class="form-control">
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-search">Search</button>
+					</span>
+				</div>
+
 			</div>
 		</div>
 	</div>
-	
+	<div class="modal fade">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<!-- remote ajax call이 되는영역 -->
+							</div>
+						</div>
+					</div>
 </header>

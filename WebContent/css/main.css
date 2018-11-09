@@ -4,13 +4,16 @@ input{border:1px gray solid}
 #loginFrom{width:100px;height:100px;position: absolute; right: 0;}
 #mainImg{width:100%;height:100%}
 
+.top-head h2 {color: blanchedalmond; font-size: 36px; font-weight: 600; margin: 18px 0 0;}
+.top-head h1 {color: blanchedalmond; font-size: 36px; font-weight: 600; margin: 18px 0 0;}
+
 .top-head{width: 100%; float: left; height: 400px;
-display:table;
+	display:table;
 	width:100%;
 	background:url(../img/mainFood.jpg)center center no-repeat;
 	background-color:pink;
 	background-size:cover;
-	opacity: 0.5;
+	opacity: 0.7;
 }
 #favoriteImg{width:20px;height:20px}
 ul{text-align: center}

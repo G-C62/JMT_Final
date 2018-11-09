@@ -1,6 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <link rel="stylesheet" href="../css/main.css">
 <link rel="stylesheet" href="../css/sub.css">
 <script language=javascript>
@@ -41,7 +42,7 @@ function checkValid() {
             <p align="right"><b><span style="font-size:9pt;">상호명</span></b></p>
         </td>
         <td width="450" height="20"><b><span style="font-size:9pt;">
-		<input type=text name="resName" size="20" maxlength="15"> (음식점 추천시 좋아요 누르기)<img src="../img/like.jpg" id="likeImg"></span></b></td>
+		<input type=text name="resName" size="20" maxlength="15"> (음식점 추천시 좋아요 누르기)<img src="../img/like.jpg" id="likeImg" style="cursor:pointer"></span></b></td>
     </tr>
     <tr>
         <td width="150" height="20">

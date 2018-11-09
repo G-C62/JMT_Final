@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div class="modal-header">
 	<h4 class="modal-title">회원가입하기</h4>
 	<button type="button" class="close" data-dismiss="modal">&times;</button>
