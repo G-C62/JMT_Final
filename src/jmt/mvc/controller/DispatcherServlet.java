@@ -19,6 +19,7 @@ public class DispatcherServlet extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		map = (Map<String,Controller>)super.getServletContext().getAttribute("map");
+		System.out.println("gk«œ«œ");
 	}
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,8 +27,9 @@ public class DispatcherServlet extends HttpServlet {
 		
 		String key = request.getParameter("command");
 		if(key==null || key.equals("")) {
-			key="list";
+			//key="review.selectAll";
 		}
+		
 		
 		
 		ModelAndView mv = map.get(key).execute(request, response);
