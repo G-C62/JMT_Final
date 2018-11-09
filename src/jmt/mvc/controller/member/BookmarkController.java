@@ -20,7 +20,6 @@ public class BookmarkController implements Controller {
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("컨트롤러");
 		String url = "Hosu_View/myBookmark.jsp";
 		ServletContext application = request.getServletContext();
 		String id = "kim";

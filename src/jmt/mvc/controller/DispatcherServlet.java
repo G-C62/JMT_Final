@@ -36,7 +36,7 @@ public class DispatcherServlet extends HttpServlet {
 		
 		
 		ModelAndView mv = map.get(key).execute(request, response);
-		System.out.println("key ="+key+"mv = "+mv);
+		
 		if(mv.isRedirect()) {	// redirect 방식으로 이동
 			response.sendRedirect(mv.getPath());
 		}else {	//forward 방식으로 이동
