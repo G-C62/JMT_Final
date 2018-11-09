@@ -1,14 +1,18 @@
 package jmt.mvc.model.dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import jmt.mvc.model.dto.MemberDTO;
+import jmt.mvc.model.dto.RestaurantDTO;
 import jmt.mvc.model.dto.ReviewDTO;
+
 import jmt.mvc.model.util.DbUtil;
 
 public class MemberDAOImpl implements MemberDAO {

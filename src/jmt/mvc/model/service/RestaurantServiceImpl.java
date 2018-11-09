@@ -89,12 +89,4 @@ public class RestaurantServiceImpl implements RestaurantService
 		return result;
 	}
 
-	@Override
-	public List<String> selectImgFromReview(int resId) throws SQLException
-	{
-		List<String> list = dao.selectImgFromReview(resId);
-		
-		return list;
-	}
-
 }

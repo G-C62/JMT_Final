@@ -59,10 +59,5 @@ public interface RestaurantService
 	 * */
 	int resLikeAcc (int resId) throws SQLException;
 
-	/**
-	 * 상세보기에서 음식점 사진들 보기
-	 * */
-	List<String> selectImgFromReview(int resId) throws SQLException;;
-
 	
 }

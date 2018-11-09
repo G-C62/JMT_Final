@@ -15,31 +15,24 @@ import jmt.mvc.model.dto.ReviewDTO;
 import jmt.mvc.model.service.MemberService;
 import jmt.mvc.model.service.MemberServiceImpl;
 
-public class BookmarkController implements Controller
-{
+public class BookmarkController implements Controller {
 	MemberService service = new MemberServiceImpl();
-
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException
-	{
+			throws ServletException, IOException {
 		String url = "Hosu_View/myBookmark.jsp";
 		ServletContext application = request.getServletContext();
 		String id = "kim";
-		try
-		{
+		try {
 			List<ReviewDTO> list = service.selectBookmarkById(id);
-			for (ReviewDTO dto : list)
-			{
-				if (dto.getReviewImg1() == null)
-				{
-					dto.setReviewImg1((String) application.getAttribute("1"));
+			for(ReviewDTO dto :list) {
+				if(dto.getReviewImg1()==null) {
+					dto.setReviewImg1((String)application.getAttribute("1"));
 				}
 			}
 			request.setAttribute("listMyBookMark", list);
-
-		} catch (SQLException e)
-		{
+			
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
