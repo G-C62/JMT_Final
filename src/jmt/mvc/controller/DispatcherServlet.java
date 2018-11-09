@@ -31,7 +31,7 @@ public class DispatcherServlet extends HttpServlet
 		
 		if (key == null || key.equals(""))
 		{
-			key = "detail";
+			//key = "detail";
 		}
 		
 		ModelAndView mv = map.get(key).execute(request, response);

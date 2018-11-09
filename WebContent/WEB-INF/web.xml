@@ -10,7 +10,11 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <context-param>
-  	<param-name>fileName</param-name>
-  	<param-value>jmt/mvc/listener/ActionMapping</param-value>
+    <param-name>fileName</param-name>
+    <param-value>jmt/mvc/listener/ActionMapping</param-value>
+  </context-param>
+  <context-param>
+    <param-name>foodPicture</param-name>
+    <param-value>jmt/mvc/listener/foodImg</param-value>
   </context-param>
 </web-app>
