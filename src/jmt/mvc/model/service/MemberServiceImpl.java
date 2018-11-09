@@ -2,16 +2,19 @@ package jmt.mvc.model.service;
 
 import java.sql.SQLException;
 
-import java.util.List;
-
+import jmt.mvc.model.dao.MemberDAO;
+import jmt.mvc.model.dao.MemberDAOImpl;
 import jmt.mvc.model.dto.MemberDTO;
 
 public class MemberServiceImpl implements MemberService {
-
+	
+	MemberDAO memberDAO  = new MemberDAOImpl();
+	
 	@Override
-	public List<MemberDTO> selectByInfo(String memberId, String memberPwd) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean selectByInfo(MemberDTO memberDTO) throws SQLException {
+		boolean result = memberDAO.selectByInfo(memberDTO);
+		if(!result) throw new SQLException("정보가 일치하지 않습니다.");
+		return result;
 	}
 
 	@Override
@@ -21,9 +24,11 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int insert(MemberDTO memberDTO) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int insert(MemberDTO memberDTO) throws SQLException {
+		int result = memberDAO.insert(memberDTO);
+		if (result == 0)
+			throw new SQLException("등록되지 않았습니다.");
+		return result;
 	}
 
 	@Override

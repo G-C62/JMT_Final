@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 select * from REVIEW where member_id = 'aaa';
 
 insert into member values('aaa', 'aaa', '°¡°¡°¡', '010-1111-1111', 
@@ -246,6 +247,7 @@ CREATE SEQUENCE RECOMMEND_SEQ
 START WITH 1
 INCREMENT BY 1
 NOCACHE; 
+
 
 
 
