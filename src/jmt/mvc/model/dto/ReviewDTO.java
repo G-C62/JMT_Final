@@ -12,6 +12,34 @@ public class ReviewDTO {
 	private String reviewImg2;
 	private String reviewImg3;
 	private String reviewIsLike;
+	
+	public ReviewDTO() {}
+	public ReviewDTO(int reviewId, String reviewTitle, String reviewContents, String memberId, int resId,
+			String resName) {
+		
+		this.reviewId = reviewId;
+		this.reviewTitle = reviewTitle;
+		this.reviewContents = reviewContents;
+		this.memberId = memberId;
+		this.resId = resId;
+		this.resName = resName;
+	}
+	public ReviewDTO(int reviewId, String reviewTitle, String reviewContents, String reviewDate, String memberId,
+			int resId, String resName, String reviewImg1, String reviewImg2, String reviewImg3, String reviewIsLike) {
+		this.reviewId = reviewId;
+		this.reviewTitle = reviewTitle;
+		this.reviewContents = reviewContents;
+		this.reviewDate = reviewDate;
+		this.memberId = memberId;
+		this.resId = resId;
+		this.resName = resName;
+		this.reviewImg1 = reviewImg1;
+		this.reviewImg2 = reviewImg2;
+		this.reviewImg3 = reviewImg3;
+		this.reviewIsLike = reviewIsLike;
+	}
+	
+	
 	public String getReviewDate() {
 		return reviewDate;
 	}
@@ -44,34 +72,7 @@ public class ReviewDTO {
 	}
 
 	
-	public ReviewDTO() {}
-	public ReviewDTO(int reviewId, String reviewTitle, String reviewContents, String reviewDate, String memberId,
-			int resId, String resName, String reviewImg1, String reviewImg2, String reviewImg3, String reviewIsLike) {
-		super();
-		this.reviewId = reviewId;
-		this.reviewTitle = reviewTitle;
-		this.reviewContents = reviewContents;
-		this.reviewDate = reviewDate;
-		this.memberId = memberId;
-		this.resId = resId;
-		this.resName = resName;
-		this.reviewImg1 = reviewImg1;
-		this.reviewImg2 = reviewImg2;
-		this.reviewImg3 = reviewImg3;
-		this.reviewIsLike = reviewIsLike;
-	}
 
-
-	public ReviewDTO(int reviewId, String reviewTitle, String reviewContents, String memberId, int resId,
-			String resName) {
-		
-		this.reviewId = reviewId;
-		this.reviewTitle = reviewTitle;
-		this.reviewContents = reviewContents;
-		this.memberId = memberId;
-		this.resId = resId;
-		this.resName = resName;
-	}
 	public int getReviewId() {
 		return reviewId;
 	}

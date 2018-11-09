@@ -19,7 +19,7 @@ public class DispatcherServlet extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		map = (Map<String,Controller>)super.getServletContext().getAttribute("map");
-		System.out.println("gk«œ«œ");
+		
 	}
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
