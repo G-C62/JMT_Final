@@ -1,4 +1,31 @@
 select * from REVIEW where member_id = 'aaa';
+select review_img1, review_img2, review_img3 from review where res_id='25398530';
+select * from review where res_id = '25398530';
+
+-----------------------------------------------------------------------------------
+
+update review set review_img1 = 'reviewPics/1.jpg' where review_id = '1';
+
+update review set review_img1 = 'reviewPics/1111111111.jpg' where review_id = '3';
+update review set review_img2 = 'reviewPics/170812-2.jpg' where review_id = '3';
+
+update review set review_img1 = 'reviewPics/170817-4.jpg' where review_id = '4';
+update review set review_img2 = 'reviewPics/170829-1.jpg' where review_id = '4';
+update review set review_img3 = 'reviewPics/170903-2.jpg' where review_id = '4';
+
+
+update review set review_img1 = '' where review_id = '5';
+
+update review set review_img1 = 'reviewPics/2.jpg' where review_id = '6';
+update review set review_img2 = 'reviewPics/36416250696_45b07951a5_o.jpg' where review_id = '6';
+update review set review_img3 = 'reviewPics/8R5A237520보정.jpg' where review_id = '6';
+
+--리뷰 이미지 다 지우기
+update review set review_img1 = '';
+update review set review_img2 = '';
+update review set review_img3 = '';
+
+----------------------------------------------------------------------------------------------
 
 insert into member values('aaa', 'aaa', '가가가', '010-1111-1111', 
    '남', 'aaa@gmail.com');
@@ -108,20 +135,20 @@ insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 63);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 64);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 65);
 
-insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 66);
-insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 67);
-insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 68);
-insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 69);
-insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 70);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 1);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 3);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 4);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 5);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 6);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 71);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 72);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 73);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 74);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 75);
 
-insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 76);
-insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 63);
-insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 78);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 3);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 5);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 6);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 79);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 80);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 56);
@@ -130,8 +157,8 @@ insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 58);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 59);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 60);
 
-insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ddd', 61);
-insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ddd', 62);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ddd', 3);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ddd', 6);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ddd', 63);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ddd', 64);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ddd', 65);
@@ -141,7 +168,7 @@ insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ddd', 68);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ddd', 69);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ddd', 70);
 
-insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'eee', 71);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'eee', 1);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'eee', 72);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'eee', 73);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'eee', 74);

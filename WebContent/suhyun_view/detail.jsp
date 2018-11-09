@@ -6,6 +6,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="${pageContext.request.contextPath}/lib/jquery-3.3.1.min.js"></script>
+<style type="text/css">
+	.resImg{width:50px; height:50px}
+</style>
    
 <script>
 $(document).ready(function(){
@@ -50,6 +53,19 @@ $(document).ready(function(){
 	<h1>음식점 상세 부분</h1>
 	<h3>(null 이어도 되는 컬럼은 null일 경우 안 나옵니다.)</h3>
 	
+	음식점 사진 : (일단 전부 가져왔으니 앞단에서 모달로 하시던지 원하시는 방법으로 프론트에 뿌려주세여)<br>
+	없으면 기본 사진 뿌려짐 <br>
+	<c:choose>
+		<c:when test="${requestScope.imgList}!=null">
+			<c:forEach items="${requestScope.imgList}" var="image" varStatus = "state">
+				<img src= '${image}' class = 'resImg'>
+			</c:forEach><br>
+		</c:when>
+		<c:otherwise> 
+			<img src= '${fixedImg}' class = 'resImg'><br>
+		</c:otherwise>
+	</c:choose>
+	
 	음식점 이름 : ${requestScope.partialDetail.resName} <br>
 	음식점 체인점명 : ${requestScope.partialDetail.resChainName} <br>
 	음식점 소분류 : ${requestScope.partialDetail.resName} <br>
@@ -57,21 +73,25 @@ $(document).ready(function(){
 	음식점 동 : ${requestScope.partialDetail.resDong} <br>
 	음식점 층 : ${requestScope.partialDetail.resFloor} <br>
 	음식점 호 : ${requestScope.partialDetail.resHo} <br>
-	
-	음식점 사진 : (추가 예정) <br>
+
+
+	-------------------------------------------------
 	
 	<h1>누적 추천수</h1>
-	${resLikeAcc } <br>
+	${resLikeAcc } <br><br><br>
+
+	-------------------------------------------------
 	 
-	 
+
+	<h1>Ajax 이용 - 음식점에 해당하는 모든 리뷰(최신순)</h1>
 	<select name="order">
 	  <option value="최신순" selected="selected">최신순</option>
 	  <option value="좋아요순">좋아요순</option>
 	</select>
-
-	<h1>Ajax 이용 - 음식점에 해당하는 모든 리뷰(최신순)</h1>
 	<div id = reviewAjax></div>
 	
+	
+	-------------------------------------------------
 	
 		 
 	<h1>그냥 - 음식점에 해당하는 모든 리뷰(최신순)</h1>
@@ -85,13 +105,12 @@ $(document).ready(function(){
 		리뷰 내용 : ${review.reviewContents } <br>
 		리뷰 쓴 날짜 : ${review.reviewDate } <br>
 		리뷰 쓴 사람 아이디 : ${review.memberId } <br>
-		리뷰 이미지1 : ${review.reviewImg1 } <br>
-		리뷰 이미지2 : ${review.reviewImg2 } <br>
-		리뷰 이미지3 : ${review.reviewImg3 } <br>
+		리뷰 이미지1 : <img src= '${review.reviewImg1 }' class = 'resImg'> <br>
+		리뷰 이미지2 : <img src= '${review.reviewImg2 }' class = 'resImg'> <br>
+		리뷰 이미지3 : <img src= '${review.reviewImg3 }' class = 'resImg'> <br>
+		리뷰 좋아요 수 : (추가 예정)
 	</c:forEach>		
 
-	
-	 <p>
 	
 </body>
 </html>
