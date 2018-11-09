@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../css/font-awesome.min.css" />
 <link href="../css/lightbox.min.css" rel="stylesheet">
 <link rel="stylesheet" href="../css/loaders.css" />
-<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/sub.css">
 
 <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -30,21 +30,25 @@ h2{color:#fff;font-size:40px;font-weight:600}
 <script type="text/javascript">
 	$(function() {
 		$("#memberUpdate").click(function() {
-			$('div.modal').load("myPageUpdate.html")
+			$('div.modal').load("myPageUpdate.jsp")
 			$('div.modal').modal("show");
 		});
-	})
+	});
 </script>
 </head>
 <body>
 	<div class="top-head left">
 		<div class="row">
 			<div class="col-md-6 col-lg-4">
-				<div onclick="location.href='../mainView/JmtMain.jsp'">
-					<h2>#JMT<br> 판교 맛따라 멋따라</h2><br><br><br>
+				<div onclick="location.href='../mainView/JmtMain.jsp'" style="cursor:pointer">
+					<h1>#JMT<br> 판교 맛따라 멋따라</h1><br><br><br>
 				</div>
-				<h1>나의 정보 수정하기</h1>
-				<input type="button" class="btn btn-default" id="memberUpdate" value="수정하기">
+				<div style="float: left;margin-top: -19px;">
+				<h2>나의 정보 수정하기</h2>
+				</div>
+				<div style="float: right;">
+				<input type="button" class="btn btn-default" id="memberUpdate" value="수정하기" float="left">
+				</div>
 			</div>
 		</div>
 	</div>

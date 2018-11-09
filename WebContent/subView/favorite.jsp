@@ -1,7 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="utf-8">
 <title>Insert title here</title>
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 
@@ -13,15 +14,15 @@
 	<div class="top-head left">
 		<div class="row">
 			<div class="col-md-6 col-lg-4">
-				<div onclick="location.href='../mainView/JmtMain.jsp'">
-					<h2>#JMT<br> ÆÇ±³ ¸Àµû¶ó ¸Úµû¶ó</h2><br><br><br>
+				<div onclick="location.href='../mainView/JmtMain.jsp'" style="cursor:pointer">
+					<h1>#JMT<br> íŒêµ ë§›ë”°ë¼ ë©‹ë”°ë¼</h1><br><br><br>
 				</div>
-				<h1>³ªÀÇ Áñ°ÜÃ£±â º¸±â</h1>
+				<h2>ë‚˜ì˜ ì¦ê²¨ì°¾ê¸° ë³´ê¸°</h2>
 			</div>
 		</div>
 	</div>
 
-	<!-- ³»°¡ Áñ°ÜÃ£±âÇÑ À½½ÄÁ¡ º¸¿©ÁÖ±â -->
+	<!-- ë‚´ê°€ ì¦ê²¨ì°¾ê¸°í•œ ìŒì‹ì  ë³´ì—¬ì£¼ê¸° -->
 
 		<div class="row" style="padding-left:50px;padding-top:300px">
 			<div class="column">

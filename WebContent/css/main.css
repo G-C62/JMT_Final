@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 a{text-decoration: none}
 input{border:1px gray solid}
 .phone{width:50%}
@@ -14,4 +15,25 @@ display:table;
 }
 #favoriteImg{width:20px;height:20px}
 ul{text-align: center}
+=======
+a{text-decoration: none}
+input{border:1px gray solid}
+.phone{width:50%}
+#loginFrom{width:100px;height:100px;position: absolute; right: 0;}
+#mainImg{width:100%;height:100%}
+
+.top-head h2 {color: blanchedalmond; font-size: 36px; font-weight: 600; margin: 18px 0 0;}
+.top-head h1 {color: blanchedalmond; font-size: 36px; font-weight: 600; margin: 18px 0 0;}
+
+.top-head{width: 100%; float: left; height: 400px;
+	display:table;
+	width:100%;
+	background:url(../img/mainFood.jpg)center center no-repeat;
+	background-color:pink;
+	background-size:cover;
+	opacity: 0.7;
+}
+#favoriteImg{width:20px;height:20px}
+ul{text-align: center}
+>>>>>>> 1e16c4fd1937115c9b1b71b203a697c0e3bbcddf
 .bestFiveImg{width: 250px; float: left;padding:10px}
