@@ -38,7 +38,7 @@ h2{color:#fff;font-size:40px;font-weight:600}
 </head>
 <body>
 	<div class="top-head left">
-		<div class="row">
+		<div class="row" style="padding-left:50px;">
 			<div class="col-md-6 col-lg-4">
 				<div onclick="location.href='../mainView/JmtMain.jsp'" style="cursor:pointer">
 					<h1>#JMT<br> ÆÇ±³ ¸Àµû¶ó ¸Úµû¶ó</h1><br><br><br>

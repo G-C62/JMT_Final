@@ -8,7 +8,6 @@
 
 <link href="../css/sub.css" rel="stylesheet">
 
-
 </head>
 <body>
 	<div class="top-head left">

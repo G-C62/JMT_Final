@@ -10,12 +10,12 @@
 		onSubmit='return checkValid()' enctype="multipart/form-data">
 
 		<table align="center" cellpadding="5" cellspacing="2" width="600"
-			border="1">
+			border="2">
 
 			<tr>
-				<td width="1220" height="20" colspan="2" bgcolor="#00cc00">
+				<td width="1220" height="20" colspan="2" bgcolor="pink">
 					<p align="center">
-						<font color="white" size="3"><b> 회원 수정 </b></font>
+						<font color="black" size="3"><b> 회원 수정 </b></font>
 					</p>
 				</td>
 			</tr>

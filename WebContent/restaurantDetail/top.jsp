@@ -30,7 +30,7 @@
 					<li class="nav-item"><a class="nav-link" href="#">분식</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">양식</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">뷔페/퓨전음식</a></li>
-					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/subView/favorite.jsp"><img src="../img/favorite.png" id="favoriteImg">즐겨찾기</a></li>
+					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/subView/favorite.jsp"><img src="${pageContext.request.contextPath}/img/favorite.png" id="favoriteImg">즐겨찾기</a></li>
 					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/memberView/myPage.jsp">마이페이지</a></li>
 				</ul>
 			</div>
@@ -38,7 +38,7 @@
 	</div>
 	
 		<div class="top-head left">
-		<div class="row">
+		<div class="row" style="padding-left:50px;">
 			<div class="col-md-6 col-lg-4">
 				<div onclick="location.href='${pageContext.request.contextPath}/mainView/JmtMain.jsp'" style="cursor:pointer">
 					<h2>#JMT<br> 판교 맛따라 멋따라</h2><br><br><br>

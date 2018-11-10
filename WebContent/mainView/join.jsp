@@ -10,7 +10,7 @@
 		onSubmit='return checkValid()' enctype="multipart/form-data">
 
 		<table align="center" cellpadding="5" cellspacing="2" width="600"
-			border="1">
+			border="2px">
 
 			<tr>
 				<td width="1220" height="20" colspan="2" bgcolor="pink">

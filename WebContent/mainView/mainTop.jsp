@@ -37,9 +37,9 @@
 	<div class="top-head left">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 col-lg-4">
-					<h1>
-						#JMT<br> 판교 맛따라 멋따라
+				<div class="col-md-6 col-lg-4" style="margin-left: 400px;margin-top: 30px;">
+					<h1 style="cursor:pointer" onclick="location.href='${pageContext.request.contextPath}/mainView/JmtMain.jsp'" >
+						 &ensp;&ensp;&ensp;&ensp;&ensp;#JMT<br> 판교 맛따라 멋따라
 					</h1>
 				</div>
 				<form id="loginFrom">
