@@ -66,7 +66,7 @@ public class DetailController implements Controller
 			request.setAttribute("resLikeAcc", resLikeAcc);
 			request.setAttribute("imgList", imgList);
 			
-			url = "suhyun_view/detail.jsp";
+			url = "restaurantDetail/detail.jsp";
 			
 		} catch (Exception e)
 		{

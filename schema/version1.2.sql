@@ -38,7 +38,7 @@ insert into member values('aaa', 'aaa', '가가가', '010-1111-1111',
    insert into member values('eee', 'eee', '마마마', '010-1111-1111', 
    '남', 'eee@gmail.com');
 
-   
+SELECT * FROM REVIEW
    insert into review (REVIEW_ID, REVIEW_TITLE, REVIEW_CONTENTS, 
    REVIEW_DATE, MEMBER_ID, RES_ID, RES_NAME, REVIEW_ISLIKE)  values (REVIEW_SEQ.NEXTVAL,'추천', '정말 추천!', 
          sysdate, 'aaa', 25398530, '봉우리한정식', 'true');
@@ -241,6 +241,7 @@ CREATE TABLE REVIEW(
     REVIEW_IMG3 VARCHAR2(100 CHAR),
     REVIEW_ISLIKE VARCHAR2(5) NOT NULL CHECK(REVIEW_ISlIKE IN('true','false'))
 );
+
 
 CREATE TABLE BOOKMARK(
     BOOKMARK_ID NUMBER(5) PRIMARY KEY,

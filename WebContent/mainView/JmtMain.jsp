@@ -53,7 +53,7 @@
 		</div>
 		<div class="row" style="padding-left:50px">
 			<div class="column">
-				<img src="../img/media-9.jpg" class="bestFiveImg" onclick="location.href='../restaurantDetail/detail.jsp'" style="cursor:pointer">
+				<img src="../img/media-9.jpg" class="bestFiveImg" onclick="location.href='../jmt?command=detail&resId=25398530'" style="cursor:pointer">
 			</div>
 			<div class="column">
 				<img src="../img/media-1.jpg" class="bestFiveImg">
