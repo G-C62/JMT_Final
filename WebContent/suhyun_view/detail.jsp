@@ -8,6 +8,7 @@
 <script src="${pageContext.request.contextPath}/lib/jquery-3.3.1.min.js"></script>
 <style type="text/css">
 	.resImg{width:50px; height:50px}
+	#starImg{width:10px; height:10px}
 </style>
    
 <script>
@@ -43,10 +44,41 @@ $(document).ready(function(){
 	             alert(err + "=> 예외발생!!");
 	          }            
 	     }); 
-    }); 
-    
+  	 });
+ 	 
+ 	 $("#bookmark").on("click" , function(){       
+ 		var img1 = document.getElementById('starImg');
+ 		var flag = 'insert';
+        if (img1.src.indexOf('_fill') == -1) 
+        { //_fill이라는 단어가 존재하지 않으면 star.png을 보여줌
+           img1.src = img1.src.replace('.png', '_fill.png');
+        } else 
+        {
+           img1.src = img1.src.replace('_fill.png', '.png');
+           flag = 'delete';
+        }
+ 		 $.ajax({
+  	 		url : "${pageContext.request.contextPath}/BookMarkToggleAjaxServlet", //서버 요청 주소
+	          type : "post", //get or post 요청방식
+	          dataType : "text", //서버가 보내오는 데이터 타입(text,html,json,xml)
+	          data : "resId=${requestScope.partialDetail.resId}&memberId=${requestScope.memberId}&flag="+flag, 
+	          //아이디를 고정해 주었지만 합치면 application에서 꺼내 와야 함
+	          success : function(result){ //0, 1
+	             alert(result);
+	             
+	             
+	          },
+	          error : function(err){
+	             alert(err + "=> 예외발생!!");
+	          }
+	         
+	     });
+
+      });
+ 
  });
 </script>
+
 </head>
 <body>
 	
@@ -81,8 +113,28 @@ $(document).ready(function(){
 	${resLikeAcc } <br><br><br>
 
 	-------------------------------------------------
-	 
-
+	<h1>북마크</h1>
+	<div>
+       <div id="bookmark">
+      	 <c:choose>
+	       	<c:when test="${requestScope.bookMarkYesOrNo==false}">
+		          <img src="${pageContext.request.contextPath}/img/star.png"
+		             id="starImg" style="cursor: pointer" />
+		    </c:when>
+		    <c:otherwise> 
+				<img src="${pageContext.request.contextPath}/img/star_fill.png"
+		             id="starImg" style="cursor: pointer" />
+			</c:otherwise>
+		</c:choose>
+       </div>
+    </div>
+	
+	${requestScope.bookMarkYesOrNo}<br>
+	-------------------------------------------------
+	
+	
+	
+	
 	<h1>Ajax 이용 - 음식점에 해당하는 모든 리뷰(최신순)</h1>
 	<select name="order">
 	  <option value="최신순" selected="selected">최신순</option>
@@ -108,7 +160,7 @@ $(document).ready(function(){
 		리뷰 이미지1 : <img src= '${review.reviewImg1 }' class = 'resImg'> <br>
 		리뷰 이미지2 : <img src= '${review.reviewImg2 }' class = 'resImg'> <br>
 		리뷰 이미지3 : <img src= '${review.reviewImg3 }' class = 'resImg'> <br>
-		리뷰 좋아요 수 : (추가 예정)
+		리뷰 좋아요 수 : ${reviewLoveAmountmap[review.reviewId] }<br>
 	</c:forEach>		
 
 	

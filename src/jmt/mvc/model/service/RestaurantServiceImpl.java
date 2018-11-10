@@ -3,6 +3,8 @@ package jmt.mvc.model.service;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.eclipse.jdt.internal.compiler.ast.ThrowStatement;
+
 import jmt.mvc.model.dao.RestaurantDAO;
 import jmt.mvc.model.dao.RestaurantDAOImpl;
 import jmt.mvc.model.dto.RestaurantDTO;
@@ -61,8 +63,29 @@ public class RestaurantServiceImpl implements RestaurantService
 	@Override
 	public int insertBookMark(int resId, String memberId) throws SQLException
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		int result = dao.insertBookMark(resId, memberId);
+		if(result == 0)
+			throw new SQLException("즐겨찾기 등록에 실패하였습니다.");
+		
+		return result;
+	}
+	
+	@Override
+	public int deleteBookMark(int resId, String memberId) throws SQLException
+	{
+		int result = dao.deleteBookMark(resId, memberId);
+		if(result == 0)
+			throw new SQLException("즐겨찾기 해제에 실패하였습니다.");
+		
+		return result;
+	}
+	
+	@Override
+	public boolean bookMarkYesOrNo (int resId, String memberId) throws SQLException
+	{
+		boolean result = dao.bookMarkYesOrNo(resId, memberId);
+		
+		return result;
 	}
 
 	@Override
@@ -95,6 +118,17 @@ public class RestaurantServiceImpl implements RestaurantService
 		List<String> list = dao.selectImgFromReview(resId);
 		
 		return list;
+	}
+
+	@Override
+	public int reviewLoveAmount(int reviewId) throws SQLException
+	{
+
+		int result = dao.reviewLoveAmount(reviewId);
+		if(result == 0)
+			throw new SQLException("좋아요 수 가져오기에 실패하였습니다.");
+		
+		return result;
 	}
 
 }

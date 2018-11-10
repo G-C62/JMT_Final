@@ -88,10 +88,106 @@ public class RestaurantDAOImpl implements RestaurantDAO
 	@Override
 	public int insertBookMark(int resId, String memberId) throws SQLException
 	{
-		// TODO Auto-generated method stub
-		return 0;
-	}
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
 
+		int result = 0;
+		String sql = "insert into BOOKMARK values(BOOKMARK_SEQ.NEXTVAL, ?, ?)";
+
+		
+		try
+		{
+			// 로드 연결 실행 닫기
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+
+			ps.setString(1, memberId);
+			ps.setInt(2, resId);
+			rs = ps.executeQuery();
+
+			if (rs.next())
+			{
+				result++;
+			}
+
+		} finally
+		{
+			DbUtil.dbClose(rs, ps, con);
+		}
+
+		return result;
+	}
+	
+	@Override
+	public int deleteBookMark(int resId, String memberId) throws SQLException
+	{
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		int result = 0;
+		String sql = "delete from bookmark where member_id =? and res_id=? ";
+
+		
+		try
+		{
+			// 로드 연결 실행 닫기
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+
+			ps.setString(1, memberId);
+			ps.setInt(2, resId);
+			rs = ps.executeQuery();
+
+			if (rs.next())
+			{
+				result++;
+			}
+
+		} finally
+		{
+			DbUtil.dbClose(rs, ps, con);
+		}
+
+		return result;
+	}
+	
+	@Override
+	public boolean bookMarkYesOrNo (int resId, String memberId) throws SQLException
+	{
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		boolean result = false;
+		
+		String sql = "select * from bookmark where res_id=? and member_id =?";
+
+		try
+		{
+			// 로드 연결 실행 닫기
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+
+		
+			ps.setInt(1, resId);
+			ps.setString(2, memberId);
+			rs = ps.executeQuery();
+
+			if (rs.next())
+			{
+				result = true;
+			}
+
+		} finally
+		{
+			DbUtil.dbClose(rs, ps, con);
+		}
+
+		return result;
+	}
+	
 	@Override
 	public List<ReviewDTO> recentOrderReview(int resId) throws SQLException
 	{
@@ -131,7 +227,6 @@ public class RestaurantDAOImpl implements RestaurantDAO
 	}
 
 	@Override
-
 	public List<String> autoCompleteRestaurant(String keyWord) throws SQLException
 	{
 		Connection con = null;
@@ -256,6 +351,39 @@ public class RestaurantDAOImpl implements RestaurantDAO
 			DbUtil.dbClose(rs, ps, con);
 		}
 		return list;
+	}
+
+	@Override
+	public int reviewLoveAmount(int reviewId) throws SQLException
+	{
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		int result = 0;
+
+		String sql = "select * from recommend where review_id=?";
+
+		try
+		{
+			// 로드 연결 실행 닫기
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+
+			ps.setInt(1, reviewId);
+			rs = ps.executeQuery();
+			
+			while(rs.next())
+			{
+				result++;
+			}
+
+		} finally
+		{
+			DbUtil.dbClose(ps, con);
+		}
+
+		return result;
 	}
 
 }

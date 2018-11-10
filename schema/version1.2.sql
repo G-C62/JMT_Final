@@ -2,6 +2,12 @@ select * from REVIEW where member_id = 'aaa';
 select review_img1, review_img2, review_img3 from review where res_id='25398530';
 select * from review where res_id = '25398530';
 
+select * from recommend;
+select count(*) from recommend where review_id=3;
+select * from recommend where review_id=3;
+
+
+
 -----------------------------------------------------------------------------------
 
 update review set review_img1 = 'reviewPics/1.jpg' where review_id = '1';
@@ -24,6 +30,18 @@ update review set review_img3 = 'reviewPics/8R5A237520º¸Á¤.jpg' where review_id 
 update review set review_img1 = '';
 update review set review_img2 = '';
 update review set review_img3 = '';
+
+----------------------------------------------------------------------------------------------
+
+
+select * from bookmark;
+delete from bookmark;
+select * from bookmark where res_id='25398530' and member_id = 'aaa';
+insert into BOOKMARK values(BOOKMARK_SEQ.NEXTVAL, 'aaa', 25398530);
+delete from bookmark where res_id='25398530' and member_id = 'aaa';
+
+
+
 
 ----------------------------------------------------------------------------------------------
 

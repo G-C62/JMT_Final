@@ -2,7 +2,9 @@ package jmt.mvc.controller.restaurant;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -31,6 +33,12 @@ public class DetailController implements Controller
 		
 		//전송된 데이터 받기
 		int resId = Integer.parseInt(request.getParameter("resId"));
+		//합쳐지면 세션or application에서 받아와야 함
+	    String memberId = "aaa";
+	    
+	    //리뷰 좋아요를 위한 map
+	    //Map<String, Integer> reviewLoveAmountmap = new HashMap<>();
+	    Map<Integer, Integer> reviewLoveAmountmap = new HashMap<>();
 		
 		try
 		{	
@@ -46,12 +54,30 @@ public class DetailController implements Controller
 			RestaurantDTO partialDetail =  service.selectById(resId);
 			List<ReviewDTO> reviewList = service.recentOrderReview(resId);
 			int resLikeAcc = service.resLikeAcc(resId);
-			
+			boolean bookMarkYesOrNo = service.bookMarkYesOrNo(resId, memberId);		
 			List<String> imgList = service.selectImgFromReview(resId);
 
 			if (reviewList == null || reviewList.size() == 0)
 			{
 				request.setAttribute("reviewEmpthMsg", "이 음식점에는 아직 리뷰가 없어요. 리뷰를 작성해 주세요!");
+			}else
+			{
+				int reviewId = 0;
+				//String reviewId = "";
+				int reviewLoveAmount = 0;
+				
+				for(ReviewDTO review:reviewList)
+				{
+					/*reviewId = Integer.toString(review.getReviewId());
+					reviewLoveAmount = service.reviewLoveAmount(Integer.parseInt(reviewId));
+					
+					reviewLoveAmountmap.put(reviewId, reviewLoveAmount);*/
+					
+					reviewId = review.getReviewId();
+					reviewLoveAmount = service.reviewLoveAmount(reviewId);
+					
+					reviewLoveAmountmap.put(reviewId, reviewLoveAmount);
+				}
 			}
 
 			if (imgList == null || imgList.size() == 0)
@@ -65,6 +91,9 @@ public class DetailController implements Controller
 			request.setAttribute("reviewList", reviewList);
 			request.setAttribute("resLikeAcc", resLikeAcc);
 			request.setAttribute("imgList", imgList);
+			request.setAttribute("bookMarkYesOrNo", bookMarkYesOrNo);
+			request.setAttribute("memberId", memberId);
+			request.setAttribute("reviewLoveAmountmap", reviewLoveAmountmap);
 			
 			url = "suhyun_view/detail.jsp";
 			
