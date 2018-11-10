@@ -1,6 +1,9 @@
+
 package jmt.mvc.controller;
 
 import java.io.IOException;
+
+
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -19,18 +22,28 @@ public class DispatcherServlet extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		map = (Map<String,Controller>)super.getServletContext().getAttribute("map");
+		
 	}
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 		String key = request.getParameter("command");
 		if(key==null || key.equals("")) {
-			//key="selectCategory";
+			//key="review.selectAll";
 		}
+		
+		
+		
 		ModelAndView mv = map.get(key).execute(request, response);
+		
 		if(mv.isRedirect()) {	// redirect 방식으로 이동
 			response.sendRedirect(mv.getPath());
 		}else {	//forward 방식으로 이동
 			request.getRequestDispatcher(mv.getPath()).forward(request, response);
 		}
 	}
+
 }
+
+

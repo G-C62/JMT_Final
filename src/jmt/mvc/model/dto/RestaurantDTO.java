@@ -19,6 +19,14 @@ public class RestaurantDTO {
 		
 	}
 
+	/**
+	 * 호수 - 레스토랑 카테고리, 레스토랑 이름 구해 올 생성자 만듦
+	 * */
+	public RestaurantDTO(String resCategory, String resName) {
+		super();
+		this.resName = resName;
+		this.resCategory = resCategory;
+	}
 
 
 	public RestaurantDTO(int resId, String resName, String resChainName, String resCategory, String resSubCategory,
