@@ -15,7 +15,7 @@
 				aria-label="Toggle navigation">&#9776;</button>
 			<div class="collapse navbar-toggleable-md" id="exCollapsingNavbar2">
 				<ul class="nav navbar-nav ">
-					<li>
+					<li style="padding-top:10px">
 						<input type="radio" name="subMenuCheck" value="sumnail"checked > 썸네일로 보기
 					
 						<input type="radio" name="subMenuCheck" value="map"> 지도로 보기
@@ -60,10 +60,10 @@
 		</div>
 	</div>
 	<div class="modal fade">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<!-- remote ajax call이 되는영역 -->
-							</div>
-						</div>
-					</div>
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!-- remote ajax call이 되는영역 -->
+			</div>
+		</div>
+	</div>
 </header>

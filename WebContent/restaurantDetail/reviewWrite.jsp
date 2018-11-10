@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="../css/main.css">
-<link rel="stylesheet" href="../css/sub.css">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <style>
 .modal-body{background-color:white}
+footer p span{color:black}
 </style>
 <script language=javascript>
 function checkValid() {
@@ -21,8 +21,12 @@ function checkValid() {
 }
 </script>
 
-</head>
-<body>
+<div class="modal-header">
+	<h4 class="modal-title">회원가입하기</h4>
+	<button type="button" class="close" data-dismiss="modal">&times;</button>
+</div>
+
+
 <div class="modal-body">
 
 <form name="writeForm" method="post" action="../elec?command=insert" 
@@ -94,7 +98,8 @@ function checkValid() {
 </form>
 </div>
 
-<hr>
-</body>
-</html>
+<!-- Modal footer -->
+<div class="modal-footer">
+	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+</div>
 

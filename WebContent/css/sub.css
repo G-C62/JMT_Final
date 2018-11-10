@@ -16,3 +16,5 @@ display:table;
 #likeImg{width:25px; height:20px}
 .bestFiveImg{width: 250px; height:250px; float: left; padding:20px}
 .bestFiveResName{float:left; padding:17px; margin-rigth:30px;margin-left:70px}
+
+#reviewWrite{width:100px;position: absolute; right: 50px;}

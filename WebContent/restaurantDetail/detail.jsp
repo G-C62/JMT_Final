@@ -81,7 +81,14 @@
 		});
 	});
 </script>
-
+<script type="text/javascript">
+	$(function() {
+		$("#reviewWrite").click(function() {
+			$('div.modal').load("${pageContext.request.contextPath}/restaurantDetail/reviewWrite.jsp")
+			$('div.modal').modal("show");
+		});
+	});
+</script>
 </head>
 <body>
 	<%@include file="top.jsp"%>
