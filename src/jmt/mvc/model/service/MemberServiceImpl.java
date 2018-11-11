@@ -18,9 +18,12 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int delete(String id) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int delete(String id) throws SQLException{
+		int result = memberDAO.delete(id);
+		if(result==0)
+			throw new SQLException("삭제 되지 않았습니다.");
+		
+		return result;
 	}
 
 	@Override
@@ -38,9 +41,22 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int update(MemberDTO memberDTO) {
+	public int update(MemberDTO memberDTO) throws SQLException {
+		
+		int result = memberDAO.update(memberDTO);
+		if(result==0)throw new SQLException("수정되지 않았습니다.");
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public MemberDTO selectById(String id) throws SQLException {
+		MemberDTO memberDTO = memberDAO.selectById(id); //DAO로 이동
+		
+		return memberDTO;
+	}
+	
+
+	  
 
 }

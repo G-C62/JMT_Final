@@ -22,6 +22,15 @@ public class MemberDTO {
 		this.memberEmail = memberEmail;
 	}
 
+	
+	public MemberDTO(String memberPwd, String memberName, String memberPhone, String memberGender, String memberEmail) {
+		super();
+		this.memberPwd = memberPwd;
+		this.memberName = memberName;
+		this.memberPhone = memberPhone;
+		this.memberGender = memberGender;
+		this.memberEmail = memberEmail;
+	}
 
 	public MemberDTO(String memberId, String memberPwd) {
 		

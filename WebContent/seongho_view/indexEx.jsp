@@ -29,41 +29,48 @@
 			$('div.modal').modal("show");
 		});
 		$("#logout").click(function() {
-	         top.location.href = "./seongho_view/logout.jsp";
-	      })
+			top.location.href = "./seongho_view/logout.jsp";
+		})
+
 	})
 </script>
 
 </head>
 <body>
 
-<c:choose> 
-   <c:when test="${empty sessionScope.memberID}"> <!-- sessionScope에 memberID가 없으면 -->
+	<c:choose>
+		<c:when test="${empty sessionScope.memberID}">
+			<!-- sessionScope에 memberID가 없으면 -->
 
-      <input type="button" class="btn btn-default" id="login" value="로그인">
-
-      <input type="button" class="btn btn-default" id="popbutton" value="회원가입">
-      <br />
-   </c:when>
-       <c:otherwise>
-      
-       <input type="button" class="btn btn-default" id="logout" value="로그아웃">
-       <input type="button" class="btn btn-default" id="update" value="회원정보수정" onclick="location.href='myPageUpdate.html'">
-       <input type="button" class="btn btn-default" id="delete" value="회원탈퇴">
-       
-        </c:otherwise>
-   </c:choose>
+			<input type="button" class="btn btn-default" id="login" value="로그인">
+			<input type="button" class="btn btn-default" id="popbutton" value="회원가입">
 	
+			<br />
+		</c:when>
+		<c:otherwise>
+
+			<input type="button" class="btn btn-default" id="logout" value="로그아웃">
+			<input type="button" class="btn btn-default" id="update"
+				value="회원정보수정" onclick="location.href='jmt?command=member.updateForm'">
+			<!-- 회원정보 수정 버튼을 누르면 member.update라는값이 command값으로 넘어가고
+            	command가 member.update면 member.update가 들어있는 properties 파일의 
+            	myPageUpdateContoroller로 넘어간다.-->
+			<input type="button" class="btn btn-default" id="delete" value="회원탈퇴"
+				onclick="location.href='jmt?command=member.delete'">
+
+		</c:otherwise>
+	</c:choose>
+
 	<%-- <c:when test="${sessionScope.memberID != null}">
 		<input type="button" class="btn btn-default" id="login" value="로그아웃">
 		<br />
 	</c:when> --%>
-	
+
 	${sessionScope.memberID}님 환영합니다.
 	<div class="modal fade">
-			<div class="modal-dialog">
-				<div class="modal-content"></div>
-			</div>
+		<div class="modal-dialog">
+			<div class="modal-content"></div>
 		</div>
+	</div>
 </body>
 </html>

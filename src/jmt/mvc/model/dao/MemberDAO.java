@@ -21,7 +21,7 @@ public interface MemberDAO {
 	/**
 	 * 삭제하기
 	 * */
-	int delete(String id);
+	int delete(String id) throws SQLException;
 	
 	/**
 	 * 가입(등록)하기
@@ -36,7 +36,14 @@ public interface MemberDAO {
 	boolean idCheck(String id);
 	
 	/**
-	 * 수정
+	 * 회원 정보 수정
+	 * 박성호
+	 * - throws처리 완료
 	 * */
-	int update(MemberDTO memberDTO);
+	int update(MemberDTO memberDTO) throws SQLException;
+
+	/**
+	 * 성호 - 아이디로 회원정보 받아오기
+	 * */
+	MemberDTO selectById(String id) throws SQLException;
 }
