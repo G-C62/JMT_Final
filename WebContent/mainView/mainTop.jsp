@@ -49,12 +49,15 @@
 					<!-- 모달 보여주는 곳  -->
 					
 				</form>
-				<div class="input-group">
-					<input type="text" placeholder="search for" class="form-control">
+				<from class="input-group" name="search" id="search">
+					<input type="text" placeholder="search for" class="form-control"  name="keyWord" id="keyWord">
+					<div id="suggest" style="display:none;background-color:white"></div>
+					
 					<span class="input-group-btn">
 						<button type="button" class="btn btn-search">Search</button>
 					</span>
-				</div>
+				</from>
+				
 
 			</div>
 		</div>

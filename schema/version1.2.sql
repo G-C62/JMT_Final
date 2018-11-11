@@ -38,7 +38,9 @@ insert into member values('aaa', 'aaa', '가가가', '010-1111-1111',
    insert into member values('eee', 'eee', '마마마', '010-1111-1111', 
    '남', 'eee@gmail.com');
 
-SELECT * FROM REVIEW
+SELECT * FROM review
+delete from review where review_id='26'
+
    insert into review (REVIEW_ID, REVIEW_TITLE, REVIEW_CONTENTS, 
    REVIEW_DATE, MEMBER_ID, RES_ID, RES_NAME, REVIEW_ISLIKE)  values (REVIEW_SEQ.NEXTVAL,'추천', '정말 추천!', 
          sysdate, 'aaa', 25398530, '봉우리한정식', 'true');
@@ -233,8 +235,8 @@ CREATE TABLE REVIEW(
     REVIEW_TITLE VARCHAR2(50 CHAR) NOT NULL,
     REVIEW_CONTENTS VARCHAR2(200 CHAR),
     REVIEW_DATE DATE NOT NULL,
-    MEMBER_ID VARCHAR2(20 CHAR) NOT NULL REFERENCES MEMBER(MEMBER_ID),
-    RES_ID NUMBER(10) NOT NULL REFERENCES RESTAURANT(RES_ID),
+    MEMBER_ID VARCHAR2(20 CHAR) NOT NULL REFERENCES MEMBER(MEMBER_ID) ON DELETE CASCADE,
+    RES_ID NUMBER(10) NOT NULL REFERENCES RESTAURANT(RES_ID) ON DELETE CASCADE,
     RES_NAME VARCHAR2(30 CHAR) NOT NULL,
     REVIEW_IMG1 VARCHAR2(100 CHAR),
     REVIEW_IMG2 VARCHAR2(100 CHAR),
@@ -298,6 +300,7 @@ select * from RECOMMEND;
 select * from bookmark;
 select * from review where res_id=25398530;
 
+drop table review;
 delete from review;
 delete from MEMBER;
 delete from RECOMMEND;
