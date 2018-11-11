@@ -4,11 +4,12 @@ import java.sql.SQLException;
 
 
 import java.util.List;
-import java.util.Map;
 import jmt.mvc.model.dao.MemberDAO;
 import jmt.mvc.model.dao.MemberDAOImpl;
 import jmt.mvc.model.dao.RestaurantDAO;
 import jmt.mvc.model.dao.RestaurantDAOImpl;
+import jmt.mvc.model.dao.ReviewDAO;
+import jmt.mvc.model.dao.ReviewDAOImpl;
 import jmt.mvc.model.dto.MemberDTO;
 import jmt.mvc.model.dto.RestaurantDTO;
 import jmt.mvc.model.dto.ReviewDTO;
@@ -17,7 +18,8 @@ public class MemberServiceImpl implements MemberService {
 
 	MemberDAO memberDAO  = new MemberDAOImpl();
 	RestaurantDAO resDao = new RestaurantDAOImpl();
-
+	ReviewDAO reviewDAO = new ReviewDAOImpl();
+	
 	@Override
 	public boolean selectByInfo(MemberDTO memberDTO) throws SQLException {
 		boolean result = memberDAO.selectByInfo(memberDTO);
@@ -64,6 +66,16 @@ public class MemberServiceImpl implements MemberService {
 		List<String> list = resDao.autoCompleteRestaurant(keyWord);
 		return list;
 	}
-
 	
+	@Override
+	public List<ReviewDTO> RestaurantFiveSelect() throws SQLException {
+		List<ReviewDTO> restaurantList = resDao.RestaurantFiveSelect();
+		return restaurantList;
+	}
+	
+	@Override
+	public String getReviewImg(String restaurantsName) throws SQLException {
+		String reviewImg = reviewDAO.getReviewImg(restaurantsName);
+		return reviewImg;
+	}
 }

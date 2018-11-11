@@ -25,7 +25,7 @@ public class AutoCompleteRestaurant extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		String keyWord = request.getParameter("keyWord");
-		
+		System.out.println(keyWord);
 		try {
 			List<String> list = service.autoCompleteRestaurant(keyWord);
 			

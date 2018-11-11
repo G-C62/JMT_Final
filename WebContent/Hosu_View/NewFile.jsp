@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html>
@@ -44,18 +43,24 @@
  			$("#keyWord").val($(this).text());
  			$("#suggest").hide();
  		});
+		
 	});
+	
 </script>	
 </head>
 <body>
-<a href="../jmt?command=member.myBookmark">눌러</a>
+<a href="${pageContext.request.contextPath}/jmt?command=member.myBookmark">눌러</a>
 <form name="search" id="search">
 	<input type="text" maxlength="10" name="keyWord" id="keyWord"/>
-	<input type="button" value="검색"/>	
+	<input type="button" value="검색"/>
 </form>
+<div id="suggest"></div>
 <!--제시어 단어 출력부분 -->
-<div id="suggest" style="display:none"></div>
-
-    
+<a href="${pageContext.request.contextPath}/jmt?command=restaurant.selectFive">5개씩 가져오기</a>
+<c:forEach items="${RestaurantFiveSelect}" var="Five" varStatus = "state">
+    <br>
+    음식점 이름 : ${Five.resName}<br>
+    음식점 사진 : <img src='${Five.reviewImg1 }'>
+ </c:forEach>
 </body>
 </html>

@@ -34,7 +34,10 @@ order by count(*) desc
 review.review_date, review.member_id, review.res_id, review.res_name, 
 review.review_img1, review.review_img2, review.review_img3, review.review_islike
 -----------------------------------------------------------------------------------
+select * from bookmark;
 
+
+------------------------------------------------------------------------------------
 update review set review_img1 = 'reviewPics/1.jpg' where review_id = '1';
 
 update review set review_img1 = 'reviewPics/1111111111.jpg' where review_id = '3';
@@ -81,7 +84,9 @@ insert into member values('aaa', 'aaa', '가가가', '010-1111-1111',
    insert into member values('eee', 'eee', '마마마', '010-1111-1111', 
    '남', 'eee@gmail.com');
 
-   
+SELECT * FROM review
+delete from review where review_id='26'
+
    insert into review (REVIEW_ID, REVIEW_TITLE, REVIEW_CONTENTS, 
    REVIEW_DATE, MEMBER_ID, RES_ID, RES_NAME, REVIEW_ISLIKE)  values (REVIEW_SEQ.NEXTVAL,'추천', '정말 추천!', 
          sysdate, 'aaa', 25398530, '봉우리한정식', 'true');
@@ -237,7 +242,7 @@ select * from member;
 select * from review;
 select * from RECOMMEND;
 select * from bookmark;
-
+SELECT * FROM RESTAURANT;
 select * from REVIEW;
 
 delete from review ;
@@ -276,14 +281,15 @@ CREATE TABLE REVIEW(
     REVIEW_TITLE VARCHAR2(50 CHAR) NOT NULL,
     REVIEW_CONTENTS VARCHAR2(200 CHAR),
     REVIEW_DATE DATE NOT NULL,
-    MEMBER_ID VARCHAR2(20 CHAR) NOT NULL REFERENCES MEMBER(MEMBER_ID),
-    RES_ID NUMBER(10) NOT NULL REFERENCES RESTAURANT(RES_ID),
+    MEMBER_ID VARCHAR2(20 CHAR) NOT NULL REFERENCES MEMBER(MEMBER_ID) ON DELETE CASCADE,
+    RES_ID NUMBER(10) NOT NULL REFERENCES RESTAURANT(RES_ID) ON DELETE CASCADE,
     RES_NAME VARCHAR2(30 CHAR) NOT NULL,
     REVIEW_IMG1 VARCHAR2(100 CHAR),
     REVIEW_IMG2 VARCHAR2(100 CHAR),
     REVIEW_IMG3 VARCHAR2(100 CHAR),
     REVIEW_ISLIKE VARCHAR2(5) NOT NULL CHECK(REVIEW_ISlIKE IN('true','false'))
 );
+
 
 CREATE TABLE BOOKMARK(
     BOOKMARK_ID NUMBER(5) PRIMARY KEY,
@@ -315,6 +321,7 @@ NOCACHE;
 CREATE SEQUENCE RECOMMEND_SEQ 
 START WITH 1
 INCREMENT BY 1
+<<<<<<< HEAD
 NOCACHE; 
 ------------------------------------------------
 insert into member values('aaa', 'aaa', '가가가', '010-1111-1111', 
@@ -332,7 +339,7 @@ insert into review (REVIEW_ID, REVIEW_TITLE, REVIEW_CONTENTS,
 			
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 1);
 insert into BOOKMARK values(BOOKMARK_SEQ.NEXTVAL, 'aaa', 25398530);
-
+insert into Bookmark values(BOOKMARK_SEQ.NEXTVAL, 'bbb', 25398530)
 
 select * from member;
 select * from review;
@@ -340,6 +347,7 @@ select * from RECOMMEND;
 select * from bookmark;
 select * from review where res_id=25398530;
 
+drop table review;
 delete from review;
 delete from MEMBER;
 delete from RECOMMEND;
@@ -351,3 +359,7 @@ drop SEQUENCE RECOMMEND_SEQ;
 
 CREATE SEQUENCE REVIEW_SEQ;
 
+commit
+=======
+NOCACHE; 
+>>>>>>> refs/remotes/origin/hosu

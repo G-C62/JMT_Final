@@ -108,7 +108,7 @@ public class DetailController implements Controller
 			request.setAttribute("reviewLikeAmountMap", reviewLikeAmountMap);
 			request.setAttribute("reviewLikeYesOrNoMap", reviewLikeYesOrNoMap);
 			
-			url = "suhyun_view/detail.jsp";
+			url = "restaurantDetail/detail.jsp";
 			
 		} catch (Exception e)
 		{

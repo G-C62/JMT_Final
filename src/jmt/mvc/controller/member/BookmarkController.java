@@ -21,13 +21,14 @@ public class BookmarkController implements Controller
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException
-	{
+
+			throws ServletException, IOException {
+		
 		String url = "Hosu_View/myBookmark.jsp";
 		ServletContext application = request.getServletContext();
-		String id = "kim";
-		try
-		{
+
+		String id = "aaa";
+		try {
 			List<ReviewDTO> list = service.selectBookmarkById(id);
 			for (ReviewDTO dto : list)
 			{
@@ -40,7 +41,6 @@ public class BookmarkController implements Controller
 
 		} catch (SQLException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		ModelAndView mv = new ModelAndView();

@@ -35,6 +35,7 @@ public class HandlerMapping implements ServletContextListener {
 			while (it.hasNext()) {
 				String key = it.next();
 				String value = rb.getString(key);
+				System.out.println("key : " +key + ", value : "+value);
 				Controller classObj = (Controller) Class.forName(value).newInstance();
 				map.put(key, classObj);
 			}
