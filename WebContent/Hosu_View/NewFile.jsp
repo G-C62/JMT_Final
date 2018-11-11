@@ -49,13 +49,14 @@
 </script>	
 </head>
 <body>
-<a href="../jmt?command=member.myBookmark">눌러</a>
+<a href="${pageContext.request.contextPath}/jmt?command=member.myBookmark">눌러</a>
 <form name="search" id="search">
 	<input type="text" maxlength="10" name="keyWord" id="keyWord"/>
 	<input type="button" value="검색"/>
 </form>
+<div id="suggest"></div>
 <!--제시어 단어 출력부분 -->
-<a href="../jmt?command=restaurant.selectFive">5개씩 가져오기</a>
+<a href="${pageContext.request.contextPath}/jmt?command=restaurant.selectFive">5개씩 가져오기</a>
 <c:forEach items="${RestaurantFiveSelect}" var="Five" varStatus = "state">
     <br>
     음식점 이름 : ${Five.resName}<br>

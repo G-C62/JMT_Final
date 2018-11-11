@@ -3,7 +3,10 @@ select review_img1, review_img2, review_img3 from review where res_id='25398530'
 select * from review where res_id = '25398530';
 
 -----------------------------------------------------------------------------------
+select * from bookmark;
 
+
+------------------------------------------------------------------------------------
 update review set review_img1 = 'reviewPics/1.jpg' where review_id = '1';
 
 update review set review_img1 = 'reviewPics/1111111111.jpg' where review_id = '3';
@@ -293,7 +296,7 @@ insert into review (REVIEW_ID, REVIEW_TITLE, REVIEW_CONTENTS,
 			
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 1);
 insert into BOOKMARK values(BOOKMARK_SEQ.NEXTVAL, 'aaa', 25398530);
-
+insert into Bookmark values(BOOKMARK_SEQ.NEXTVAL, 'bbb', 25398530)
 
 select * from member;
 select * from review;

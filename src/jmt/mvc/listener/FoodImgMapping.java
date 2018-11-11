@@ -41,6 +41,7 @@ public class FoodImgMapping implements ServletContextListener {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+		System.out.println(map2);
 	}
 
 }
