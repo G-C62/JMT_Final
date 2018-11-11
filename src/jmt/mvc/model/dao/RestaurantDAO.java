@@ -1,6 +1,7 @@
 package jmt.mvc.model.dao;
 
 import java.sql.SQLException;
+
 import java.util.List;
 
 import org.eclipse.jdt.internal.compiler.ast.ThrowStatement;
@@ -70,7 +71,10 @@ public interface RestaurantDAO {
 	 * */
 	List<String> selectImgFromReview (int resId) throws SQLException;
 
-
+	/**
+	 * 호수 - 메인페이지에 띄워줄 카테고리별 음식점 5곳 찾아오기
+	 * */
+	List<ReviewDTO> RestaurantFiveSelect() throws SQLException;
 	
 	
 }

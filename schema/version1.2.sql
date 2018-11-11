@@ -196,7 +196,7 @@ select * from member;
 select * from review;
 select * from RECOMMEND;
 select * from bookmark;
-
+SELECT * FROM RESTAURANT;
 select * from REVIEW;
 
 delete from review ;
@@ -275,6 +275,7 @@ NOCACHE;
 CREATE SEQUENCE RECOMMEND_SEQ 
 START WITH 1
 INCREMENT BY 1
+<<<<<<< HEAD
 NOCACHE; 
 ------------------------------------------------
 insert into member values('aaa', 'aaa', '°¡°¡°¡', '010-1111-1111', 
@@ -313,3 +314,6 @@ drop SEQUENCE RECOMMEND_SEQ;
 CREATE SEQUENCE REVIEW_SEQ;
 
 commit
+=======
+NOCACHE; 
+>>>>>>> refs/remotes/origin/hosu

@@ -1,4 +1,4 @@
-package jmt.mvc.controller.member;
+package jmt.mvc.controller.restaurant;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -15,32 +15,26 @@ import jmt.mvc.model.dto.ReviewDTO;
 import jmt.mvc.model.service.MemberService;
 import jmt.mvc.model.service.MemberServiceImpl;
 
-public class BookmarkController implements Controller
-{
+public class RestaurantFiveSelect implements Controller {
 	MemberService service = new MemberServiceImpl();
-
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response)
-
 			throws ServletException, IOException {
-		
-		String url = "Hosu_View/myBookmark.jsp";
+		String url = "Hosu_View/NewFile.jsp";
 		ServletContext application = request.getServletContext();
-
-		String id = "aaa";
 		try {
-			List<ReviewDTO> list = service.selectBookmarkById(id);
-			for (ReviewDTO dto : list)
-			{
-				if (dto.getReviewImg1() == null)
-				{
-					dto.setReviewImg1((String) application.getAttribute("1"));
+			List<ReviewDTO> list = service.RestaurantFiveSelect();  //restaurantList에는 resCategory, resName 포함
+			System.out.println(list);
+				
+				for(ReviewDTO dto :list) {
+					if(dto.getReviewImg1()==null) {
+						dto.setReviewImg1((String)application.getAttribute("2"));
+					}
 				}
-			}
-			request.setAttribute("listMyBookMark", list);
-
-		} catch (SQLException e)
-		{
+				
+			request.setAttribute("RestaurantFiveSelect", list); // 레스토랑 이름으로 된 변수에 사진을 저장시켜 view에 보냄.
+			
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		ModelAndView mv = new ModelAndView();
