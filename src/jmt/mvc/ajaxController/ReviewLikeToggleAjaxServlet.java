@@ -3,7 +3,6 @@ package jmt.mvc.ajaxController;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,13 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jmt.mvc.model.dto.ReviewDTO;
 import jmt.mvc.model.service.RestaurantService;
 import jmt.mvc.model.service.RestaurantServiceImpl;
-import net.sf.json.JSONArray;
 
-@WebServlet("/BookMarkToggleAjaxServlet")
-public class BookMarkToggleAjaxServlet extends HttpServlet
+@WebServlet("/ReviewLikeToggleAjaxServlet")
+public class ReviewLikeToggleAjaxServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 
@@ -27,7 +24,7 @@ public class BookMarkToggleAjaxServlet extends HttpServlet
 		response.setContentType("text/html;charset=UTF-8"); //front로 내보내질때를 위한 한글처리
 		
 		//전송된 데이터 받기
-		int resId = Integer.parseInt(request.getParameter("resId"));
+		int reviewId = Integer.parseInt(request.getParameter("reviewId"));
 		String memberId = request.getParameter("memberId");
 		String flag = request.getParameter("flag");
 
@@ -39,16 +36,15 @@ public class BookMarkToggleAjaxServlet extends HttpServlet
 			
 			if (flag.equals("insert"))
 			{
-				result = service.insertBookMark(resId, memberId);
+				result = service.insertRecommend(reviewId, memberId);
 			}else 
 			{
-				result = service.deleteBookMark(resId, memberId);
+				result = service.deleteRecommend(reviewId, memberId);
 			}
 				
-			
 			if (result == 0)
 			{
-				throw new SQLException("즐겨찾기 기능에 실패하였습니다.");
+				throw new SQLException("댓글 좋아요 기능에 실패하였습니다.");
 			}
 		} catch (Exception e)
 		{

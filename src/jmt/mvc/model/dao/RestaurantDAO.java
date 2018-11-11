@@ -83,9 +83,27 @@ public interface RestaurantDAO {
 	/**
 	 * 리뷰 좋아요 수 가져오기
 	 * */
-	int reviewLoveAmount(int reviewId) throws SQLException;
+	int reviewLikeAmount(int reviewId) throws SQLException;
 
+	/**
+	 * 리뷰 좋아요 하기
+	 * */
+	int insertRecommend(int reviewId, String memberId) throws SQLException;
+	
+	/**
+	 * 리뷰 좋아요 취소
+	 * */
+	int deleteRecommend(int reviewId, String memberId) throws SQLException;
 
+	/**
+	 * 리뷰 좋아요 여부
+	 * */
+	boolean reviewLikeYesOrNo(int reviewId, String memberId) throws SQLException;
+	
+	/**
+	 * 리뷰id로 리뷰 하나 가져오기
+	 * */
+	ReviewDTO selectReviewById(int reviewId) throws SQLException;
 	
 	
 }

@@ -249,7 +249,8 @@ public class RestaurantDAOImpl implements RestaurantDAO
 		}
 		return list;
 	}
-
+	
+	@Override
 	public List<ReviewDTO> recommendOrderReview(int resId) throws SQLException
 	{
 		Connection con = null;
@@ -258,8 +259,11 @@ public class RestaurantDAOImpl implements RestaurantDAO
 
 		List<ReviewDTO> list = new ArrayList<>();
 
-		String sql = "";
-		// String sql = "select * from review where res_id=? order by desc";
+		String sql = "select review.review_id, count(*)\r\n" + 
+					"from recommend join review on review.review_id = recommend.review_id\r\n" + 
+					"where review.res_id=?\r\n" + 
+					"group by review.review_id\r\n" + 
+					"order by count(*) desc";
 
 		try
 		{
@@ -272,12 +276,12 @@ public class RestaurantDAOImpl implements RestaurantDAO
 
 			while (rs.next())
 			{
+				int reviewId = rs.getInt(1);
 				ReviewDTO dto = null;
-				dto = new ReviewDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
-						rs.getInt(6), rs.getString(7), rs.getString(7), rs.getString(7), rs.getString(7),
-						rs.getString(7));
-
-				boolean re = list.add(dto);
+				
+				dto = selectReviewById(reviewId);
+				
+				list.add(dto);
 			}
 
 		} finally
@@ -354,7 +358,7 @@ public class RestaurantDAOImpl implements RestaurantDAO
 	}
 
 	@Override
-	public int reviewLoveAmount(int reviewId) throws SQLException
+	public int reviewLikeAmount(int reviewId) throws SQLException
 	{
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -384,6 +388,136 @@ public class RestaurantDAOImpl implements RestaurantDAO
 		}
 
 		return result;
+	}
+
+	@Override
+	public int insertRecommend(int reviewId, String memberId) throws SQLException
+	{
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		int result = 0;
+		String sql = "insert into recommend values(RECOMMEND_SEQ.NEXTVAL, ?, ?)";
+
+		
+		try
+		{
+			// 로드 연결 실행 닫기
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+
+			ps.setString(1, memberId);
+			ps.setInt(2, reviewId);
+			rs = ps.executeQuery();
+
+			if (rs.next())
+			{
+				result++;
+			}
+
+		} finally
+		{
+			DbUtil.dbClose(rs, ps, con);
+		}
+
+		return result;
+	}
+
+	@Override
+	public int deleteRecommend(int reviewId, String memberId) throws SQLException
+	{
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		int result = 0;
+		String sql = "delete from recommend where member_id=? and review_id=?";
+		
+		try
+		{
+			// 로드 연결 실행 닫기
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+
+			ps.setString(1, memberId);
+			ps.setInt(2, reviewId);
+			rs = ps.executeQuery();
+
+			if (rs.next())
+			{
+				result++;
+			}
+
+		} finally
+		{
+			DbUtil.dbClose(rs, ps, con);
+		}
+
+		return result;
+	}
+
+	@Override
+	public boolean reviewLikeYesOrNo(int reviewId, String memberId) throws SQLException
+	{
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		boolean result = false;
+		
+		String sql = "select * from recommend where review_id=? and member_id =?";
+
+		try
+		{
+			// 로드 연결 실행 닫기
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+		
+			ps.setInt(1, reviewId);
+			ps.setString(2, memberId);
+			rs = ps.executeQuery();
+
+			if (rs.next())
+			{
+				result = true;
+			}
+
+		} finally
+		{
+			DbUtil.dbClose(rs, ps, con);
+		}
+
+		System.out.println("result = " + result);
+		return result;
+	}
+
+	@Override
+	public ReviewDTO selectReviewById(int reviewId) throws SQLException
+	{
+		Connection con = DbUtil.getConnection();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		ReviewDTO reviewDTO = null;
+		
+		try
+		{
+			ps = con.prepareStatement("select * from review where review_id=?");
+			ps.setInt(1, reviewId);
+			rs = ps.executeQuery();
+			
+			if (rs.next())
+			{
+				reviewDTO = new ReviewDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+						rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9),
+						rs.getString(10), rs.getString(11));
+			}
+		} finally
+		{
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return reviewDTO;
+
 	}
 
 }

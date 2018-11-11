@@ -77,7 +77,22 @@ public interface RestaurantService
 	/**
 	 * 리뷰 좋아요 수 가져오기
 	 * */
-	int reviewLoveAmount(int reviewId) throws SQLException;
+	int reviewLikeAmount(int reviewId) throws SQLException;
+
+	/**
+	 * 리뷰 좋아요 하기
+	 * */
+	int insertRecommend(int reviewId, String memberId) throws SQLException;
+	
+	/**
+	 * 리뷰 좋아요 취소
+	 * */
+	int deleteRecommend(int reviewId, String memberId) throws SQLException;
+
+	/**
+	 * 리뷰 좋아요 여부
+	 * */
+	boolean reviewLikeYesOrNo(int reviewId, String memberId) throws SQLException;
 
 	
 }

@@ -121,14 +121,41 @@ public class RestaurantServiceImpl implements RestaurantService
 	}
 
 	@Override
-	public int reviewLoveAmount(int reviewId) throws SQLException
+	public int reviewLikeAmount(int reviewId) throws SQLException
 	{
 
-		int result = dao.reviewLoveAmount(reviewId);
+		int result = dao.reviewLikeAmount(reviewId);
 		if(result == 0)
 			throw new SQLException("좋아요 수 가져오기에 실패하였습니다.");
 		
 		return result;
 	}
 
+	@Override
+	public int insertRecommend(int reviewId, String memberId) throws SQLException
+	{
+		int result = dao.insertRecommend(reviewId, memberId);
+		if(result == 0)
+			throw new SQLException("리뷰 좋아요에 실패하였습니다.");
+		
+		return result;
+	}
+
+	@Override
+	public int deleteRecommend(int reviewId, String memberId) throws SQLException
+	{
+		int result = dao.deleteRecommend(reviewId, memberId);
+		if(result == 0)
+			throw new SQLException("리뷰 좋아요 취소 기능에 실패하였습니다.");
+		
+		return result;
+	}
+
+	@Override
+	public boolean reviewLikeYesOrNo(int reviewId, String memberId) throws SQLException
+	{
+		boolean result = dao.reviewLikeYesOrNo(reviewId, memberId);
+		
+		return result;
+	}
 }

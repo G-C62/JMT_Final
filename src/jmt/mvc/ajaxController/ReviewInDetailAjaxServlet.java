@@ -29,15 +29,16 @@ public class ReviewInDetailAjaxServlet extends HttpServlet
 		//전송된 데이터 받기
 		int resId = Integer.parseInt(request.getParameter("resId"));
 		String orderby = request.getParameter("orderby");
+		System.out.println("orderby = " + orderby);
 		
-		System.out.println("resId = " + resId);
 		
 		List<ReviewDTO> reviewList = null;
+		
 		try
 		{
 			RestaurantService service  = new RestaurantServiceImpl();
 			
-			if (orderby == "" || orderby == "최신순")
+			if (orderby == "" || orderby.equals("최신순"))
 			{
 				reviewList = service.recentOrderReview(resId);
 			}else 

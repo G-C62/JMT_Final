@@ -37,8 +37,8 @@ public class DetailController implements Controller
 	    String memberId = "aaa";
 	    
 	    //리뷰 좋아요를 위한 map
-	    //Map<String, Integer> reviewLoveAmountmap = new HashMap<>();
-	    Map<Integer, Integer> reviewLoveAmountmap = new HashMap<>();
+	    Map<Integer, Integer> reviewLikeAmountMap = new HashMap<>();
+	    Map<Integer, Boolean> reviewLikeYesOrNoMap = new HashMap<>();
 		
 		try
 		{	
@@ -56,6 +56,7 @@ public class DetailController implements Controller
 			int resLikeAcc = service.resLikeAcc(resId);
 			boolean bookMarkYesOrNo = service.bookMarkYesOrNo(resId, memberId);		
 			List<String> imgList = service.selectImgFromReview(resId);
+			
 
 			if (reviewList == null || reviewList.size() == 0)
 			{
@@ -63,20 +64,17 @@ public class DetailController implements Controller
 			}else
 			{
 				int reviewId = 0;
-				//String reviewId = "";
-				int reviewLoveAmount = 0;
+				int reviewLikeAmount = 0;
+				boolean reviewLikeYesOrNo = false;
 				
 				for(ReviewDTO review:reviewList)
-				{
-					/*reviewId = Integer.toString(review.getReviewId());
-					reviewLoveAmount = service.reviewLoveAmount(Integer.parseInt(reviewId));
-					
-					reviewLoveAmountmap.put(reviewId, reviewLoveAmount);*/
-					
+				{	
 					reviewId = review.getReviewId();
-					reviewLoveAmount = service.reviewLoveAmount(reviewId);
+					reviewLikeAmount = service.reviewLikeAmount(reviewId);
+					reviewLikeYesOrNo = service.reviewLikeYesOrNo(reviewId, memberId);
 					
-					reviewLoveAmountmap.put(reviewId, reviewLoveAmount);
+					reviewLikeAmountMap.put(reviewId, reviewLikeAmount);
+					reviewLikeYesOrNoMap.put(reviewId, reviewLikeYesOrNo);
 				}
 			}
 
@@ -93,7 +91,8 @@ public class DetailController implements Controller
 			request.setAttribute("imgList", imgList);
 			request.setAttribute("bookMarkYesOrNo", bookMarkYesOrNo);
 			request.setAttribute("memberId", memberId);
-			request.setAttribute("reviewLoveAmountmap", reviewLoveAmountmap);
+			request.setAttribute("reviewLikeAmountMap", reviewLikeAmountMap);
+			request.setAttribute("reviewLikeYesOrNoMap", reviewLikeYesOrNoMap);
 			
 			url = "suhyun_view/detail.jsp";
 			
