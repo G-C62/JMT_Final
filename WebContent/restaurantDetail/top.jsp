@@ -20,8 +20,8 @@
 			<div class="collapse navbar-toggleable-md" id="exCollapsingNavbar2">
 				<ul class="nav navbar-nav">
 					<li class="nav-item">
-						<input type="radio" name="subMenuCheck" value="sumnail" checked> 썸네일로 보기
-						<input type="radio" name="subMenuCheck" value="map"> 지도로 보기						
+						<input type="radio" name="subMenuCheck" value="sumnail" checked><span> 썸네일로 보기</span>
+						<input type="radio" name="subMenuCheck" value="map"> <span>지도로 보기</span>						
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#">한식</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">중식</a></li>

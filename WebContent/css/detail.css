@@ -80,3 +80,5 @@ a:hover {
 }
 
 #loginDiv{padding-top:100px;padding-left:420px;}
+
+#exCollapsingNavbar2 > ul > li:nth-child(1) > span{color:black}
