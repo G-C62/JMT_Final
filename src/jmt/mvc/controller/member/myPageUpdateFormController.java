@@ -30,7 +30,6 @@ public class myPageUpdateFormController implements Controller {
 		// String password = (String)session.getAttribute("password");
 
 		try {
-	
 			MemberDTO memberDTO = ms.selectById(id); // 1. memberDTO가
 			request.setAttribute("memberDTO",
 					memberDTO);/*
@@ -40,7 +39,6 @@ public class myPageUpdateFormController implements Controller {
 								 * 에서는 sungho.getMemberId로 바뀐다. ${memberDTO.getMemberEmail()} ->
 								 * ${sungho.getMemberEmail()}
 								 */
-			
 			String phone = memberDTO.getMemberPhone();
 			String phone1 = phone.split("-")[0];
 			String phone2 = phone.split("-")[1];
@@ -48,11 +46,12 @@ public class myPageUpdateFormController implements Controller {
 			request.setAttribute("phone1", phone1);
 			request.setAttribute("phone2", phone2);
 			request.setAttribute("phone3", phone3);
+			System.out.println(memberDTO.getMemberGender());
 		} catch (SQLException e) {
 
 			e.printStackTrace();
 		}
-		mv.setPath("/seongho_view/myPageUpdate.jsp");
+		mv.setPath("/memberView/myPageUpdate.jsp");
 
 		return mv;
 	}

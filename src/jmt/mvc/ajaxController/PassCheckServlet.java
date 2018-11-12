@@ -17,7 +17,6 @@ import jmt.mvc.model.service.MemberServiceImpl;
 @WebServlet("/passCheckServlet")
 public class PassCheckServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
     
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
@@ -38,7 +37,6 @@ public class PassCheckServlet extends HttpServlet {
 				out.print("비밀번호가 일치하지 않습니다");
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

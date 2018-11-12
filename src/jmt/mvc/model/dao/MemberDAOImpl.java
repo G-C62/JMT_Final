@@ -76,21 +76,19 @@ public class MemberDAOImpl implements MemberDAO {
 	   }
 
 	@Override
-	public boolean idCheck(String id) {
+	public boolean idCheck(String id) throws SQLException {
 		PreparedStatement ps = null;
 		  ResultSet rs = null;
 		  Connection con = null;
 		  boolean result=false;
 		  try {
 		   con=DbUtil.getConnection();
-		   ps = con.prepareStatement("select id from member where id=?");
+		   ps = con.prepareStatement("select member_id from member where member_id=?");
 		   ps.setString(1, id);
 		   rs = ps.executeQuery();
 		   if(rs.next()){
 		    result=true;
-		   }
-		  } catch (SQLException e) {
-		   e.printStackTrace();
+		  }
 		  }finally {
 		   DbUtil.dbClose(rs, ps, con);
 		  }
@@ -107,22 +105,20 @@ public class MemberDAOImpl implements MemberDAO {
 		try{
 			//Äõ¸®¹®
 			ps = con.prepareStatement(
-					"update member set member_pwd=?,member_name=?,member_phone=?,member_gender=?,member_email=? where member_id=?");
+					"update member set member_pwd=?,member_name=?,member_phone=?,member_email=? where member_id=?");
 			
 			ps.setString(1, memberDTO.getMemberPwd());
 			ps.setString(2, memberDTO.getMemberName());
 			ps.setString(3, memberDTO.getMemberPhone());
-			ps.setString(4, memberDTO.getMemberGender());
-			ps.setString(5, memberDTO.getMemberEmail());
-			ps.setString(6, memberDTO.getMemberId());
+			ps.setString(4, memberDTO.getMemberEmail());
+			ps.setString(5, memberDTO.getMemberId());
 			result = ps.executeUpdate(); //¼öÁ¤ ¼º°ø °¹¼ö
+			System.out.println(result);
 		}finally{
 			DbUtil.dbClose( ps, con);
 		}
 		return result;
 	}
-
-
 
 	@Override
 	public MemberDTO selectById(String id) throws SQLException {
@@ -147,8 +143,6 @@ public class MemberDAOImpl implements MemberDAO {
 		}
 		return memberDTO;
 	}
-
-
 
 	@Override
 	public String PassCheckDAO(String id) throws SQLException {

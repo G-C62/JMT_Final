@@ -25,6 +25,8 @@ public class myPageUpdateController implements Controller {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		System.out.println("myPageUpdateController 호출");
+		String url = "memberView/myPage.jsp";
+		
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
 		ModelAndView mv = new ModelAndView();
@@ -36,27 +38,26 @@ public class myPageUpdateController implements Controller {
 		String phone1 = request.getParameter("phone1");
 		String phone2 = request.getParameter("phone2");
 		String phone3 = request.getParameter("phone3");
-		String gender = request.getParameter("gender");
 		String email = request.getParameter("email");
 		String phone = phone1 + "-" + phone2 + "-" + phone3;
-		System.out.println(memberID + password + gender);
+		System.out.println(memberID + password+email+phone);
 		try {
-			int result = ms.update(new MemberDTO(memberID, password, name, phone, gender, email));
+			int result = ms.update(new MemberDTO(memberID, password, name, phone, email));
 
 			if (result == 1) {
 				out.println("<script>alert(회원 정보 수정 성공);</script>");
 				System.out.println("수정성공");
-				mv.setPath("seongho_view/indexEx.jsp");// 메인 페이지로 이동
+				mv.setPath("memberView/myPage.jsp");// 메인 페이지로 이동
 			} else {
 				out.println("<script>alert(회원 정보 수정 실패);</script>");
-				mv.setPath("seongho_view/indexEx.jsp");
+				mv.setPath("memberView/myPage.jsp");
 			}
 
 		} catch (Exception e) {
 
 			e.printStackTrace();
 		}
-
+		mv.setPath(url);
 		return mv;
 	}
 

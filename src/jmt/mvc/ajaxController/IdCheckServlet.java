@@ -27,37 +27,21 @@ public class IdCheckServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");// post방식 한글처리
+		//System.out.println("서블릿 호출");
 		
-		
-		String memberID = request.getParameter("id");
+		String id = request.getParameter("id");
 
 		PrintWriter out = response.getWriter();
 		
-		boolean result;
-		try {
-			result = service.idCheck(memberID);
-			if(result)
-			 out.print("이미사용중입니다.");
-			else
-			 out.print("사용가능합니다.");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
+			boolean result=false;
+			try {
+				result = service.idCheck(id);
+				if(result) {
+					 out.print("이미사용중입니다.");}
+				else {
+					 out.print("사용가능합니다.");}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			};
 	}
-
 }
-
-
-
-
-
-
-
-
-
-
-
-

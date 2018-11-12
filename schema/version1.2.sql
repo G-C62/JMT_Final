@@ -2,6 +2,10 @@ select * from REVIEW where member_id = 'aaa';
 select review_img1, review_img2, review_img3 from review where res_id='25398530';
 select * from review where res_id = '25398530';
 
+select MEMBER_PWD from member where MEMBER_ID='aaa'
+update member set member_pwd='qqq',member_name='이한나',member_phone='010-2222-2222',member_gender='여',member_email='111@gmail.com' where member_id='qqq'
+
+
 select * from recommend;
 select count(*) from recommend where review_id=3;
 select * from recommend where review_id=3;

@@ -45,8 +45,7 @@ public class MemberServiceImpl implements MemberService {
 		
 		int result = memberDAO.update(memberDTO);
 		if(result==0)throw new SQLException("수정되지 않았습니다.");
-		// TODO Auto-generated method stub
-		return 0;
+		return result;
 	}
 
 	@Override

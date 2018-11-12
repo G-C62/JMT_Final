@@ -11,7 +11,7 @@
       session.invalidate();
    %>
    <%
-      response.sendRedirect(request.getContextPath() + "/seongho_view/indexEx.jsp");
+      response.sendRedirect(request.getContextPath()+"/mainView/JmtMain.jsp");
    %>
 </body>
 </html>

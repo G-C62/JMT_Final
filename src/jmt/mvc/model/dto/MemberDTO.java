@@ -23,12 +23,12 @@ public class MemberDTO {
 	}
 
 	
-	public MemberDTO(String memberPwd, String memberName, String memberPhone, String memberGender, String memberEmail) {
+	public MemberDTO(String memberId,String memberPwd, String memberName, String memberPhone, String memberEmail) {
 		super();
+		this.memberId = memberId;
 		this.memberPwd = memberPwd;
 		this.memberName = memberName;
 		this.memberPhone = memberPhone;
-		this.memberGender = memberGender;
 		this.memberEmail = memberEmail;
 	}
 

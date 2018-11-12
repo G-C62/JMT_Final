@@ -12,29 +12,12 @@ $(function(){
 	re ="";
  $("#password").keyup(function(){
         	 $.ajax({
-         		url: "passCheckServlet" , // 서버요청주소
+         		url: "../passCheckServlet" , // 서버요청주소
          		type: "post", //get or post요청방식
          		dataType: "text" , //서버가보내오는 데이터타입(text,html,json,xml)
          		data: "password="+ $(this).val() ,
          		success: function(result){// 0 , 1
-       				
-         			$("#passCheck").val("");
-         			re=result;
-         			$("#passCheck").val(result);
-         		
-         			
-         			
-         			/* if(result > 0){
-         			//text박스를 모두 지우기
-         			 $("input[type=text]").val("");
-         			
-         			 //화면갱신
-         			 selectAll();
-         			
-         			}else{
-         				alert("성공하였습니다.");
-         			} */
-         			
+         			$("#passCheck").text(result);
          		} ,
          		error: function(err){
          			alert(err+"=> 예외발생...");
@@ -78,7 +61,7 @@ function checkValid(){
 					</td>
 					<td width="450" height="20"><b><span
 							style="font-size: 9pt;"> <input type=text name="memberID"
-								size="20" maxlength="15" value="${memberDTO.getMemberId()}" ></span></b></td>
+								size="20" maxlength="15" value="${memberDTO.getMemberId()} readonly="readonly"" ></span></b></td>
 				</tr>
 				<tr>
 					<td width="150" height="20">
@@ -90,7 +73,7 @@ function checkValid(){
 							style="font-size: 9pt;"> <input type="password"
 								name="password" id="password" size="20" maxlength="15"
 								value=""> 
-								<input type="text" id="passCheck" value="비밀번호 확인하기" >	
+								<span  id="passCheck"> 비밀번호 확인하기</span>	
 						</span></b></td>
 				</tr>
 				<tr>
