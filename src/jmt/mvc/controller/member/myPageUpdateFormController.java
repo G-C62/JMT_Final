@@ -1,6 +1,7 @@
 package jmt.mvc.controller.member;
 
 import java.io.IOException;
+
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -20,7 +21,7 @@ public class myPageUpdateFormController implements Controller {
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("myPageUpdateController 호출");
+		
 		HttpSession session = request.getSession();
 		ModelAndView mv = new ModelAndView();
 
@@ -29,7 +30,7 @@ public class myPageUpdateFormController implements Controller {
 		// String password = (String)session.getAttribute("password");
 
 		try {
-
+	
 			MemberDTO memberDTO = ms.selectById(id); // 1. memberDTO가
 			request.setAttribute("memberDTO",
 					memberDTO);/*
@@ -39,7 +40,7 @@ public class myPageUpdateFormController implements Controller {
 								 * 에서는 sungho.getMemberId로 바뀐다. ${memberDTO.getMemberEmail()} ->
 								 * ${sungho.getMemberEmail()}
 								 */
-			System.out.println(memberDTO.getMemberEmail());
+			
 			String phone = memberDTO.getMemberPhone();
 			String phone1 = phone.split("-")[0];
 			String phone2 = phone.split("-")[1];

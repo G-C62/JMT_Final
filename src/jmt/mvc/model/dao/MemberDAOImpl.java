@@ -78,8 +78,25 @@ public class MemberDAOImpl implements MemberDAO {
 
 	@Override
 	public boolean idCheck(String id) {
-		// TODO Auto-generated method stub
-		return false;
+		PreparedStatement ps = null;
+		  ResultSet rs = null;
+		  Connection con = null;
+		  boolean result=false;
+		  try {
+		   con=DbUtil.getConnection();
+		   ps = con.prepareStatement("select id from member where id=?");
+		   ps.setString(1, id);
+		   rs = ps.executeQuery();
+		   if(rs.next()){
+		    result=true;
+		   }
+		  } catch (SQLException e) {
+		   e.printStackTrace();
+		  }finally {
+		   DbUtil.dbClose(rs, ps, con);
+		  }
+		  return result;
+		 
 	}
 
 	@Override
@@ -130,6 +147,28 @@ public class MemberDAOImpl implements MemberDAO {
 			DbUtil.dbClose(rs, ps, con);
 		}
 		return memberDTO;
+	}
+
+
+
+	@Override
+	public String PassCheckDAO(String id) throws SQLException {
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Connection con = null;
+		String result=null;
+		try {
+			con = DbUtil.getConnection();
+			ps=con.prepareStatement("select MEMBER_PWD from member where MEMBER_ID=?");
+			ps.setString(1, id);
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				result=rs.getString(1);
+			}
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return result;
 	}
 
 }

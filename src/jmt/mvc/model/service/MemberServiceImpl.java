@@ -35,9 +35,9 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public boolean idCheck(String id) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean idCheck(String id) throws SQLException  {
+		boolean result = memberDAO.idCheck(id);
+		return result;
 	}
 
 	@Override
@@ -54,6 +54,12 @@ public class MemberServiceImpl implements MemberService {
 		MemberDTO memberDTO = memberDAO.selectById(id); //DAO∑Œ ¿Ãµø
 		
 		return memberDTO;
+	}
+
+	@Override
+	public String PassCheckService(String id) throws SQLException {
+		String result = memberDAO.PassCheckDAO(id);
+		return result;
 	}
 	
 

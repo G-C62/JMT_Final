@@ -1,6 +1,7 @@
 package jmt.mvc.controller.member;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
@@ -44,7 +45,7 @@ public class myPageUpdateController implements Controller {
 
 			if (result == 1) {
 				out.println("<script>alert(회원 정보 수정 성공);</script>");
-
+				System.out.println("수정성공");
 				mv.setPath("seongho_view/indexEx.jsp");// 메인 페이지로 이동
 			} else {
 				out.println("<script>alert(회원 정보 수정 실패);</script>");

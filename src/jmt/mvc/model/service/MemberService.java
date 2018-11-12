@@ -22,10 +22,10 @@ public interface MemberService {
 	int insert(MemberDTO memberDTO) throws SQLException;
 	
 	/**
-	 * 등록할때 필요한 id중복체크
+	 * 성호 - 등록할때 필요한 id중복체크
 	 * @return true이면 중복, false이면 중복아님
 	 * */
-	boolean idCheck(String id);
+	boolean idCheck(String id) throws SQLException;
 	
 	/**
 	 * 수정
@@ -36,4 +36,9 @@ public interface MemberService {
 	 * 성호 - 아이디로 회원정보 받아오기
 	 * */
 	MemberDTO selectById(String id) throws SQLException;
+
+	/**
+	 * 성호 - 비밀번호 체크하기 (ajax)
+	 * */
+	String PassCheckService(String id) throws SQLException;
 }
