@@ -22,7 +22,6 @@ public class SelectMyReviewController implements Controller {
 		String id = "aaa";
 		
 		try {
-				
 				//전체검색기능
 				
 				ReviewService service =  new ReviewServiceImpl();

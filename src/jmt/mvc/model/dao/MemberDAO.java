@@ -2,12 +2,10 @@ package jmt.mvc.model.dao;
 
 import java.sql.SQLException;
 
-import java.util.List;
+
 
 
 import jmt.mvc.model.dto.MemberDTO;
-import jmt.mvc.model.dto.RestaurantDTO;
-import jmt.mvc.model.dto.ReviewDTO;
 
 
 public interface MemberDAO {
@@ -43,13 +41,4 @@ public interface MemberDAO {
 	 * 수정
 	 * */
 	int update(MemberDTO memberDTO);
-	
-	/**
-	 * 호수 - 내가 즐겨찾기한 음식점(음식점이름, 사진) 가져오기
-	 * */
-	public List<String> selectBookmarkById(String id) throws SQLException;
-	public List<ReviewDTO> selectReviewByResName(List<String> list) throws SQLException;
-
-
-
 }

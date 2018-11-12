@@ -3,6 +3,7 @@ package jmt.mvc.model.service;
 import java.sql.SQLException;
 
 
+
 import java.util.List;
 import jmt.mvc.model.dao.MemberDAO;
 import jmt.mvc.model.dao.MemberDAOImpl;
@@ -11,7 +12,6 @@ import jmt.mvc.model.dao.RestaurantDAOImpl;
 import jmt.mvc.model.dao.ReviewDAO;
 import jmt.mvc.model.dao.ReviewDAOImpl;
 import jmt.mvc.model.dto.MemberDTO;
-import jmt.mvc.model.dto.RestaurantDTO;
 import jmt.mvc.model.dto.ReviewDTO;
 
 public class MemberServiceImpl implements MemberService {
@@ -53,29 +53,5 @@ public class MemberServiceImpl implements MemberService {
 		return 0;
 	}
 
-	public List<ReviewDTO> selectBookmarkById(String id) throws SQLException{
-		List<String> list = memberDAO.selectBookmarkById(id);
-		List<ReviewDTO> lists = memberDAO.selectReviewByResName(list);
-		
-		return lists;
-	}
-
 	
-	@Override
-	public List<String> autoCompleteRestaurant(String keyWord) throws SQLException {
-		List<String> list = resDao.autoCompleteRestaurant(keyWord);
-		return list;
-	}
-	
-	@Override
-	public List<ReviewDTO> RestaurantFiveSelect() throws SQLException {
-		List<ReviewDTO> restaurantList = resDao.RestaurantFiveSelect();
-		return restaurantList;
-	}
-	
-	@Override
-	public String getReviewImg(String restaurantsName) throws SQLException {
-		String reviewImg = reviewDAO.getReviewImg(restaurantsName);
-		return reviewImg;
-	}
 }
