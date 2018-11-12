@@ -21,7 +21,7 @@
 <script type="text/javascript">
 	$(function() {
 		$("#popbutton").click(function() {
-			$('div.modal').load("join.html")
+			$('div.modal').load("join.jsp")
 			$('div.modal').modal("show");
 		});
 		$("#login").click(function() {

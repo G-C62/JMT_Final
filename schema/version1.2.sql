@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 select * from REVIEW where member_id = 'aaa';
 
 insert into member values('aaa', 'aaa', '가가가', '010-1111-1111', 
@@ -171,6 +170,23 @@ select * from bookmark;
 
 select * from REVIEW;
 
+select count(*) from RECOMMEND where review_id='56'
+
+delete from review where review_id='81'
+
+update review
+set review_Title='리뷰수정',review_Contents='리뷰수정',review_Img1=null,review_Img2=null,review_Img3=null
+where review_id='58';
+
+
+drop table review;
+
+ALTER TABLE 테이블명
+DROP CONSTRAINT 제약조건명;
+
+drop table review cascade constraint;
+
+
 delete from review ;
 delete from MEMBER;
 delete from RECOMMEND;
@@ -192,7 +208,7 @@ CREATE TABLE RESTAURANT(
     RES_LONG NUMBER(12,9),
     RES_LAT NUMBER(13,10)
 );
-
+select *from member
 CREATE TABLE MEMBER(
     MEMBER_ID VARCHAR2(20 CHAR) PRIMARY KEY,
     MEMBER_PWD VARCHAR2(20 CHAR) NOT NULL,
@@ -207,8 +223,8 @@ CREATE TABLE REVIEW(
     REVIEW_TITLE VARCHAR2(50 CHAR) NOT NULL,
     REVIEW_CONTENTS VARCHAR2(200 CHAR),
     REVIEW_DATE DATE NOT NULL,
-    MEMBER_ID VARCHAR2(20 CHAR) NOT NULL REFERENCES MEMBER(MEMBER_ID),
-    RES_ID NUMBER(10) NOT NULL REFERENCES RESTAURANT(RES_ID),
+    MEMBER_ID VARCHAR2(20 CHAR) NOT NULL REFERENCES MEMBER(MEMBER_ID) on delete cascade,
+    RES_ID NUMBER(10) NOT NULL REFERENCES RESTAURANT(RES_ID) on delete cascade,
     RES_NAME VARCHAR2(30 CHAR) NOT NULL,
     REVIEW_IMG1 VARCHAR2(100 CHAR),
     REVIEW_IMG2 VARCHAR2(100 CHAR),
@@ -218,37 +234,35 @@ CREATE TABLE REVIEW(
 
 CREATE TABLE BOOKMARK(
     BOOKMARK_ID NUMBER(5) PRIMARY KEY,
-    MEMBER_ID VARCHAR2(20 CHAR) NOT NULL REFERENCES MEMBER(MEMBER_ID),
-    RES_ID NUMBER(10) NOT NULL REFERENCES RESTAURANT(RES_ID)
+    MEMBER_ID VARCHAR2(20 CHAR) NOT NULL REFERENCES MEMBER(MEMBER_ID) on delete cascade, 
+    RES_ID NUMBER(10) NOT NULL REFERENCES RESTAURANT(RES_ID) on delete cascade
 );
 
 CREATE TABLE RECOMMEND(
     RECOMMEND_ID NUMBER(10) PRIMARY KEY,
-    MEMBER_ID VARCHAR2(20 CHAR) NOT NULL REFERENCES MEMBER(MEMBER_ID),
-    REVIEW_ID NUMBER(5) REFERENCES REVIEW(REVIEW_ID)
+    MEMBER_ID VARCHAR2(20 CHAR) NOT NULL REFERENCES MEMBER(MEMBER_ID) on delete cascade,
+    REVIEW_ID NUMBER(5) REFERENCES REVIEW(REVIEW_ID) on delete cascade
 );
 
 
 select * from restaurant;
 delete from restaurant;
 ----------시퀀스
-
+drop sequence review_seq
 CREATE SEQUENCE REVIEW_SEQ 
 START WITH 1
 INCREMENT BY 1
 NOCACHE; 
-
+drop sequence bookmark_seq
 CREATE SEQUENCE BOOKMARK_SEQ 
 START WITH 1
 INCREMENT BY 1
 NOCACHE; 
-
+drop sequence recommend_seq
 CREATE SEQUENCE RECOMMEND_SEQ 
 START WITH 1
 INCREMENT BY 1
 NOCACHE; 
-
-
 
 
 

@@ -36,12 +36,11 @@ public class IdCheckServlet extends HttpServlet {
 		boolean result;
 		try {
 			result = service.idCheck(memberID);
-			if(result)
-			 out.print("이미사용중입니다.");
-			else
-			 out.print("사용가능합니다.");
+			if(result) {
+			 out.print("이미사용중입니다.");}
+			else {
+			 out.print("사용가능합니다.");}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

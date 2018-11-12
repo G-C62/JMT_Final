@@ -18,7 +18,7 @@ public class SignupController implements Controller {
    @Override
    public ModelAndView execute(HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException {
-      String url = "errorView/error.jsp";
+      
       ModelAndView mv = new ModelAndView();
 
       // 전송된 데이터 받기
@@ -30,16 +30,21 @@ public class SignupController implements Controller {
       String phone3 = request.getParameter("phone3");
       String gender = request.getParameter("gender");
       String email = request.getParameter("email");
+      System.out.println(memberID);
+      System.out.println(password);
+      System.out.println(name);
+      
+      System.out.println(gender);
+      System.out.println(email);
       
       String phone = phone1+"-"+phone2+"-"+phone3; 
-      
+      System.out.println(phone);
       System.out.println(gender);
       try {
          // 유효성 체크...
          if (memberID == null || memberID.equals("") || password == null || password.equals("") || name == null
                || name.equals("") || phone1 == null || phone1.equals("") || phone2 == null
-               || phone2.equals("") || phone3.equals("") || phone3.equals("") || gender.equals("") || gender.equals("") 
-               || email.equals("") || email.equals("")) {
+               || phone2.equals("") || phone3==null || phone3.equals("") || email==null || email.equals("")) {
             throw new SQLException("입력값이 충분하지 않습니다.");
          }
          
@@ -50,7 +55,6 @@ public class SignupController implements Controller {
          ms.insert(memberDTO);
          
          
-      // url = "indexEx.html"; 
        mv.setRedirect(true);
        mv.setPath("seongho_view/indexEx.jsp");
 

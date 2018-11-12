@@ -84,7 +84,7 @@ public class MemberDAOImpl implements MemberDAO {
 		  boolean result=false;
 		  try {
 		   con=DbUtil.getConnection();
-		   ps = con.prepareStatement("select id from member where id=?");
+		   ps = con.prepareStatement("select MEMBER_ID from member where MEMBER_ID=?");
 		   ps.setString(1, id);
 		   rs = ps.executeQuery();
 		   if(rs.next()){

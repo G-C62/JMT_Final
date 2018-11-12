@@ -1,26 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <div class="modal-header">
 	<h4 class="modal-title">회원가입하기</h4>
 	<button type="button" class="close" data-dismiss="modal">&times;</button>
 </div>
-<!-- 모달에서 ajax사용하는게 달라 코드만 작성
-프론트 쪽에서 확인 해주어야함 -->
 <script type="text/javascript">
- $("#memberID").keyup(function(){
-        	$.ajax({
-        		url: "../idCheckServlet" , // 서버요청주소
-        		type: "post", //get or post요청방식
-        		dataType: "text" , //서버가보내오는 데이터타입(text,html,json,xml)
-        		data:"id="+ $(this).val(), //서버에게 보내는 parameter정보
-        		success: function(result){//중복, 사용가능
-        			alert(result);
-        			$("#idCheck").val("");
-        			$("#idCheck").val(result);
-        		} ,
-        		error: function(err){
-        			alert(err+"=> 예외발생...");
-        		}
-        	});
-        }) 
+$(function(){
+	$("#memberID").keyup(function(){
+    	$.ajax({
+    		url: "../idCheckServlet" , // 서버요청주소
+    		type: "post", //get or post요청방식
+    		dataType: "text" , //서버가보내오는 데이터타입(text,html,json,xml)
+    		data:"id="+ $(this).val(), //서버에게 보내는 parameter정보
+    		success: function(result){//중복, 사용가능
+    			
+    			$("#idCheck").val("");
+    			re=result
+    			$("#idCheck").val(result);
+    		} ,
+    		error: function(err){
+    			alert(err+"=> 예외발생...");
+    		}
+    	});
+    }) 
+})
+ 
+function checkValid(){
+	 if(re=="이미사용중입니다."||re==""){
+		 alert("아이디를 다시 입력해주세요");
+		 $("#memberID").val("");
+		 $("#memberID").focus();
+		 return false;
+	 }
+ }
 </script>
 <!-- Modal body -->
 <div class="modal-body">
@@ -50,7 +63,7 @@
 					
 				</td>
 				<td width="450" height="20"><b><span
-						style="font-size: 9pt;"> <input type=text name="memberID" 
+						style="font-size: 9pt;"> <input type=text name="memberID" id="memberID"
 							size="20" maxlength="15">
 							<input type="text" id="idCheck" value="아이디 중복체크" ></span></b></td>
 				

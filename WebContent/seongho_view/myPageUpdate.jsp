@@ -10,6 +10,7 @@
 <script type="text/javascript">
 $(function(){
 	re ="";
+
  $("#password").keyup(function(){
         	 $.ajax({
          		url: "passCheckServlet" , // 서버요청주소
@@ -42,6 +43,7 @@ $(function(){
          	});
          });
 })
+	
 function checkValid(){
 	if(re=="비밀번호가 일치하지 않습니다"||re==""){
 		return false;
@@ -74,11 +76,12 @@ function checkValid(){
 					<td width="150" height="20">
 						<p align="right">
 							<b><span style="font-size: 9pt;">아이디</span></b>
+							<!-- 함수.on -->
 						</p>
 					</td>
 					<td width="450" height="20"><b><span
 							style="font-size: 9pt;"> <input type=text name="memberID"
-								size="20" maxlength="15" value="${memberDTO.getMemberId()}" ></span></b></td>
+								size="20" maxlength="15" value="${memberDTO.getMemberId()}" readonly="readonly"></span></b></td>
 				</tr>
 				<tr>
 					<td width="150" height="20">
