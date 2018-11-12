@@ -5,14 +5,15 @@
 <c:set var="path" value="${pageContext.request.contextPath}" scope="application"/>
 
 <link rel="stylesheet" href="${path}/css/style.css">
-
-제목 : ${requestScope.list[0].reviewTitle }
+<style>
+	.resImg{width:50px; height:50px}
+</style>
 
 <table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white" bordercolorlight="black">
 <caption>내가 쓴 리뷰 보기</caption>
 	<colgroup>
+		<col width="20%"/>
 		<col width="15%"/>
-		<col width="30%"/>
 		<col width="16%"/>
 		<col width="16%"/>
 		<col width="7%"/>
@@ -21,9 +22,18 @@
 	</colgroup>
 	<tr>
         <td bgcolor="#00cc00">
-            <p align="center">
-            <font color="white"><b><span style="font-size:9pt;">리뷰아이디</span></b></font></p>
+            <p align="center"><font color="white"><b><span style="font-size:9pt;">상호 이름</span></b></font></p>
         </td>
+        <td bgcolor="#00cc00">
+            <p align="center"><font color="white"><b><span style="font-size:9pt;">이미지1</span></b></font></p>
+        </td>
+        <td bgcolor="#00cc00">
+            <p align="center"><font color="white"><b><span style="font-size:9pt;">이미지2</span></b></font></p>
+        </td>
+        <td bgcolor="#00cc00">
+            <p align="center"><font color="white"><b><span style="font-size:9pt;">이미지3</span></b></font></p>
+        </td>
+        
         <td bgcolor="#00cc00">
             <p align="center"><font color="white"><b><span style="font-size:9pt;">리뷰제목</span></b></font></p>
         </td>
@@ -37,24 +47,13 @@
         <td bgcolor="#00cc00">
             <p align="center"><font color="white"><b><span style="font-size:9pt;">멤버 아이디</span></b></font></p>
         </td>
-        <td bgcolor="#00cc00">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">상호 아이디</span></b></font></p>
-        </td>
-        <td bgcolor="#00cc00">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">상호 이름</span></b></font></p>
-        </td>
-        <td bgcolor="#00cc00">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">이미지1</span></b></font></p>
-        </td>
-        <td bgcolor="#00cc00">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">이미지2</span></b></font></p>
-        </td>
+       
         
         <td bgcolor="#00cc00">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">이미지3</span></b></font></p>
+            <p align="center"><font color="white"><b><span style="font-size:9pt;">좋아요</span></b></font></p>
         </td>
         <td bgcolor="#00cc00">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">좋아요</span></b></font></p>
+            <p align="center"><font color="white"><b><span style="font-size:9pt;">좋아요 갯수</span></b></font></p>
         </td>
     </tr>
     
@@ -70,10 +69,24 @@
 	<c:forEach items="${requestScope.list}" var="reviewDTO">
 		    <tr onmouseover="this.style.background='#eaeaea'"
 		        onmouseout="this.style.background='white'">
-
+					
+					
+		         <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            <a href="${pageContext.request.contextPath}/jmt?command=review.read&reviewId=${reviewDTO.reviewId}">
+		            ${reviewDTO.resName}</span></p>
+		        </td>
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
-		            ${reviewDTO.reviewId}</span></p>
+		            <img class = 'resImg' src='${reviewDTO.reviewImg1}'></span></p>
+		        </td>
+		        <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            <img class = 'resImg' src='${reviewDTO.reviewImg2}'></span></p>
+		        </td>
+		        <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            <img class = 'resImg' src='${reviewDTO.reviewImg3}'></span></p>
 		        </td>
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
@@ -91,29 +104,13 @@
 		            <p align="center"><span style="font-size:9pt;">
 		            ${reviewDTO.memberId}</span></p>
 		        </td>
-		        <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
-		            ${reviewDTO.resId}</span></p>
-		        </td>
-		        <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
-		            ${reviewDTO.resName}</span></p>
-		        </td>
-		        <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
-		            ${reviewDTO.reviewImg1}</span></p>
-		        </td>
-		        <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
-		            ${reviewDTO.reviewImg2}</span></p>
-		        </td>
-		        <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
-		            ${reviewDTO.reviewImg3}</span></p>
-		        </td>
-		        <td bgcolor="">
+		       <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
 		            ${reviewDTO.reviewIsLike}</span></p>
+		        </td>
+		        <td bgcolor="">
+		            <p align="center"><span style="font-size:9pt;">
+		            ${reviewLikeAmountMap[reviewDTO.reviewId] }</span></p>
 		        </td>
 		        
 		    </tr>
@@ -123,4 +120,3 @@
 </table>
 <hr>
 <div align=right>
-<span style="font-size:9pt;">&lt;<a href="${path}/reviewView/reviewWrite.html">리뷰등록하기</a>&gt;</span></div>

@@ -11,6 +11,10 @@ public interface ReviewService {
 	 * */
 	List<ReviewDTO> myReviewSelectAll(String id) throws SQLException;
 	
+	/**
+	 * 리뷰 좋아요 수 가져오기
+	 * */
+	int reviewLikeAmount(int reviewId) throws SQLException;
 	
 	/**
 	 * 리뷰 작성
@@ -23,7 +27,12 @@ public interface ReviewService {
 	int reivewUpdate(ReviewDTO reviewDTO) throws SQLException;
 	
 	/**
+	 * 리뷰 하나 가져오기
+	 * */
+	ReviewDTO selectByReviewId(int reviewId) throws SQLException;
+	
+	/**
 	 * 리뷰 삭제
 	 * */
-	int reviewDelete(int reviewID) throws SQLException;
+	int reviewDelete(int reviewId) throws SQLException;
 }
