@@ -44,7 +44,7 @@ header{float: left; width:100%}
 .small-top .social-icon a {border-left: 1px solid #2b2b2b; color: #ca1b1b; float: left; padding: 6px 13px;}
 .small-top .social-icon a:last-child {border-right: 1px solid #2b2b2b;}
 .small-top .social-icon a:hover {color:#FD3A13; text-decoration: none;}
-.small-top .date-sec {font-size: 13px; font-weight: 600; float: left; margin-top: 4px; padding-left: 0; color: #898989}
+.small-top .date-sec {font-size: 13px; font-weight: 600; float: left; margin-top: 2px; padding-left: 0; color: #898989}
 .top-head{width: 100%; float: left; height: 400px;}
 .top-head h1 {color: #fff; font-size: 36px; font-weight: 600; margin: 1px 0 0;}
 .top-head small{float: left; width: 100%; font-size: 14px; color: #c0c0c0; margin-top: 5px; margin-left: 5px;}

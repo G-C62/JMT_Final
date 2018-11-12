@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div class="modal-header">
 	<h4 class="modal-title">회원가입하기</h4>
 	<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -5,16 +6,16 @@
 
 <!-- Modal body -->
 <div class="modal-body">
-	<form name="writeForm" method="post" action="../jmt?command=signup"
-		onSubmit='return checkValid()'>
+	<form name="writeForm" method="post" action="../elec?command=insert"
+		onSubmit='return checkValid()' enctype="multipart/form-data">
 
 		<table align="center" cellpadding="5" cellspacing="2" width="600"
-			border="1">
+			border="2px">
 
 			<tr>
-				<td width="1220" height="20" colspan="2" bgcolor="#00cc00">
+				<td width="1220" height="20" colspan="2" bgcolor="pink">
 					<p align="center">
-						<font color="white" size="3"><b> 회원가입 </b></font>
+						<font color="black" size="3"><b> 회원가입 </b></font>
 					</p>
 				</td>
 			</tr>
@@ -39,7 +40,7 @@
 				</td>
 				<td width="450" height="20"><b><span
 						style="font-size: 9pt;"> <input type=password
-							name="password" size="20"></span></b></td>
+							name="password" size="20">(15자 이내로 입력해주세요)</span></b></td>
 			</tr>
 			<tr>
 				<td width="150" height="20">
@@ -58,9 +59,8 @@
 					</p>
 				</td>
 				<td width="450" height="20"><b><span
-						style="font-size: 9pt;"> <input type="text" size="10" name="phone1">-
-				<input type="text" size="10" name="phone2">-
-				<input type="text" size="10" name="phone3"></span></b></td>
+						style="font-size: 9pt;"> <input type="text" size="10">-<input
+							type="text" size="10">-<input type="text" size="10"></span></b></td>
 			</tr>
 
 			<tr>
@@ -71,8 +71,8 @@
 				</td>
 				<td width="450" height="20"><b><span
 						style="font-size: 9pt;"> <input type="radio" name="gender"
-							value="남"> 남 <input type="radio" name="gender"
-							value="여" checked> 여
+							value="man"> 남 <input type="radio" name="gender"
+							value="woman" checked> 여
 					</span></b></td>
 			</tr>
 
@@ -83,8 +83,8 @@
 					</p>
 				</td>
 				<td width="450" height="20"><b><span
-						style="font-size: 9pt;"> <input type="email"
-							name="email" size="30">
+						style="font-size: 9pt;"> <input type=password
+							name="password" size="30">
 					</span></b></td>
 			</tr>
 			<tr>
@@ -93,7 +93,7 @@
 							<input type=reset value=다시쓰기></span></b></td>
 			</tr>
 		</table>
-`
+
 	</form>
 
 </div>
