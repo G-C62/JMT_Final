@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,7 +81,23 @@
 <body>
 <%@ include file="mainTop.jsp" %>
 	<section id=search>
-		<div>
+	
+	
+	
+	<a href="${pageContext.request.contextPath}/jmt?command=restaurant.selectFive">5개씩 가져오기</a>
+		<br>
+		<c:forEach items="${RestaurantFiveSelect}" var="Five" varStatus = "state">
+  			<div style="float:left; padding-left:10%">
+     			<img src='${Five.reviewImg1}' width=200><br>
+    			<span> ${Five.resName}</span>
+    		</div>
+ 		</c:forEach>
+ 
+ 
+ 
+ 
+	
+		<!-- <div>
 			<h3>한식 추천메뉴</h3>
 		</div>
 		<div class="row" style="padding-left:50px">
@@ -232,7 +249,7 @@
 				<img src="../img/media-9.jpg" class="bestFiveImg">
 			</div>
 			<a href="#">+더보기</a>
-		</div>
+		</div> -->
 		
 	</section>
 
