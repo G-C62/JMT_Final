@@ -2,6 +2,7 @@ package jmt.mvc.model.dao;
 
 import java.sql.SQLException;
 
+
 import java.util.List;
 
 import org.eclipse.jdt.internal.compiler.ast.ThrowStatement;
@@ -45,7 +46,17 @@ public interface RestaurantDAO {
 	 * 즐겨찾기 등록
 	 * */
 	int insertBookMark(int resId, String memberId) throws SQLException;
+	
+	/**
+	 * 즐겨찾기 삭제
+	 * */
+	int deleteBookMark(int resId, String memberId) throws SQLException;
 
+	/**
+	 * 즐겨찾기 여부
+	 * */
+	boolean bookMarkYesOrNo (int resId, String memberId) throws SQLException;
+	
 	/**
 	 * 호수 - 메인 검색바에서 음식점 검색할 때 자동완성기능
 	 * */
@@ -70,6 +81,32 @@ public interface RestaurantDAO {
 	 * 상세보기에서 음식점 사진들 보기
 	 * */
 	List<String> selectImgFromReview (int resId) throws SQLException;
+
+
+	/**
+	 * 리뷰 좋아요 수 가져오기
+	 * */
+	int reviewLikeAmount(int reviewId) throws SQLException;
+
+	/**
+	 * 리뷰 좋아요 하기
+	 * */
+	int insertRecommend(int reviewId, String memberId) throws SQLException;
+	
+	/**
+	 * 리뷰 좋아요 취소
+	 * */
+	int deleteRecommend(int reviewId, String memberId) throws SQLException;
+
+	/**
+	 * 리뷰 좋아요 여부
+	 * */
+	boolean reviewLikeYesOrNo(int reviewId, String memberId) throws SQLException;
+	
+	/**
+	 * 리뷰id로 리뷰 하나 가져오기
+	 * */
+	ReviewDTO selectReviewById(int reviewId) throws SQLException;
 
 	/**
 	 * 호수 - 메인페이지에 띄워줄 카테고리별 음식점 5곳 찾아오기

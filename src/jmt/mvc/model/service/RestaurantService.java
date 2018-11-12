@@ -45,6 +45,16 @@ public interface RestaurantService
 	int insertBookMark(int resId, String memberId) throws SQLException;
 	
 	/**
+	 * 즐겨찾기 삭제
+	 * */
+	int deleteBookMark(int resId, String memberId) throws SQLException;
+	
+	/**
+	 * 즐겨찾기 여부
+	 * */
+	boolean bookMarkYesOrNo (int resId, String memberId) throws SQLException;
+	
+	/**
 	 * 상세보기에서 리뷰보기 - 최신순
 	 * */
 	List<ReviewDTO> recentOrderReview(int resId) throws SQLException;
@@ -62,7 +72,27 @@ public interface RestaurantService
 	/**
 	 * 상세보기에서 음식점 사진들 보기
 	 * */
-	List<String> selectImgFromReview(int resId) throws SQLException;;
+	List<String> selectImgFromReview(int resId) throws SQLException;
+
+	/**
+	 * 리뷰 좋아요 수 가져오기
+	 * */
+	int reviewLikeAmount(int reviewId) throws SQLException;
+
+	/**
+	 * 리뷰 좋아요 하기
+	 * */
+	int insertRecommend(int reviewId, String memberId) throws SQLException;
+	
+	/**
+	 * 리뷰 좋아요 취소
+	 * */
+	int deleteRecommend(int reviewId, String memberId) throws SQLException;
+
+	/**
+	 * 리뷰 좋아요 여부
+	 * */
+	boolean reviewLikeYesOrNo(int reviewId, String memberId) throws SQLException;
 
 	
 }

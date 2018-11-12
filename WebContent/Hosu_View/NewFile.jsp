@@ -45,7 +45,6 @@
  		});
 		
 	});
-	
 </script>	
 </head>
 <body>
@@ -54,13 +53,22 @@
 	<input type="text" maxlength="10" name="keyWord" id="keyWord"/>
 	<input type="button" value="검색"/>
 </form>
-<div id="suggest"></div>
 <!--제시어 단어 출력부분 -->
+<div id="suggest"></div>
+
+
+
 <a href="${pageContext.request.contextPath}/jmt?command=restaurant.selectFive">5개씩 가져오기</a>
+<br>
 <c:forEach items="${RestaurantFiveSelect}" var="Five" varStatus = "state">
-    <br>
-    음식점 이름 : ${Five.resName}<br>
-    음식점 사진 : <img src='${Five.reviewImg1 }'>
+	
+  	<div style="float:left; padding-left:10%">
+     <img src='${Five.reviewImg1}' width=200><br>
+    <span> ${Five.resName}</span>
+    </div>
  </c:forEach>
+ 
+ 
+ 
 </body>
 </html>

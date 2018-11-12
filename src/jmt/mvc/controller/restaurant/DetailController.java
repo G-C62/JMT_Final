@@ -2,7 +2,9 @@ package jmt.mvc.controller.restaurant;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -31,6 +33,12 @@ public class DetailController implements Controller
 		
 		//전송된 데이터 받기
 		int resId = Integer.parseInt(request.getParameter("resId"));
+		//합쳐지면 세션or application에서 받아와야 함
+	    String memberId = "aaa";
+	    
+	    //리뷰 좋아요를 위한 map
+	    Map<Integer, Integer> reviewLikeAmountMap = new HashMap<>();
+	    Map<Integer, Boolean> reviewLikeYesOrNoMap = new HashMap<>();
 		
 		try
 		{	
@@ -43,15 +51,45 @@ public class DetailController implements Controller
 			
 			RestaurantService service  = new RestaurantServiceImpl();
 			
+			//음식점 부분정보 가져오기
 			RestaurantDTO partialDetail =  service.selectById(resId);
+			
+			//해당 음식점의 리뷰들 list로 가져오기
 			List<ReviewDTO> reviewList = service.recentOrderReview(resId);
+			
+			//음식점의 누적 좋아요 수 가져오기
 			int resLikeAcc = service.resLikeAcc(resId);
 			
+			//내가 이 음식점 좋아요 했는지에 대한 여부
+			boolean bookMarkYesOrNo = service.bookMarkYesOrNo(resId, memberId);		
+			
+			//해당 음식점 리뷰에 등록된 모든 사진 가져오기
 			List<String> imgList = service.selectImgFromReview(resId);
+			
 
 			if (reviewList == null || reviewList.size() == 0)
 			{
 				request.setAttribute("reviewEmpthMsg", "이 음식점에는 아직 리뷰가 없어요. 리뷰를 작성해 주세요!");
+			}else
+			{
+				int reviewId = 0;
+				int reviewLikeAmount = 0;
+				boolean reviewLikeYesOrNo = false;
+				
+				for(ReviewDTO review:reviewList)
+				{	
+					reviewId = review.getReviewId();
+					
+					//리뷰마다 좋아요가 몇 개 눌렸는지 가져오기
+					reviewLikeAmount = service.reviewLikeAmount(reviewId);
+					
+					//내가 이 리뷰를 좋아요 했었는지 가져오기
+					reviewLikeYesOrNo = service.reviewLikeYesOrNo(reviewId, memberId);
+					
+					//각자 map에 넣어서 앞 단에서 따로 reviewList와 함께 print
+					reviewLikeAmountMap.put(reviewId, reviewLikeAmount);
+					reviewLikeYesOrNoMap.put(reviewId, reviewLikeYesOrNo);
+				}
 			}
 
 			if (imgList == null || imgList.size() == 0)
@@ -65,6 +103,10 @@ public class DetailController implements Controller
 			request.setAttribute("reviewList", reviewList);
 			request.setAttribute("resLikeAcc", resLikeAcc);
 			request.setAttribute("imgList", imgList);
+			request.setAttribute("bookMarkYesOrNo", bookMarkYesOrNo);
+			request.setAttribute("memberId", memberId);
+			request.setAttribute("reviewLikeAmountMap", reviewLikeAmountMap);
+			request.setAttribute("reviewLikeYesOrNoMap", reviewLikeYesOrNoMap);
 			
 			url = "restaurantDetail/detail.jsp";
 			

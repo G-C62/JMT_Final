@@ -2,6 +2,37 @@ select * from REVIEW where member_id = 'aaa';
 select review_img1, review_img2, review_img3 from review where res_id='25398530';
 select * from review where res_id = '25398530';
 
+select * from recommend;
+select count(*) from recommend where review_id=3;
+select * from recommend where review_id=3;
+select * from recommend where review_id=1 and member_id = 'aaa';
+delete from recommend where review_id=5 and member_id = 'aaa';
+
+-----------------------------------------------------------------------------------
+select restaurant.res_category, restaurant.res_name, count(*)
+from review join RESTAURANT on review.res_name = RESTAURANT.res_name
+where REVIEW_ISLIKE='true'
+group by restaurant.res_category, restaurant.res_name
+order by count(*) desc
+
+
+select review.review_id, count(*)
+from recommend join review on review.review_id = recommend.review_id
+where review.res_id='25398530'
+group by review.review_id
+order by count(*) desc
+
+select review.review_id
+,count(*)
+from recommend join review on review.review_id = recommend.review_id
+where review.res_id='25398530'
+group by review.review_id
+order by count(*) desc
+
+
+, review.review_contents,
+review.review_date, review.member_id, review.res_id, review.res_name, 
+review.review_img1, review.review_img2, review.review_img3, review.review_islike
 -----------------------------------------------------------------------------------
 select * from bookmark;
 
@@ -27,6 +58,18 @@ update review set review_img3 = 'reviewPics/8R5A237520º¸Á¤.jpg' where review_id 
 update review set review_img1 = '';
 update review set review_img2 = '';
 update review set review_img3 = '';
+
+----------------------------------------------------------------------------------------------
+
+
+select * from bookmark;
+delete from bookmark;
+select * from bookmark where res_id='25398530' and member_id = 'aaa';
+insert into BOOKMARK values(BOOKMARK_SEQ.NEXTVAL, 'aaa', 25398530);
+delete from bookmark where res_id='25398530' and member_id = 'aaa';
+
+
+
 
 ----------------------------------------------------------------------------------------------
 
