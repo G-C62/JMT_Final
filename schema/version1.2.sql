@@ -9,6 +9,8 @@ select * from recommend where review_id=3;
 select * from recommend where review_id=1 and member_id = 'aaa';
 delete from recommend where review_id=5 and member_id = 'aaa';
 
+
+delete from review where res_id = '25398530' and review_id=45;
 -----------------------------------------------------------------------------------
 select restaurant.res_category, restaurant.res_name, count(*)
 from review join RESTAURANT on review.res_name = RESTAURANT.res_name
@@ -30,10 +32,15 @@ where review.res_id='25398530'
 group by review.review_id
 order by count(*) desc
 
-
-, review.review_contents,
-review.review_date, review.member_id, review.res_id, review.res_name, 
-review.review_img1, review.review_img2, review.review_img3, review.review_islike
+insert into review *  values (REVIEW_SEQ.NEXTVAL,'추천', '정말 추천!', 
+ sysdate, 'aaa', 25398530, '봉우리한정식', 'true');
+         
+insert into review values (REVIEW_SEQ.NEXTVAL,'추천', '정말 추천!', 
+ sysdate, 'aaa', 25398490,'라파스타','reviewPics/170817-4.jpg', 
+ 'reviewPics/170812-2.jpg', 'reviewPics/170829-1.jpg', 'true');
+ 
+ insert into review values (REVIEW_SEQ.NEXTVAL,'추천', '정말 추천!', 
+ sysdate, 'aaa',25396526,'최고야전국5대짬뽕', 'reviewPics/8R5A237520보정.jpg',null,null, 'true');
 -----------------------------------------------------------------------------------
 
 update review set review_img1 = 'reviewPics/1.jpg' where review_id = '1';

@@ -34,5 +34,9 @@ public interface ReviewService {
 	/**
 	 * ∏Æ∫‰ ªË¡¶
 	 * */
-	int reviewDelete(int reviewId) throws SQLException;
+
+	int reviewDelete(int reviewID) throws SQLException;
+	
+	
+
 }

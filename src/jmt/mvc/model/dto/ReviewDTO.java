@@ -1,4 +1,5 @@
 
+
 package jmt.mvc.model.dto;
 
 public class ReviewDTO
@@ -31,7 +32,6 @@ public class ReviewDTO
 			String resName)
 	{
 
-
 		this.reviewId = reviewId;
 		this.reviewTitle = reviewTitle;
 		this.reviewContents = reviewContents;
@@ -56,10 +56,19 @@ public class ReviewDTO
 		this.reviewIsLike = reviewIsLike;
 	}
 
+	public ReviewDTO(String reviewTitle, String reviewContents, String memberId, int resId, String resName,
+			String reviewIsLike)
+	{
+		this.reviewTitle = reviewTitle;
+		this.reviewContents = reviewContents;
+		this.memberId = memberId;
+		this.resId = resId;
+		this.resName = resName;
+		this.reviewIsLike = reviewIsLike;
+	}
 
 	public String getReviewDate()
 	{
-
 		return reviewDate;
 	}
 
@@ -103,7 +112,6 @@ public class ReviewDTO
 		return reviewIsLike;
 	}
 
-
 	public void setReviewIsLike(String reviewIsLike)
 	{
 		this.reviewIsLike = reviewIsLike;
@@ -111,7 +119,6 @@ public class ReviewDTO
 
 	public int getReviewId()
 	{
-
 		return reviewId;
 	}
 
@@ -171,3 +178,4 @@ public class ReviewDTO
 	}
 
 }
+
