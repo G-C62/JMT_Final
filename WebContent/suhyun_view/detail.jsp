@@ -164,8 +164,9 @@ $(document).ready(function(){
   
 	
 	${requestScope.bookMarkYesOrNo}<br>
-	-------------------------------------------------
-	
+	-------------------------------------------------<br>
+	<input type=button value="리뷰쓰기" 
+	onClick="location.href='suhyun_view/reviewWrite.jsp?resId=${requestScope.partialDetail.resId}&resName=${requestScope.partialDetail.resName}&memberId=${requestScope.memberId}'">
 	
 	
 	
@@ -188,6 +189,7 @@ $(document).ready(function(){
 			리뷰 이미지1 : <img src= '${review.reviewImg1 }' class = 'resImg'> <br>
 			리뷰 이미지2 : <img src= '${review.reviewImg2 }' class = 'resImg'> <br>
 			리뷰 이미지3 : <img src= '${review.reviewImg3 }' class = 'resImg'> <br>
+			음식점 좋아요 여부 : ${review.reviewIsLike}<br>
 			
 			내가 이 댓글을 좋아요 했는지 여부 : 
 			<div id="reviewDiv">

@@ -520,4 +520,44 @@ public class RestaurantDAOImpl implements RestaurantDAO
 
 	}
 
+	@Override
+	public int reivewInsert(ReviewDTO reviewDTO) throws SQLException
+	{
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		int result = 0;
+		String sql = "insert into review values (REVIEW_SEQ.NEXTVAL,?, ?, sysdate, ?, ?, ?, ?, ?, ?, ?)";
+		
+		try
+		{
+			// 로드 연결 실행 닫기
+			con = DbUtil.getConnection();
+			ps = con.prepareStatement(sql);
+
+			ps.setString(1, reviewDTO.getReviewTitle());
+			ps.setString(2, reviewDTO.getReviewContents());
+			ps.setString(3, reviewDTO.getMemberId());
+			ps.setInt(4,reviewDTO.getResId());
+			ps.setString(5, reviewDTO.getResName());
+			ps.setString(6, reviewDTO.getReviewImg1());
+			ps.setString(7, reviewDTO.getReviewImg2());
+			ps.setString(8, reviewDTO.getReviewImg3());
+			ps.setString(9, reviewDTO.getReviewIsLike());
+			
+			rs = ps.executeQuery();
+			System.out.println("아아"); 
+			if (rs.next())
+			{
+				result++;
+			}
+
+		} finally
+		{
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return result;
+	}
+
 }

@@ -26,4 +26,6 @@ public interface ReviewService {
 	 * ∏Æ∫‰ ªË¡¶
 	 * */
 	int reviewDelete(int reviewID) throws SQLException;
+	
+	
 }

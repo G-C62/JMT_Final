@@ -55,6 +55,17 @@ public class ReviewDTO
 		this.reviewIsLike = reviewIsLike;
 	}
 
+	public ReviewDTO(String reviewTitle, String reviewContents, String memberId, int resId, String resName,
+			String reviewIsLike)
+	{
+		this.reviewTitle = reviewTitle;
+		this.reviewContents = reviewContents;
+		this.memberId = memberId;
+		this.resId = resId;
+		this.resName = resName;
+		this.reviewIsLike = reviewIsLike;
+	}
+
 	public String getReviewDate()
 	{
 		return reviewDate;

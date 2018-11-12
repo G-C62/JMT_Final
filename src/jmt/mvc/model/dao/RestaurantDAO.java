@@ -104,6 +104,11 @@ public interface RestaurantDAO {
 	 * 리뷰id로 리뷰 하나 가져오기
 	 * */
 	ReviewDTO selectReviewById(int reviewId) throws SQLException;
+
+	/**
+	 * 새로운 리뷰 작성
+	 * */
+	int reivewInsert(ReviewDTO reviewDTO) throws SQLException;
 	
 	
 }

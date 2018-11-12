@@ -94,5 +94,10 @@ public interface RestaurantService
 	 * */
 	boolean reviewLikeYesOrNo(int reviewId, String memberId) throws SQLException;
 
+	/**
+	 * 货肺款 府轰 累己
+	 * */
+	int reivewInsert(ReviewDTO reviewDTO) throws SQLException;
+
 	
 }
