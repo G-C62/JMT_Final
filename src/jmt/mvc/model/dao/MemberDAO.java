@@ -1,17 +1,11 @@
 package jmt.mvc.model.dao;
 
 import java.sql.SQLException;
-
 import java.util.List;
 
-
 import jmt.mvc.model.dto.MemberDTO;
-import jmt.mvc.model.dto.RestaurantDTO;
-import jmt.mvc.model.dto.ReviewDTO;
-
 
 public interface MemberDAO {
-
 	
 	/**
 	 * 로그인 
@@ -25,7 +19,7 @@ public interface MemberDAO {
 	/**
 	 * 삭제하기
 	 * */
-	int delete(String id);
+	int delete(String id) throws SQLException;
 	
 	/**
 	 * 가입(등록)하기
@@ -34,22 +28,25 @@ public interface MemberDAO {
 	int insert(MemberDTO memberDTO) throws SQLException;
 	
 	/**
-	 * 등록할때 필요한 id중복체크
+	 * 성호 - 등록할때 필요한 id중복체크
 	 * @return true이면 중복, false이면 중복아님
 	 * */
-	boolean idCheck(String id);
+	boolean idCheck(String id) throws SQLException;
 	
 	/**
-	 * 수정
+	 * 회원 정보 수정
+	 * 박성호
+	 * - throws처리 완료
 	 * */
-	int update(MemberDTO memberDTO);
-	
+	int update(MemberDTO memberDTO) throws SQLException;
+
 	/**
-	 * 호수 - 내가 즐겨찾기한 음식점(음식점이름, 사진) 가져오기
+	 * 성호 - 아이디로 회원정보 받아오기
 	 * */
-	public List<String> selectBookmarkById(String id) throws SQLException;
-	public List<ReviewDTO> selectReviewByResName(List<String> list) throws SQLException;
+	MemberDTO selectById(String id) throws SQLException;
 
-
-
+	/**
+	 * 성호 - 비밀번호 체크하기 (ajax)
+	 * */
+	String PassCheckDAO(String id) throws SQLException;
 }
