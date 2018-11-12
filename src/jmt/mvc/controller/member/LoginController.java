@@ -26,7 +26,6 @@ public class LoginController implements Controller {
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
 
-		// String url = "errorView/error.jsp";
 		ModelAndView mv = new ModelAndView();
 		MemberDTO dto = new MemberDTO();
 

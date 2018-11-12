@@ -49,8 +49,6 @@ public class SignupController implements Controller {
          
          ms.insert(memberDTO);
          
-         
-      // url = "indexEx.html"; 
        mv.setRedirect(true);
        mv.setPath("mainView/JmtMain.jsp");
 

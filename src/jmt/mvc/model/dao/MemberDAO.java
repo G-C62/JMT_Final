@@ -1,8 +1,6 @@
 package jmt.mvc.model.dao;
 
 import java.sql.SQLException;
-import java.util.List;
-
 import jmt.mvc.model.dto.MemberDTO;
 
 public interface MemberDAO {
@@ -50,3 +48,4 @@ public interface MemberDAO {
 	 * */
 	String PassCheckDAO(String id) throws SQLException;
 }
+

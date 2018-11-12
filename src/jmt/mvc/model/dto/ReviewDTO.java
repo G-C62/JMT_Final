@@ -15,8 +15,9 @@ public class ReviewDTO {
 	
 	public ReviewDTO() {}
 
-	public ReviewDTO(String resName, String reviewImg1) {
+	public ReviewDTO(int resId, String resName, String reviewImg1) {
 		super();
+		this.resId = resId;
 		this.resName = resName;
 		this.reviewImg1 = reviewImg1;
 

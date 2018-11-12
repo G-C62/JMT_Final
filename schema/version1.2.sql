@@ -107,7 +107,44 @@ insert into review (REVIEW_ID, REVIEW_TITLE, REVIEW_CONTENTS,
    REVIEW_DATE, MEMBER_ID, RES_ID, RES_NAME, REVIEW_ISLIKE)  values (REVIEW_SEQ.NEXTVAL,'추천', '정말 추천!', 
          sysdate, 'aaa', 25392296,'야끼화로', 'true');
          
-   
+insert into review (REVIEW_ID, REVIEW_TITLE, REVIEW_CONTENTS, 
+   REVIEW_DATE, MEMBER_ID, RES_ID, RES_NAME, REVIEW_ISLIKE)  values (REVIEW_SEQ.NEXTVAL,'추천', '정말 추천!', 
+         sysdate, 'aaa', 25969522,'가야지', 'true');
+insert into review (REVIEW_ID, REVIEW_TITLE, REVIEW_CONTENTS, 
+   REVIEW_DATE, MEMBER_ID, RES_ID, RES_NAME, REVIEW_ISLIKE)  values (REVIEW_SEQ.NEXTVAL,'추천', '정말 추천!', 
+         sysdate, 'aaa', 25969522,'가야지', 'true');
+insert into review (REVIEW_ID, REVIEW_TITLE, REVIEW_CONTENTS, 
+   REVIEW_DATE, MEMBER_ID, RES_ID, RES_NAME, REVIEW_ISLIKE)  values (REVIEW_SEQ.NEXTVAL,'추천', '정말 추천!', 
+         sysdate, 'aaa', 25969522,'가야지', 'true');
+         
+insert into review (REVIEW_ID, REVIEW_TITLE, REVIEW_CONTENTS, 
+   REVIEW_DATE, MEMBER_ID, RES_ID, RES_NAME, REVIEW_ISLIKE)  values (REVIEW_SEQ.NEXTVAL,'추천', '정말 추천!', 
+         sysdate, 'aaa', 11914658,'가비정', 'true');         
+insert into review (REVIEW_ID, REVIEW_TITLE, REVIEW_CONTENTS, 
+   REVIEW_DATE, MEMBER_ID, RES_ID, RES_NAME, REVIEW_ISLIKE)  values (REVIEW_SEQ.NEXTVAL,'추천', '정말 추천!', 
+         sysdate, 'aaa', 11914658,'가비정', 'true');   
+       
+insert into review (REVIEW_ID, REVIEW_TITLE, REVIEW_CONTENTS, 
+   REVIEW_DATE, MEMBER_ID, RES_ID, RES_NAME, REVIEW_ISLIKE)  values (REVIEW_SEQ.NEXTVAL,'추천', '정말 추천!', 
+         sysdate, 'aaa', 12594267,'1466무명', 'true');   
+insert into review (REVIEW_ID, REVIEW_TITLE, REVIEW_CONTENTS, 
+   REVIEW_DATE, MEMBER_ID, RES_ID, RES_NAME, REVIEW_ISLIKE)  values (REVIEW_SEQ.NEXTVAL,'추천', '정말 추천!', 
+         sysdate, 'aaa', 12594267,'1466무명', 'true');            
+insert into review (REVIEW_ID, REVIEW_TITLE, REVIEW_CONTENTS, 
+   REVIEW_DATE, MEMBER_ID, RES_ID, RES_NAME, REVIEW_ISLIKE)  values (REVIEW_SEQ.NEXTVAL,'추천', '정말 추천!', 
+         sysdate, 'aaa', 12594267,'1466무명', 'true');           
+insert into review (REVIEW_ID, REVIEW_TITLE, REVIEW_CONTENTS, 
+   REVIEW_DATE, MEMBER_ID, RES_ID, RES_NAME, REVIEW_ISLIKE)  values (REVIEW_SEQ.NEXTVAL,'추천', '정말 추천!', 
+         sysdate, 'aaa', 12594267,'1466무명', 'true');            
+         
+         
+         
+         
+         
+         
+         
+         
+         
    insert into review (REVIEW_ID, REVIEW_TITLE, REVIEW_CONTENTS, 
    REVIEW_DATE, MEMBER_ID, RES_ID, RES_NAME, REVIEW_ISLIKE)  values (REVIEW_SEQ.NEXTVAL,'비추', '정말 비추!', 
          sysdate, 'bbb', 25398530, '봉우리한정식', 'false');
@@ -230,6 +267,24 @@ insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'eee', 59);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'eee', 61);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'eee', 60);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'eee', 62);
+
+
+select RESTAURANT.RES_NAME, REVIEW.REVIEW_IMG1
+from review RIGHT join RESTAURANT on review.res_name = RESTAURANT.res_name
+WHERE RESTAURANT.RES_CATEGORY like '한식%'
+GROUP BY RESTAURANT.RES_NAME, REVIEW.REVIEW_IMG1
+
+select res_id, res_name, review_img1
+from
+(select RESTAURANT.RES_ID ,RESTAURANT.RES_NAME, REVIEW.REVIEW_IMG1
+from RESTAURANT LEFT join REVIEW on review.res_name = RESTAURANT.res_name
+WHERE RESTAURANT.RES_CATEGORY='한식' and review.review_islike='true'
+GROUP BY RESTAURANT.RES_ID, RESTAURANT.RES_NAME, REVIEW.REVIEW_IMG1
+ORDER BY count(*) desc)
+where rownum<=5
+
+SELECT distinct RES_CATEGORY
+FROM RESTAURANT
 
 
 -------------------------------
