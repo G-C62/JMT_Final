@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <header>
 	<div class="small-top">
 		<div class="container">
@@ -27,8 +29,17 @@
 					<li class="nav-item"><a class="nav-link" href="#">분식</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">양식</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">뷔페/퓨전음식</a></li>
-					<li class="nav-item"><a class="nav-link" href="../subView/favorite.jsp"><img src="../img/favorite.png" id="favoriteImg">즐겨찾기</a></li>
-					<li class="nav-item"><a class="nav-link" href="../memberView/myPage.jsp">마이페이지</a></li>
+					
+					<c:choose>
+						<c:when test="${empty sessionScope.memberID}">
+
+						</c:when>
+						<c:otherwise>
+							<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/subView/favorite.jsp"><img src="../img/favorite.png" id="favoriteImg">즐겨찾기</a></li>
+							<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/memberView/myPage.jsp">마이페이지</a></li>
+						</c:otherwise>
+					</c:choose>
+					
 				</ul>
 			</div>
 		</div>
@@ -43,11 +54,23 @@
 					</h1>
 				</div>
 				<form id="loginFrom">
-					<input type="button" class="btn btn-default" id="login" value="로그인">
+					<c:choose>
+						<c:when test="${empty sessionScope.memberID}">
 
-					<input type="button" class="btn btn-default" id="popbutton" value="회원가입"><br/>
-					<!-- 모달 보여주는 곳  -->
-					
+							<input type="button" class="btn btn-default" id="login"
+								value="로그인">
+							<input type="button" class="btn btn-default" id="popbutton"
+								value="회원가입">
+
+							<br />
+						</c:when>
+						<c:otherwise>
+							<input type="button" class="btn btn-default" id="logout"
+								value="로그아웃">
+						</c:otherwise>
+					</c:choose>
+					<span style="color:white; font-size:25px">${sessionScope.memberID}님 환영합니다.</span>
+
 				</form>
 				<from class="input-group" name="search" id="search">
 					<input type="text" placeholder="search for" class="form-control"  name="keyWord" id="keyWord">

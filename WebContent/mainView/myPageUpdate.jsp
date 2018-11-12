@@ -9,7 +9,8 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 $(function(){
-	 $("#password").keyup(function(){
+	re ="";
+ $("#password").keyup(function(){
         	 $.ajax({
          		url: "../passCheckServlet" , // 서버요청주소
          		type: "post", //get or post요청방식
@@ -39,7 +40,7 @@ function checkValid(){
 
 	<!-- Modal body -->
 	<div class="modal-body">
-		<form name="writeForm" method="post" action="${pageContext.request.contextPath}/jmt?command=member.update"
+		<form name="writeForm" method="post" action="./jmt?command=member.update"
 		onSubmit='return checkValid()'>
 
 			<table align="center" cellpadding="5" cellspacing="2" width="600"
@@ -60,7 +61,7 @@ function checkValid(){
 					</td>
 					<td width="450" height="20"><b><span
 							style="font-size: 9pt;"> <input type=text name="memberID"
-								size="20" maxlength="15" value="${memberDTO.getMemberId()}" readonly="readonly" ></span></b></td>
+								size="20" maxlength="15" value="${memberDTO.getMemberId()} readonly="readonly"" ></span></b></td>
 				</tr>
 				<tr>
 					<td width="150" height="20">

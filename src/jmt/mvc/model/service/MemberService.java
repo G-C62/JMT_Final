@@ -1,11 +1,7 @@
 package jmt.mvc.model.service;
 
 import java.sql.SQLException;
-
-
-import java.util.List;
 import jmt.mvc.model.dto.MemberDTO;
-import jmt.mvc.model.dto.ReviewDTO;
 
 public interface MemberService {
 	/**
@@ -15,8 +11,9 @@ public interface MemberService {
 	
 	/**
 	 * 삭제하기
+	 * 성호 - throws처리 완료
 	 * */
-	int delete(String id);
+	int delete(String id) throws SQLException;
 	
 	/**
 	 * 가입(등록)하기
@@ -24,35 +21,23 @@ public interface MemberService {
 	int insert(MemberDTO memberDTO) throws SQLException;
 	
 	/**
-	 * 등록할때 필요한 id중복체크
+	 * 성호 - 등록할때 필요한 id중복체크
 	 * @return true이면 중복, false이면 중복아님
 	 * */
-	boolean idCheck(String id);
+	boolean idCheck(String id) throws SQLException;
 	
 	/**
 	 * 수정
 	 * */
-	int update(MemberDTO memberDTO);
-	
-	/**
-	 * 호수 - 내가 즐겨찾기한 음식점(음식점이름, 사진) 가져오기
-	 * */
-	List<ReviewDTO> selectBookmarkById(String id) throws SQLException;
+	int update(MemberDTO memberDTO) throws SQLException;
 
 	/**
-	 * 호수 - 메인 검색바에서 음식점 검색할 때 자동완성기능
+	 * 성호 - 아이디로 회원정보 받아오기
 	 * */
-	List<String> autoCompleteRestaurant(String keyWord) throws SQLException ;
+	MemberDTO selectById(String id) throws SQLException;
 
 	/**
-	 * 호수 - 메인페이지에 띄워줄 카테고리별 음식점 5곳 찾아오기
+	 * 성호 - 비밀번호 체크하기 (ajax)
 	 * */
-	List<ReviewDTO> RestaurantFiveSelect() throws SQLException;
-	
-	/**
-	 * 호수 - 음식점 이름으로 해당하는 음식점 사진 가져오기
-	 * */
-	String getReviewImg(String restaurantsName) throws SQLException;
-
-
+	String PassCheckService(String id) throws SQLException;
 }

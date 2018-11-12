@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,17 +11,17 @@
 <meta name="author" content="">
 <title>River Bootstrap 4 Template by Grafreez</title>
 
-<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
-<link href="../css/custom.css" rel="stylesheet">
-<link href="../css/responsive-style.css" rel="stylesheet">
-<link rel="stylesheet" href="../css/font-awesome.min.css" />
-<link href="../css/lightbox.min.css" rel="stylesheet">
-<link rel="stylesheet" href="../css/loaders.css" />
-<link rel="stylesheet" href="../css/main.css">
+<link href="${pageContext.request.contextPath}/css/custom.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/responsive-style.css" rel="stylesheet">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css" />
+<link href="${pageContext.request.contextPath}/css/lightbox.min.css" rel="stylesheet">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/loaders.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main.css">
 
 <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -40,6 +42,9 @@
  		$("#login").click(function() {
 			$('div.modal').load("login.jsp")
 			$('div.modal').modal("show");
+		});
+ 		$("#logout").click(function() {
+			top.location.href = "${pageContext.request.contextPath}/mainView/logout.jsp";
 		});
  		$("#keyWord").keyup(function(){
 			if($(this).val()==""){
@@ -240,9 +245,9 @@
 <%@ include file="footer.jsp" %>
 
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="../js/jquery.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/core.js"></script>
+	<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/core.js"></script>
 	
 </body>
 </html>
