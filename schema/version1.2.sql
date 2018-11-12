@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 select * from REVIEW where member_id = 'aaa';
 select review_img1, review_img2, review_img3 from review where res_id='25398530';
 select * from review where res_id = '25398530';
@@ -321,16 +322,19 @@ insert into member values('aaa', 'aaa', '가가가', '010-1111-1111',
 	'남', 'aaa@gmail.com');
 insert into member values('bbb', 'bbb', '나나나', '010-2222-2222', 
 	'여', 'bbb@gmail.com');
+
 insert into review (REVIEW_ID, REVIEW_TITLE, REVIEW_CONTENTS, 
 	REVIEW_DATE, MEMBER_ID, RES_ID, RES_NAME, REVIEW_ISLIKE) 
 	values (REVIEW_SEQ.NEXTVAL,'맛있어요', '정말 추천해요!', 
 			sysdate, 'aaa', 25398530, '봉우리한정식', 'true');
 insert into review (REVIEW_ID, REVIEW_TITLE, REVIEW_CONTENTS, 
+
 	REVIEW_DATE, MEMBER_ID, RES_ID, RES_NAME, REVIEW_ISLIKE) 
 	values (REVIEW_SEQ.NEXTVAL,'별로에요', '불친절했어요', 
 			sysdate, 'bbb', 25398530, '봉우리한정식', 'false');
 			
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 1);
+
 insert into BOOKMARK values(BOOKMARK_SEQ.NEXTVAL, 'aaa', 25398530);
 
 
@@ -343,6 +347,7 @@ select * from review where res_id=25398530;
 delete from review;
 delete from MEMBER;
 delete from RECOMMEND;
+
 
 drop SEQUENCE RES_SEQ;
 drop SEQUENCE REVIEW_SEQ;

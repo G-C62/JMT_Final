@@ -5,6 +5,7 @@ import java.util.List;
 
 import jmt.mvc.model.dto.ReviewDTO;
 
+
 public interface ReviewDAO {
 	
 	/**
@@ -13,7 +14,16 @@ public interface ReviewDAO {
 	 * */
 	List<ReviewDTO> myReviewSelectAll(String id) throws SQLException;
 	
+	/**
+	 * 리뷰 좋아요 수 가져오기
+	 * */
+	int reviewLikeAmount(int reviewId) throws SQLException;
 	
+	/**
+	   * 리뷰아이디에 해당하는 레코드 검색
+	   * */
+	  ReviewDTO selectByReviewId(int reviewId) throws SQLException;
+	  
 	/**
 	 * 리뷰 작성
 	 * */
@@ -27,7 +37,7 @@ public interface ReviewDAO {
 	/**
 	 * 리뷰 삭제
 	 * */
-	int reviewDelete(int reviewID) throws SQLException;
+	int reviewDelete(int reviewId) throws SQLException;
 	
 	
 	

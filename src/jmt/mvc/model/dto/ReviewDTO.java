@@ -31,6 +31,7 @@ public class ReviewDTO
 			String resName)
 	{
 
+
 		this.reviewId = reviewId;
 		this.reviewTitle = reviewTitle;
 		this.reviewContents = reviewContents;
@@ -55,8 +56,10 @@ public class ReviewDTO
 		this.reviewIsLike = reviewIsLike;
 	}
 
+
 	public String getReviewDate()
 	{
+
 		return reviewDate;
 	}
 
@@ -100,6 +103,7 @@ public class ReviewDTO
 		return reviewIsLike;
 	}
 
+
 	public void setReviewIsLike(String reviewIsLike)
 	{
 		this.reviewIsLike = reviewIsLike;
@@ -107,6 +111,7 @@ public class ReviewDTO
 
 	public int getReviewId()
 	{
+
 		return reviewId;
 	}
 
