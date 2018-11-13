@@ -82,7 +82,7 @@ public class ReviewInsertController implements Controller
 			}
 			
 			int result = restaurantService.reivewInsert(reviewDTO);
-			url = "/jmt?command=detail&resId="+resId;
+			url = "jmt?command=detail&resId="+resId;
 			//mv.setRedirect(true);
 			
 		}catch (Exception e) 

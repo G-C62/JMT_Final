@@ -1,23 +1,9 @@
 <%@ page info="게시판 수정하기" contentType="text/html;charset=UTF-8" %>
-<HTML>
-<HEAD>
 <link rel="stylesheet" href="css/style.css">
 <style>
 	.resImg{width:50px; height:50px}
 </style>
-
-<SCRIPT >
-function checkValid() {
-	var f = window.document.updateForm;
-	
-} 
- 
-</SCRIPT>
-
-</HEAD>
-
-<BODY>
- <form name=updateForm method=post action="${pageContext.request.contextPath}/jmt" onSubmit="return checkValid()">
+ <form name=updateForm method=post action="${pageContext.request.contextPath}/jmt?command=review.selectAll" onSubmit="return checkValid()">
 	<input type="hidden" name="command" value="review.update" >
 	<input type='hidden' name='reviewId' value="${requestScope.reviewDTO.reviewId}">
 	<table align="center" cellpadding="5" cellspacing="1" width="600" border="1">
@@ -78,9 +64,6 @@ function checkValid() {
 		<input type=hidden name="reviewImg2" value="${requestScope.reviewDTO.reviewImg2}">
 		<input type=hidden name="reviewImg3" value="${requestScope.reviewDTO.reviewImg3}">
 </form>
-<hr>
-</BODY>
-</HTML>
 
 
 

@@ -41,12 +41,15 @@ body>div.top-head.left {
 										'.png');
 								flag = 'delete';
 							}
+							console.log("${requestScope.partialDetail.resId}");
+							console.log("${sessionScope.memberID}");
+							console.log(flag);
 							$
 									.ajax({
 										url : "${pageContext.request.contextPath}/BookMarkToggleAjaxServlet", //서버 요청 주소
 										type : "post", //get or post 요청방식
 										dataType : "text", //서버가 보내오는 데이터 타입(text,html,json,xml)
-										data : "resId=${requestScope.partialDetail.resId}&memberId=${requestScope.memberId}&flag="
+										data : "resId=${requestScope.partialDetail.resId}&memberId=${sessionScope.memberID}&flag="
 												+ flag,
 										//아이디를 고정해 주었지만 합치면 application에서 꺼내 와야 함
 										success : function(result) { //0, 1

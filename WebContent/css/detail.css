@@ -117,6 +117,7 @@ a:hover {
 #createReview{
 	float: right;
 	margin:20px;
+	margin-right:400px;
 }
 #reviewAjax{
 	padding-top: 30px;

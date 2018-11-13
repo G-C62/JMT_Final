@@ -25,7 +25,7 @@ public class myPageUpdateController implements Controller {
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		System.out.println("myPageUpdateController »£√‚");
-		String url = "memberView/myPage.jsp";
+		String url = "jmt?command=review.selectAll";
 		
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();

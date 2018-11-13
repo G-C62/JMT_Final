@@ -29,6 +29,7 @@ public class UpdateFormController implements Controller
 
 		try
 		{
+			System.out.println(reviewId);
 			ReviewDTO reviewDTO = reviewService.selectByReviewId(Integer.parseInt(reviewId));
 
 			request.setAttribute("reviewDTO", reviewDTO);

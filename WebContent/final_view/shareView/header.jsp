@@ -4,7 +4,7 @@
 	<div class="row" style="padding-left: 50px;">
 		<div class="col-md-6 col-lg-4">
 			<div
-				onclick="location.href='${pageContext.request.contextPath}/mainView/JmtMain.jsp'"
+				onclick="location.href='${pageContext.request.contextPath}/jmt?command=restaurant.selectFive'"
 				style="cursor: pointer">
 				<h2>
 					#JMT<br> 판교 맛따라 멋따라

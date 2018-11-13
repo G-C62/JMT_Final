@@ -93,7 +93,7 @@ delete from recommend;
 ===================================================================================================================================
 select * from restaurant where res_category like '분식'
 select * from member
-SELECT RES_ID, RES_NAME,REVIEW_IMG1 FROM REVIEW WHERE member_id='aaa'
+SELECT * FROM REVIEW WHERE member_id='aaa'
 ------------- 회원 insert 문 -----------------------
 --회원테이블 insert 10개
 insert into member values('aaa', 'aaa', '장희정', '010-8875-8253', 
@@ -1783,4 +1783,89 @@ insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 231);
 insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 236);
 
 
+
+--------------------------------------------------------------------------
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 242); 
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 244);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 246);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 248);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 250);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 252); 
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 254);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 256);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 258);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 260);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 262); 
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 264);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 266);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 268);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 270);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 272); 
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 274);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 276);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 278);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 280);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 282); 
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 284);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 286);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 288);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 290);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 292); 
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 294);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 296);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 298);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'bbb', 300);
+
+
+
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 242);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 246);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 248);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 252); 
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 254);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 258);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 260);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 264);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 266);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 270);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 272);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 276);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 278);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 282); 
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 284);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 288);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 290); 
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 294);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 296);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ccc', 300);
+
+
+
+
+
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ddd', 246);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ddd', 252);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ddd', 258);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ddd', 264);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ddd', 270);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ddd', 276);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ddd', 282);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ddd', 288); 
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ddd', 294);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'ddd', 300);
+
+
+
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 241);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 246);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 251);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 256);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 261);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 266);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 271);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 276);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 281);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 286);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 291);
+insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 296);
 

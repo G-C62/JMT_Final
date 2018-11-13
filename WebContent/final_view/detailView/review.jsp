@@ -5,6 +5,7 @@
 	background-color: #f6f6f6;
 	padding-left: 240px;
 	float: left;
+	width:100%;
 }
 .form-control {
 	width: 200px;
@@ -31,6 +32,7 @@ table h4{
 	font-weight: bold;
 }
 
+table{width:900px}
 </style>
 
 <div id="reviewFooter">
@@ -59,7 +61,7 @@ table h4{
 			<table>
 				<tr>
 					<th colspan="3"><h4>${review.reviewTitle} </h4></th>
-					<th style="padding-left: 300px">
+					<th style="padding-left: 409px">
 						<div id="reviewDiv">
 							<c:choose>
 								<c:when test="${reviewLikeYesOrNoMap[review.reviewId]==false}">

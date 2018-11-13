@@ -26,7 +26,7 @@
 </head>
 <body>
 	<div class="pageTitle">
-		<h3>내가 쓴 리뷰</h3>
+		<h3 style="padding-top: 450px; font-weight: bold;">내가 쓴 리뷰</h3>
 	</div>
 
 	<section>
@@ -34,7 +34,7 @@
 		<c:choose>
 			<c:when test="${empty requestScope.list}">
 				
-				<b><span style="font-size: 9pt;">등록된 상품이 없습니다.</span></b>
+				<b><span style="font-size: 9pt;">등록된 리뷰가 없습니다.</span></b>
 						
 			</c:when>
 			<c:otherwise>
@@ -81,7 +81,7 @@
 									<!-- 좋아요 기능 완료시 추가 -->
 									<span>좋아요 ${reviewLikeAmountMap[review.reviewId]}</span>
 								</div>
-								<button type="button" class="btn btn-primary" onclick='location.href="${path}/jmt?command=review.updateForm&reviewId=${review.reviewId}"'>수정하기</button>
+								<button type="button" class="btn btn-primary" onclick='location.href="${path}/jmt?command=review.read&reviewId=${review.reviewId}"'>수정하기</button>
 							</div>
 							<div class="listText">
 								<p>${review.reviewContents}</p> <span>${review.reviewDate}</span>

@@ -74,7 +74,7 @@ $(function(){
 						</c:when>
 						<c:otherwise>
 							<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/jmt?command=member.myBookmark"><img src="${pageContext.request.contextPath}/img/favorite.png" id="favoriteImg">즐겨찾기</a></li>
-							<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/memberView/myPage.jsp">마이페이지</a></li>
+							<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/jmt?command=review.selectAll">마이페이지</a></li>
 						</c:otherwise>
 					</c:choose>
 					

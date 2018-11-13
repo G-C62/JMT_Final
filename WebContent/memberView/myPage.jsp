@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
 <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
@@ -41,15 +41,15 @@ h2{color:#fff;font-size:40px;font-weight:600}
 		<div class="row" style="padding-left:50px;">
 			<div class="col-md-6 col-lg-4">
 				<div onclick="location.href='${pageContext.request.contextPath}/jmt?command=restaurant.selectFive'" style="cursor:pointer">
-					<h1>#JMT<br> ÆÇ±³ ¸Àµû¶ó ¸Úµû¶ó</h1><br><br><br>
+					<h1>#JMT<br> íŒêµ ë§›ë”°ë¼ ë©‹ë”°ë¼</h1><br><br><br>
 				</div>
 				<div style="float: left;margin-top: -19px;">
-				<h2>³ªÀÇ Á¤º¸ ¼öÁ¤ÇÏ±â</h2>
+				<h2>ë‚˜ì˜ ì •ë³´ ìˆ˜ì •í•˜ê¸°</h2>
 				</div>
 				<div style="float: right;">
-				<input type="button" class="btn btn-default" id="update" value="È¸¿øÁ¤º¸¼öÁ¤">
+				<input type="button" class="btn btn-default" id="update" value="íšŒì›ì •ë³´ìˆ˜ì •">
 				<input type="button" class="btn btn-default" id="delete"
-				value="È¸¿øÅ»Åğ" onclick="location.href='${pageContext.request.contextPath}/jmt?command=member.delete'">
+				value="íšŒì›íƒˆí‡´" onclick="location.href='${pageContext.request.contextPath}/jmt?command=member.delete'">
 				</div>
 			</div>
 		</div>
@@ -62,7 +62,7 @@ h2{color:#fff;font-size:40px;font-weight:600}
 			</div>
 		</div>
 	</div>
-	
+	<%@include file="../final_view/reviewView/myReview.jsp" %>
 	<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 	<script src="${pageContext.request.contextPath}/js/core.js"></script>

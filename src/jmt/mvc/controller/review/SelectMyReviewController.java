@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import jmt.mvc.controller.Controller;
 import jmt.mvc.controller.ModelAndView;
@@ -24,10 +25,11 @@ public class SelectMyReviewController implements Controller
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
-		String url = "final_view/reviewView/myReview.jsp"; // default로
+		String url = "memberView/myPage.jsp"; // default로
 		//String url = "jihye_View/reviewView.jsp"; 
-		String memberId = "aaa";
-
+		//String memberId = "aaa";
+		HttpSession session = request.getSession();
+		String memberId = (String) session.getAttribute("memberID");
 		// 리뷰 좋아요를 위한 map
 		Map<Integer, Integer> reviewLikeAmountMap = new HashMap<>();
 

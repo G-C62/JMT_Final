@@ -12,6 +12,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import jmt.mvc.controller.Controller;
 import jmt.mvc.controller.ModelAndView;
@@ -35,7 +36,8 @@ public class DetailController implements Controller
 		//전송된 데이터 받기
 		int resId = Integer.parseInt(request.getParameter("resId"));
 		//합쳐지면 세션or application에서 받아와야 함
-	    String memberId = "aaa";
+		HttpSession session = request.getSession();
+		String memberId = (String) session.getAttribute("memberID");
 	   
 	    //리뷰 좋아요를 위한 map
 	    Map<Integer, Integer> reviewLikeAmountMap = new HashMap<>();
@@ -126,7 +128,7 @@ public class DetailController implements Controller
 			request.setAttribute("reviewLikeAmountMap", reviewLikeAmountMap);
 			request.setAttribute("reviewLikeYesOrNoMap", reviewLikeYesOrNoMap);
 
-			url = "restaurantDetail/detail.jsp";
+			url = "final_view/detailView/detail.jsp";
 		} catch (Exception e)
 		{
 			e.printStackTrace();
