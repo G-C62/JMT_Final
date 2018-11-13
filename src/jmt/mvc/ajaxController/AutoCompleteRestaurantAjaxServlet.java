@@ -33,6 +33,7 @@ public class AutoCompleteRestaurantAjaxServlet extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			JSONArray jsonArr = JSONArray.fromObject(list);
 			out.println(jsonArr);
+			System.out.println("autoServlet»£√‚");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -18,7 +18,7 @@ $(function(){
     			$("#idCheck").text(result);
     		} ,
     		error: function(err){
-    			alert(err+"=> 예외발생...");
+    			//alert(err+"=> 예외발생...");
     		}
     	});
     }) 

@@ -1,6 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<script>
+$(function(){
+	$("#keyWord").keyup(function(){
+		if($(this).val()==""){
+				$("#suggest").hide();
+				return;
+			}
+		$.ajax({
+				url:"autoCompleteRestaurant",		//서버주소
+				type:"post",	//요청방식
+				dataType:"json",//서버가 보내준 데이터 타입 text,json,xml,html
+				data:"keyWord="+$(this).val(),	//서버에게 보내는 파라미터 정보
+				success:function(result){	//성공했을 시 함수
+					var str="";
+					$.each(result, function(index, item){
+						console.log(item.resName);
+						str+="<a href='jmt?command=detail&resId="+item.resId+"'>"+item.resName+"</a><br>";
+						
+					});
+					$("#suggest").html(str);
+					$("#suggest").show();	
+				},	
+				error:function(err){
+					console.log(err+" --> 발생함 ");
+				} 	//실패했을 시 함수
+			});
+			if($(this).val()==""){
+				$("#suggest").hide();
+				return;
+			}
+	});
+	$(document).on("click", "a", function(){
+			$("#keyWord").val($(this).text());
+			$("#suggest").hide();
+		});
+});
 
+
+</script>
 <header>
 	<div class="small-top">
 		<div class="container">
