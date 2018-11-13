@@ -9,7 +9,7 @@ select * from recommend where review_id=1 and member_id = 'aaa';
 delete from recommend where review_id=5 and member_id = 'aaa';
 
 
-delete from review where res_id = '25398530' and review_id=45;
+delete from review where res_id = '12482031' and review_id=47;
 -----------------------------------------------------------------------------------
 select restaurant.res_category, restaurant.res_name, count(*)
 from review join RESTAURANT on review.res_name = RESTAURANT.res_name

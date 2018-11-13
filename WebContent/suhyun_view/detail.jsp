@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -115,19 +116,18 @@ $(document).ready(function(){
 
 </head>
 <body>
-	
 	<h1>음식점 상세 부분</h1>
 	<h3>(null 이어도 되는 컬럼은 null일 경우 안 나옵니다.)</h3>
 	
 	음식점 사진 : (일단 전부 가져왔으니 앞단에서 모달로 하시던지 원하시는 방법으로 프론트에 뿌려주세여)<br>
 	없으면 기본 사진 뿌려짐 <br>
-	<c:choose>
-		<c:when test="${requestScope.imgList != null}">
+	<c:choose>		
+		<c:when test="${requestScope.imgList.size() != 0}">
 			<c:forEach items="${requestScope.imgList}" var="image" varStatus = "state">
 				<img src= '${image}' class = 'resImg'>
 			</c:forEach><br>
 		</c:when>
-		<c:otherwise> 
+		<c:otherwise>
 			<img src= '${fixedImg}' class = 'resImg'><br>
 		</c:otherwise>
 	</c:choose>
