@@ -124,6 +124,13 @@ body>div.top-head.left {
 														}
 												    }
 												tbody.find(".likeCount").text(likeMap.get(id));
+												//추천여부
+												if(item.reviewIsLike=="false"){
+													tbody.find("tr:nth-child(1) > th:nth-child(2) > img").attr({src:"${pageContext.request.contextPath}/img/thumbUp.png"});
+												}else{
+													tbody.find("tr:nth-child(1) > th:nth-child(2) > img").attr({src:"${pageContext.request.contextPath}/img/thumbUp_fill.png"});
+												}
+												
 												
 												//작성일
 												tbody.find("tr:nth-child(2) > th").text(item.reviewDate);
@@ -224,7 +231,7 @@ body>div.top-head.left {
 				<c:choose>
 					<c:when test="${requestScope.imgList.size()!=0}">
 						<!-- List로 되어있어 댓글에 있는 이미지 임의로 가져옴 -->
-						<img src='${requestScope.imgList[0]}' class='resImg'>
+						<img src='${requestScope.imgList[0]}' class='resImg' style="width:400px;height:400px">
 						<%-- <c:forEach items="${requestScope.imgList}" var="image"
 							varStatus="state">
 							<img src='${image}' class='resImg'>

@@ -60,7 +60,21 @@ table{width:900px}
 		<c:forEach items="${reviewList}" var="review" varStatus="state">
 			<table>
 				<tr>
-					<th colspan="3"><h4>${review.reviewTitle} </h4></th>
+					<th colspan="2"><h4>${review.reviewTitle} </h4></th>
+					<th>
+						<c:choose>
+								<c:when test="${review.reviewIsLike==false}">
+									<img class="reviewLike"
+										src="${pageContext.request.contextPath}/img/thumbUp.png"
+										 style="cursor: pointer; width:25px" />
+								</c:when>
+								<c:otherwise>
+									<img class="reviewLike"
+										src="${pageContext.request.contextPath}/img/thumbUp_fill.png"
+										 style="cursor: pointer;width:25px" />
+								</c:otherwise>
+							</c:choose>
+					</th>
 					<th style="padding-left: 409px">
 						<div id="reviewDiv">
 							<c:choose>

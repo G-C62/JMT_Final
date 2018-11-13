@@ -1,6 +1,7 @@
 package jmt.mvc.ajaxController;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
@@ -27,7 +28,7 @@ public class ReviewLikeToggleAjaxServlet extends HttpServlet
 		int reviewId = Integer.parseInt(request.getParameter("reviewId"));
 		String memberId = request.getParameter("memberId");
 		String flag = request.getParameter("flag");
-
+		/*System.out.println(reviewId+"|"+memberId+"|"+flag);*/
 
 		int result = 0;
 		try

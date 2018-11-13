@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import jmt.mvc.model.service.RestaurantService;
 import jmt.mvc.model.service.RestaurantServiceImpl;
 
-@WebServlet("/bookMarkToggleAjaxServlet")
+@WebServlet("/BookMarkToggleAjaxServlet")
 public class BookMarkToggleAjaxServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

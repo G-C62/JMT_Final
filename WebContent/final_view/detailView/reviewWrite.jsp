@@ -6,6 +6,7 @@
 <div class="modal-body">
 <style type="text/css">
 	img {width:20px; height:20px}
+	#modalTable{width:500px}
 </style>
 <script src="${pageContext.request.contextPath}/lib/jquery-3.3.1.min.js"></script>
 <script language=javascript>
@@ -67,7 +68,7 @@
 <form name="writeForm" method="post" action="${path}/jmt?command=review.insert" 
   onSubmit='return checkValid()' enctype="multipart/form-data">
 
-<table align="center" cellpadding="5" cellspacing="2" width="600" border="1" >
+<table align="center" cellpadding="5" cellspacing="2" width="400" border="1" id="modalTable">
 
 
 	

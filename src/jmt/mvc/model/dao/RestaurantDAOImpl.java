@@ -334,40 +334,168 @@ public class RestaurantDAOImpl implements RestaurantDAO
 	}
 
 	@Override
-	public int reviewLikeAmount(int reviewId) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	   public int reviewLikeAmount(int reviewId) throws SQLException
+	   {
+	      Connection con = null;
+	      PreparedStatement ps = null;
+	      ResultSet rs = null;
 
-	@Override
-	public int insertRecommend(int reviewId, String memberId) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	      int result = 0;
 
-	@Override
-	public int deleteRecommend(int reviewId, String memberId) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	      String sql = "select * from recommend where review_id=?";
 
-	@Override
-	public boolean reviewLikeYesOrNo(int reviewId, String memberId) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	      try
+	      {
+	         // 로드 연결 실행 닫기
+	         con = DbUtil.getConnection();
+	         ps = con.prepareStatement(sql);
 
-	@Override
-	public ReviewDTO selectReviewById(int reviewId) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	         ps.setInt(1, reviewId);
+	         rs = ps.executeQuery();
+	         
+	         while(rs.next())
+	         {
+	            result++;
+	         }
 
-	@Override
-	public int deleteBookMark2(int resId, String memberId) throws SQLException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	      } finally
+	      {
+	         DbUtil.dbClose(ps, con);
+	      }
+
+	      return result;
+	   }
+
+	   @Override
+	   public int insertRecommend(int reviewId, String memberId) throws SQLException
+	   {
+	      Connection con = null;
+	      PreparedStatement ps = null;
+	      ResultSet rs = null;
+
+	      int result = 0;
+	      String sql = "insert into recommend values(RECOMMEND_SEQ.NEXTVAL, ?, ?)";
+
+	      
+	      try
+	      {
+	         // 로드 연결 실행 닫기
+	         con = DbUtil.getConnection();
+	         ps = con.prepareStatement(sql);
+
+	         ps.setString(1, memberId);
+	         ps.setInt(2, reviewId);
+	         rs = ps.executeQuery();
+
+	         if (rs.next())
+	         {
+	            result++;
+	         }
+
+	      } finally
+	      {
+	         DbUtil.dbClose(rs, ps, con);
+	      }
+
+	      return result;
+	   }
+
+	   @Override
+	   public int deleteRecommend(int reviewId, String memberId) throws SQLException
+	   {
+	      Connection con = null;
+	      PreparedStatement ps = null;
+	      ResultSet rs = null;
+
+	      int result = 0;
+	      String sql = "delete from recommend where member_id=? and review_id=?";
+	      
+	      try
+	      {
+	         // 로드 연결 실행 닫기
+	         con = DbUtil.getConnection();
+	         ps = con.prepareStatement(sql);
+
+	         ps.setString(1, memberId);
+	         ps.setInt(2, reviewId);
+	         rs = ps.executeQuery();
+
+	         if (rs.next())
+	         {
+	            result++;
+	         }
+
+	      } finally
+	      {
+	         DbUtil.dbClose(rs, ps, con);
+	      }
+
+	      return result;
+	   }
+
+	   @Override
+	   public boolean reviewLikeYesOrNo(int reviewId, String memberId) throws SQLException
+	   {
+	      Connection con = null;
+	      PreparedStatement ps = null;
+	      ResultSet rs = null;
+
+	      boolean result = false;
+	      
+	      String sql = "select * from recommend where review_id=? and member_id =?";
+
+	      try
+	      {
+	         // 로드 연결 실행 닫기
+	         con = DbUtil.getConnection();
+	         ps = con.prepareStatement(sql);
+	      
+	         ps.setInt(1, reviewId);
+	         ps.setString(2, memberId);
+	         rs = ps.executeQuery();
+
+	         if (rs.next())
+	         {
+	            result = true;
+	         }
+
+	      } finally
+	      {
+	         DbUtil.dbClose(rs, ps, con);
+	      }
+
+	      System.out.println("result = " + result);
+	      return result;
+	   }
+
+	   @Override
+	   public ReviewDTO selectReviewById(int reviewId) throws SQLException
+	   {
+	      Connection con = DbUtil.getConnection();
+	      PreparedStatement ps = null;
+	      ResultSet rs = null;
+	      ReviewDTO reviewDTO = null;
+	      
+	      try
+	      {
+	         ps = con.prepareStatement("select * from review where review_id=?");
+	         ps.setInt(1, reviewId);
+	         rs = ps.executeQuery();
+	         
+	         if (rs.next())
+	         {
+	            reviewDTO = new ReviewDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+	                  rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9),
+	                  rs.getString(10), rs.getString(11));
+	         }
+	      } finally
+	      {
+	         DbUtil.dbClose(rs, ps, con);
+	      }
+	      return reviewDTO;
+
+	   }
+
 
 	
 	
@@ -585,6 +713,12 @@ public class RestaurantDAOImpl implements RestaurantDAO
 			DbUtil.dbClose(rs, ps, con);
 		}
 		return result;
+	}
+
+	@Override
+	public int deleteBookMark2(int resId, String memberId) throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
