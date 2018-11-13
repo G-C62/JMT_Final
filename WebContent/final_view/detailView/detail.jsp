@@ -219,7 +219,7 @@ body>div.top-head.left {
 		<div id="resContainer">
 			<div id="imgContainer">
 				<c:choose>
-					<c:when test="${requestScope.imgList != null}">
+					<c:when test="${requestScope.imgList.size()!=0}">
 						<!-- List로 되어있어 댓글에 있는 이미지 임의로 가져옴 -->
 						<img src='${requestScope.imgList[0]}' class='resImg'>
 						<%-- <c:forEach items="${requestScope.imgList}" var="image"
@@ -233,6 +233,7 @@ body>div.top-head.left {
 						<br>
 					</c:otherwise>
 				</c:choose>
+				
 			</div>
 			<div class="like">
 				<div>

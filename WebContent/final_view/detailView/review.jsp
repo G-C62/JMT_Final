@@ -48,6 +48,13 @@ table h4{
 
 
 	<div id=reviewAjax>
+	<!-- 리뷰없을시 처리해야할 부분 -->
+		<c:choose>
+			<c:when test="${reviewList.size()==0}">	
+			</c:when>
+			<c:otherwise>
+			</c:otherwise>
+		</c:choose>
 		<c:forEach items="${reviewList}" var="review" varStatus="state">
 			<table>
 				<tr>

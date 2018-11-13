@@ -96,9 +96,25 @@ public class DetailController implements Controller
 			if (imgList == null || imgList.size() == 0)
 			{
 				//리뷰가 없을 때 대표 이미지로 넣기
-				String fixedImg = ((String) application.getAttribute("1"));
-				
-				request.setAttribute("fixedImg", fixedImg);
+	            String fixedImg = "";
+	            String key = "";
+				if(partialDetail.getResCategory().equals("한식"))                
+	                   key = Integer.toString((int)(Math.random()*5+21));                   
+	            else if(partialDetail.getResCategory().equals("중식"))                
+	                   key = Integer.toString((int)(Math.random()*5+11));
+	            else if(partialDetail.getResCategory().equals("일식/수산물"))                
+	                   key = Integer.toString((int)(Math.random()*5+26));
+	            else if(partialDetail.getResCategory().equals("패스트푸드"))                
+	                   key = Integer.toString((int)(Math.random()*5+16));
+	            else if(partialDetail.getResCategory().equals("분식"))                
+	                   key = Integer.toString((int)(Math.random()*5+6));
+	            else if(partialDetail.getResCategory().equals("양식"))                
+	                   key = Integer.toString((int)(Math.random()*5+31));
+	            else              
+	                   key = Integer.toString((int)(Math.random()*5+1));               
+	            
+	            fixedImg = ((String) application.getAttribute(key));               
+	               request.setAttribute("fixedImg", fixedImg);
 			}
 			
 			request.setAttribute("partialDetail", partialDetail);
