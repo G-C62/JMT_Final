@@ -23,13 +23,14 @@
 						<input type="radio" name="subMenuCheck" value="sumnail" checked> 썸네일로 보기
 						<input type="radio" name="subMenuCheck" value="map"> 지도로 보기						
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#">한식</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">중식</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">일식/수산물</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">패스트푸드</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">분식</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">양식</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">뷔페/퓨전음식</a></li>
+					<li class="nav-item"><a class="nav-link" href="jmt?command=restaurant.selectAllRestaurant&category=한식">한식</a></li>
+					<li class="nav-item"><a class="nav-link" href="jmt?command=restaurant.selectAllRestaurant&category=중식">중식</a></li>
+					<li class="nav-item"><a class="nav-link" href="jmt?command=restaurant.selectAllRestaurant&category=일식/수산물">일식/수산물</a></li>
+					<li class="nav-item"><a class="nav-link" href="jmt?command=restaurant.selectAllRestaurant&category=패스트푸드">패스트푸드</a></li>
+					<li class="nav-item"><a class="nav-link" href="jmt?command=restaurant.selectAllRestaurant&category=분식">분식</a></li>
+					<li class="nav-item"><a class="nav-link" href="jmt?command=restaurant.selectAllRestaurant&category=양식">양식</a></li>
+					<li class="nav-item"><a class="nav-link" href="jmt?command=restaurant.selectAllRestaurant&category=뷔페/퓨전음식">뷔페/퓨전음식</a></li>
+					
 					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/subView/favorite.jsp"><img src="${pageContext.request.contextPath}/img/favorite.png" id="favoriteImg">즐겨찾기</a></li>
 					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/memberView/myPage.jsp">마이페이지</a></li>
 				</ul>

@@ -17,4 +17,4 @@ input{border:1px gray solid}
 }
 #favoriteImg{width:20px;height:20px}
 ul{text-align: center}
-.bestFiveImg{width: 250px; float: left;padding:10px}
+.bestFiveImg{width: 250px; height:250px; float: left;padding:10px}

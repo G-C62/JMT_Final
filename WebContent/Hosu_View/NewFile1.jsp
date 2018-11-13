@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <script>
 function loadImage(){
-	location.href="../jmt?command=restaurant.selectFive";
+	location.href="${pageContext.request.contextPath}/jmt?command=restaurant.selectFive";
 }
 </script>
 </head>

@@ -41,7 +41,7 @@ public class LoginController implements Controller {
 
 			if (result) { // 일치하면 session에 Id 저장 후
 				session.setAttribute("memberID", memberID);
-				mv.setPath("mainView/JmtMain.jsp");// 로그인 페이지로 이동
+				mv.setPath("jmt?command=restaurant.selectFive");// 로그인 페이지로 이동
 			} else {
 				mv.setPath("/indexEx.jsp");
 			} // 최종 결과를 받아서 저장해서 뷰로 이동한다

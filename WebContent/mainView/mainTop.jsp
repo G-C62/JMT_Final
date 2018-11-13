@@ -22,20 +22,20 @@
 					
 						<input type="radio" name="subMenuCheck" value="map"> 지도로 보기
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#">한식</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">중식</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">일식/수산물</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">패스트푸드</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">분식</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">양식</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">뷔페/퓨전음식</a></li>
+					<li class="nav-item"><a class="nav-link" href="jmt?command=restaurant.selectAllRestaurant&category=한식">한식</a></li>
+					<li class="nav-item"><a class="nav-link" href="jmt?command=restaurant.selectAllRestaurant&category=중식">중식</a></li>
+					<li class="nav-item"><a class="nav-link" href="jmt?command=restaurant.selectAllRestaurant&category=일식/수산물">일식/수산물</a></li>
+					<li class="nav-item"><a class="nav-link" href="jmt?command=restaurant.selectAllRestaurant&category=패스트푸드">패스트푸드</a></li>
+					<li class="nav-item"><a class="nav-link" href="jmt?command=restaurant.selectAllRestaurant&category=분식">분식</a></li>
+					<li class="nav-item"><a class="nav-link" href="jmt?command=restaurant.selectAllRestaurant&category=양식">양식</a></li>
+					<li class="nav-item"><a class="nav-link" href="jmt?command=restaurant.selectAllRestaurant&category=뷔페/퓨전음식">뷔페/퓨전음식</a></li>
 					
 					<c:choose>
 						<c:when test="${empty sessionScope.memberID}">
 
 						</c:when>
 						<c:otherwise>
-							<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/subView/favorite.jsp"><img src="../img/favorite.png" id="favoriteImg">즐겨찾기</a></li>
+							<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/jmt?command=member.myBookmark"><img src="${pageContext.request.contextPath}/img/favorite.png" id="favoriteImg">즐겨찾기</a></li>
 							<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/memberView/myPage.jsp">마이페이지</a></li>
 						</c:otherwise>
 					</c:choose>
@@ -49,7 +49,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 col-lg-4" style="margin-left: 400px;margin-top: 30px;">
-					<h1 style="cursor:pointer" onclick="location.href='${pageContext.request.contextPath}/mainView/JmtMain.jsp'" >
+					<h1 style="cursor:pointer" onclick="location.href='${pageContext.request.contextPath}/jmt?command=restaurant.selectFive'" >
 						 &ensp;&ensp;&ensp;&ensp;&ensp;#JMT<br> 판교 맛따라 멋따라
 					</h1>
 				</div>
@@ -67,11 +67,12 @@
 						<c:otherwise>
 							<input type="button" class="btn btn-default" id="logout"
 								value="로그아웃">
+							<span style="color:white; font-size:25px">${sessionScope.memberID}님 환영합니다.</span>
+								
 						</c:otherwise>
 					</c:choose>
-					<span style="color:white; font-size:25px">${sessionScope.memberID}님 환영합니다.</span>
-
 				</form>
+				
 				<from class="input-group" name="search" id="search">
 					<input type="text" placeholder="search for" class="form-control"  name="keyWord" id="keyWord">
 					<div id="suggest" style="display:none;background-color:white"></div>
@@ -80,8 +81,6 @@
 						<button type="button" class="btn btn-search">Search</button>
 					</span>
 				</from>
-				
-
 			</div>
 		</div>
 	</div>

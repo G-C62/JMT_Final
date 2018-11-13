@@ -5,6 +5,7 @@ select * from review where res_id = '25398530';
 select MEMBER_PWD from member where MEMBER_ID='aaa'
 update member set member_pwd='qqq',member_name='이한나',member_phone='010-2222-2222',member_gender='여',member_email='111@gmail.com' where member_id='qqq'
 
+select * from RESTAURANT where res_id=25398530
 
 select * from recommend;
 select count(*) from recommend where review_id=3;
@@ -87,6 +88,20 @@ insert into member values('aaa', 'aaa', '가가가', '010-1111-1111',
    '여', 'ddd@gmail.com');
    insert into member values('eee', 'eee', '마마마', '010-1111-1111', 
    '남', 'eee@gmail.com');
+   
+   insert into member values('fff', 'fff', '바바바', '010-1111-1111', 
+   '남', 'eee@gmail.com');
+   
+   insert into member values('ggg', 'ggg', '사사사', '010-1111-1111', 
+   '여', 'eee@gmail.com');
+   
+   insert into member values('hhh', 'hhh', '아아아', '010-1111-1111', 
+   '여', 'eee@gmail.com');
+   insert into member values('iii', 'iii', '자자자', '010-1111-1111', 
+   '여', 'eee@gmail.com');
+   
+   insert into member values('jjj', 'jjj', '차차차', '010-1111-1111', 
+   '남', 'eee@gmail.com');
 
 SELECT * FROM review
 delete from review where review_id='26'
@@ -143,7 +158,7 @@ insert into review (REVIEW_ID, REVIEW_TITLE, REVIEW_CONTENTS,
          
          
          
-         
+         select *from REVIEW
          
    insert into review (REVIEW_ID, REVIEW_TITLE, REVIEW_CONTENTS, 
    REVIEW_DATE, MEMBER_ID, RES_ID, RES_NAME, REVIEW_ISLIKE)  values (REVIEW_SEQ.NEXTVAL,'비추', '정말 비추!', 
@@ -311,7 +326,8 @@ delete from RECOMMEND;
 
 
 
-
+-----------------Table create----------------
+--음식점 table create
 CREATE TABLE RESTAURANT(
     RES_ID NUMBER(10) PRIMARY KEY,
     RES_NAME VARCHAR2(30 CHAR) NOT NULL,
@@ -326,6 +342,7 @@ CREATE TABLE RESTAURANT(
     RES_LAT NUMBER(13,10)
 );
 
+--회원 table create
 CREATE TABLE MEMBER(
     MEMBER_ID VARCHAR2(20 CHAR) PRIMARY KEY,
     MEMBER_PWD VARCHAR2(20 CHAR) NOT NULL,
@@ -334,7 +351,8 @@ CREATE TABLE MEMBER(
     MEMBER_GENDER VARCHAR2(5 CHAR) NOT NULL CHECK(MEMBER_GENDER IN('남','여')),
     MEMBER_EMAIL VARCHAR2(50 CHAR)
 );
- 
+
+--리뷰 table create
 CREATE TABLE REVIEW(
     REVIEW_ID NUMBER(5) PRIMARY KEY,
     REVIEW_TITLE VARCHAR2(50 CHAR) NOT NULL,
@@ -349,24 +367,21 @@ CREATE TABLE REVIEW(
     REVIEW_ISLIKE VARCHAR2(5) NOT NULL CHECK(REVIEW_ISlIKE IN('true','false'))
 );
 
-
+--북마크(즐겨찾기) table create
 CREATE TABLE BOOKMARK(
     BOOKMARK_ID NUMBER(5) PRIMARY KEY,
-    MEMBER_ID VARCHAR2(20 CHAR) NOT NULL REFERENCES MEMBER(MEMBER_ID),
-    RES_ID NUMBER(10) NOT NULL REFERENCES RESTAURANT(RES_ID)
+    MEMBER_ID VARCHAR2(20 CHAR) NOT NULL REFERENCES MEMBER(MEMBER_ID) ON DELETE CASCADE,
+    RES_ID NUMBER(10) NOT NULL REFERENCES RESTAURANT(RES_ID) ON DELETE CASCADE
 );
 
+--리뷰 좋아요 table create
 CREATE TABLE RECOMMEND(
     RECOMMEND_ID NUMBER(10) PRIMARY KEY,
-    MEMBER_ID VARCHAR2(20 CHAR) NOT NULL REFERENCES MEMBER(MEMBER_ID),
-    REVIEW_ID NUMBER(5) REFERENCES REVIEW(REVIEW_ID)
+    MEMBER_ID VARCHAR2(20 CHAR) NOT NULL REFERENCES MEMBER(MEMBER_ID) ON DELETE CASCADE,
+    REVIEW_ID NUMBER(5) REFERENCES REVIEW(REVIEW_ID) ON DELETE CASCADE
 );
 
-
-select * from restaurant;
-delete from restaurant;
-----------시퀀스
-
+--시퀀스
 CREATE SEQUENCE REVIEW_SEQ 
 START WITH 1
 INCREMENT BY 1
@@ -380,7 +395,6 @@ NOCACHE;
 CREATE SEQUENCE RECOMMEND_SEQ 
 START WITH 1
 INCREMENT BY 1
-<<<<<<< HEAD
 NOCACHE; 
 ------------------------------------------------
 insert into member values('aaa', 'aaa', '가가가', '010-1111-1111', 

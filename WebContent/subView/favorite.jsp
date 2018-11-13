@@ -1,66 +1,44 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>Insert title here</title>
-<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 
-<link href="../css/sub.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/sub.css" rel="stylesheet">
 
 </head>
 <body>
 	<div class="top-head left">
 		<div class="row">
 			<div class="col-md-6 col-lg-4">
-				<div onclick="location.href='../mainView/JmtMain.jsp'" style="cursor:pointer">
+				<div onclick="location.href='${pageContext.request.contextPath}/jmt?command=restaurant.selectFive'" style="cursor:pointer">
 					<h1>#JMT<br> 판교 맛따라 멋따라</h1><br><br><br>
 				</div>
 				<h2>나의 즐겨찾기 보기</h2>
 			</div>
 		</div>
-	</div>
+	</div><br><br><br><br><br><br><br><br><br><br><br><br>
 
 	<!-- 내가 즐겨찾기한 음식점 보여주기 -->
 
-		<div class="row" style="padding-left:50px;padding-top:300px">
-			<div class="column">
-				<img src="../img/media-10.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-5.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-3.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-8.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-2.jpg" class="bestFiveImg">
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="column">
-				<input type="text" size=15 class="bestFiveResName">
-			</div>
-			<div class="column">
-				<input type="text" size=15 class="bestFiveResName">
-			</div>
-			<div class="column">
-				<input type="text" size=15 class="bestFiveResName">
-			</div>
-			<div class="column">
-				<input type="text" size=15 class="bestFiveResName">
-			</div>
-			<div class="column">
-				<input type="text" size=15 class="bestFiveResName">
-			</div>
-		</div>
-		
-		<br><br><br>
-	<footer style="background-color:black">
+	<c:forEach items="${listMyBookMark}" var="bookMark" varStatus="state">
+	<div style="padding-left:85px; float:left;margin:10px">
+		<%-- <h2>${state.count}번째즐겨찾기한 음식점</h2> --%>  
+    		<div style="text-align:center">${bookMark.resName}</div>
+    			${requestScope.bookMarkYesOrNo}<br>
+    		
+		<c:if test="${bookMark.reviewImg1}==null">${bookMark.reviewImg1}=<%=request.getParameter("1")%></c:if>
+    
+   			 <div><img src='${bookMark.reviewImg1}' style="width:250px; height:250px"></div>
+	</div>
+
+	</c:forEach>
+
+	<br><br><br>
+	<!-- <footer style="background-color:black">
 		<div class="row" >
 			<div class="col-lg-4 col-md-12">
 				<h6 class="heading-footer">ABOUT US</h6>
@@ -114,7 +92,7 @@
 				</ul>
 			</div>
 		</div>
-	</footer>
+	</footer> -->
 		
 </body>
 </html>

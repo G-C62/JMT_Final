@@ -26,7 +26,7 @@
                 var str = "";
                                 
                 $.each(result, function(index, item){
-                   str += "<h3>" + (index+1) + "번째 음식점</h3> ";
+                   /* str += "<h3>" + (index+1) + "번째 음식점</h3> "; */
                    str += "음식점 이름 : " + item.resName + " <br>";
                 }); 
                 
@@ -115,38 +115,6 @@
 <div id=suggest></div>
 
 
-<%-- <c:forEach items="${RestaurantFiveSelect}" var="Five" varStatus = "state">
-    <br>
-    음식점 이름 : ${Five.resName}<br>
-    음식점 사진 : ${Five.reviewImg1}
-</c:forEach> --%>
-
-
-<form id="hansick">
-<c:forEach items="${hansickFiveSelect}" var="hansickFive" varStatus = "state">
-    <br>
-    한식음식점 이름 : ${hansickFive.resName}<br>
-    음식점 사진 : <img src='${hansickFive.reviewImg1 }'>
-</c:forEach>
-<input type="button" value="더 보기" onclick="location.href='jmt?command=restaurant.selectAllRestaurant&category=한식'">
-</form>
-<form id="ilsik">
-<c:forEach items="${ilsickFiveSelect}" var="ilsickFive" varStatus = "state">
-    <br>
-    일식음식점 이름 : ${ilsickFive.resName}<br>
-    음식점 사진 : <img src='${ilsickFive.reviewImg1 }'>
-</c:forEach>
-<input type="button" value="더 보기" onclick="location.href='jmt?command=restaurant.selectAllRestaurant&category=일식'">
-</form>
-<form id="jungsik">
-<c:forEach items="${jungsickFiveSelect}" var="jungFive" varStatus = "state">
-    <br>
-    중식음식점 이름 : ${jungFive.resName}<br>
-    음식점 사진 : <img src='${jungFive.reviewImg1 }'>
-</c:forEach>
-<input type="button" value="더 보기" onclick="location.href='jmt?command=restaurant.selectAllRestaurant&category=중식'">
-</form>
-
 <!-- 더 보기 눌렀을때 전체 음식점 뿌려주는 곳. -->
 <form id="allRestaurants">
 <select name="order">
@@ -160,6 +128,10 @@
 </c:forEach>
 </div>
 </form>
+
+
+
+
 
        <div id="bookmark">
           <c:choose>

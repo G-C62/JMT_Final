@@ -6,7 +6,7 @@
 
 <!-- Modal body -->
 <div class="modal-body">
-	<form name="writeForm" method="post" action="../jmt?command=member.login">
+	<form name="writeForm" method="post" action="${pageContext.request.contextPath}/jmt?command=member.login">
 
 		<table align="center" cellpadding="5" cellspacing="2" width="600"
 			border="1">

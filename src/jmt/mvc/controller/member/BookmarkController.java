@@ -9,6 +9,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import jmt.mvc.controller.Controller;
 import jmt.mvc.controller.ModelAndView;
@@ -22,9 +23,11 @@ public class BookmarkController implements Controller {
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String url = "Hosu_View/myBookmark.jsp";
+		String url = "subView/favorite.jsp";
 		ServletContext application = request.getServletContext();
-		String id = "aaa";
+		HttpSession session = request.getSession(true);
+		String id = (String) session.getAttribute("memberID");
+		System.out.println(id);
 		try {
 			List<ReviewDTO> list = service.selectBookmarkById(id);
 			for(ReviewDTO dto :list) {
@@ -33,9 +36,8 @@ public class BookmarkController implements Controller {
 				}
 			}
 			request.setAttribute("listMyBookMark", list);
-			
+			System.out.println(list);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		ModelAndView mv = new ModelAndView();

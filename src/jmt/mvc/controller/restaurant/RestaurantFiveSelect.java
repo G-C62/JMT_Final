@@ -21,9 +21,10 @@ public class RestaurantFiveSelect implements Controller {
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		//String url = "Hosu_View/NewFile.jsp";
 		String url = "mainView/JmtMain.jsp";
 		ServletContext application = request.getServletContext();
-		String [] category= {"한식", "중식", "일식", "패스트푸드", "분식", "양식", "부페"};
+		String [] category= {"한식", "중식", "일식/수산물", "패스트푸드", "분식", "양식", "뷔페/퓨전요리"};
 		//1~5buffet,6~10bunsick,11~15china,16~20fastfood,21~25hansick,26~30ilsick,31~35yangsik
 		for(int i=0;i<7;i++) {
 		try {
