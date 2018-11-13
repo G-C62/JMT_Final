@@ -1,0 +1,147 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	line-height: 0.9em;
+}
+
+img {
+	width: 100%;
+}
+
+section {
+	width: 80%;
+	margin: 0 auto;
+	float:none;
+}
+
+.pageTitle {
+	text-align: center;
+	margin: 30px 0px 50px;
+}
+
+input[type="checkbox"] {
+	margin: 10px;
+}
+
+.reviewImg {
+	display: inline-block;
+	width: 240px;
+	overflow: hidden;
+	vertical-align: middle;
+	height: 150px;
+}
+
+.noneImg {
+	width: 100%;
+	height: 100%;
+	background: lightgray;
+}
+
+.noneImg>h5 {
+	text-align: center;
+	line-height: 150px;
+	vertical-align: middle;
+	color: darkgray;
+}
+
+.reviewList>div:first-child {
+	float: left;
+	width: 350px;
+	flex: none;
+}
+
+.reviewList {
+	display: flex;
+}
+
+.likeInfo div {
+	display: inline-block;
+	margin: 0 5px;
+}
+
+.listInfo {
+	padding: 0px 20px;
+	width: 100%;
+	max-width: 1200px;
+	min-width: 800px;
+}
+
+.recommend {
+	width: 25px;
+}
+
+.like {
+	width: 15px;
+}
+
+.listText>span:last-child {
+	float: right;
+}
+
+#delete>button {
+	float: right;
+	margin-right: 20px;
+}
+
+.likeInfo>button {
+	float: right;
+}
+
+div.likeInfo>span {
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.likeInfo>div:nth-child(3) {
+	vertical-align: super;
+	margin-left: 50px;
+}
+
+form>div>div:nth-child(1)>a>p {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-wrap: normal;
+	width: 100px;
+	overflow: hidden;
+	display: inline-block;
+	margin: 0;
+}
+
+div.listText>p {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-wrap: normal;
+	width: 50%;
+	overflow: hidden;
+	display: inline-block;
+	margin: 0;
+	height: 3.8em;
+}
+
+hr {
+	margin: 20px 0;
+	border: 1px solid #dbdbdb;
+}
+
+.listText {
+	margin-top: 20px;
+}
+
+div.listInfo>div.likeInfo>p {
+	font-size: 22px;
+	font-weight: bold;
+	display: inline-block;
+	margin: 0;
+	vertical-align: middle;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-wrap: normal;
+	width: 100px;
+	overflow: hidden;
+	display: inline-block;
+	margin: 0;
+}
+.noneImg{
+	visibility: hidden;
+}

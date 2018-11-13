@@ -1,6 +1,7 @@
 package jmt.mvc.controller.review;
 
 import java.io.IOException;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +23,8 @@ public class SelectMyReviewController implements Controller
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
-		String url = "jihye_View/reviewView.jsp"; // default로
+		String url = "final_view/reviewView/myReview.jsp"; // default로
+		//String url = "jihye_View/reviewView.jsp"; 
 		String memberId = "aaa";
 
 		// 리뷰 좋아요를 위한 map

@@ -344,7 +344,7 @@ insert into recommend values(RECOMMEND_SEQ.NEXTVAL, 'aaa', 1);
 
 insert into BOOKMARK values(BOOKMARK_SEQ.NEXTVAL, 'aaa', 25398530);
 
-
+select * from restaurant where res_name = 'Åõ»ÔÂüÄ¡'
 select * from member;
 select * from review;
 select * from RECOMMEND;

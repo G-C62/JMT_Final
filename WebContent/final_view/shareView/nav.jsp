@@ -26,10 +26,10 @@
 				<li class="nav-item"><a class="nav-link" href="#">양식</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">뷔페/퓨전음식</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="../subView/favorite.jsp"><img src="../img/favorite.png"
+					href="${path}/subView/favorite.jsp"><img src="${path}/img/favorite.png"
 						id="favoriteImg">즐겨찾기</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="../memberView/myPage.jsp">마이페이지</a></li>
+					href="${path}/memberView/myPage.jsp">마이페이지</a></li>
 			</ul>
 		</div>
 	</div>

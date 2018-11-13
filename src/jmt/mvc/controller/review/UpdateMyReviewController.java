@@ -46,7 +46,7 @@ public class UpdateMyReviewController implements Controller
 			reviewService.reivewUpdate(reviewDTO);
 			request.setAttribute("reviewDTO", reviewDTO);
 
-			url = "jihye_View/reviewFirstUpdate.jsp?reviewId=" + reviewId; // 상세보기
+			url = "final_View/reviewView/reviewFirstUpdate.jsp?reviewId=" + reviewId; // 상세보기
 			// mv.setRedirect(true);
 
 		} catch (SQLException e)

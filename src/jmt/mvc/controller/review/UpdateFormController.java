@@ -33,7 +33,7 @@ public class UpdateFormController implements Controller
 
 			request.setAttribute("reviewDTO", reviewDTO);
 
-			url = "jihye_View/reviewSecondUpdate.jsp";// ¼öÁ¤Æû
+			url = "final_view/reviewView/reviewSecondUpdate.jsp";// ¼öÁ¤Æû
 
 		} catch (Exception e)
 		{

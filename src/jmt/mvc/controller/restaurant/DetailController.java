@@ -1,6 +1,8 @@
 package jmt.mvc.controller.restaurant;
 
 import java.io.IOException;
+
+
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
@@ -27,7 +29,6 @@ public class DetailController implements Controller
 	{
 		response.setContentType("text/html;charset=UTF-8"); //front로 내보내질때를 위한 한글처리
 		ServletContext application = request.getServletContext();
-		
 		ModelAndView mv = new ModelAndView();
 		String url ="suhyun_view/errorView/error.jsp";
 		
@@ -35,7 +36,7 @@ public class DetailController implements Controller
 		int resId = Integer.parseInt(request.getParameter("resId"));
 		//합쳐지면 세션or application에서 받아와야 함
 	    String memberId = "aaa";
-	    
+	   
 	    //리뷰 좋아요를 위한 map
 	    Map<Integer, Integer> reviewLikeAmountMap = new HashMap<>();
 	    Map<Integer, Boolean> reviewLikeYesOrNoMap = new HashMap<>();
@@ -95,7 +96,8 @@ public class DetailController implements Controller
 			if (imgList == null || imgList.size() == 0)
 			{
 				//리뷰가 없을 때 대표 이미지로 넣기
-				String fixedImg = ((String) application.getAttribute("1"));;
+				String fixedImg = ((String) application.getAttribute("1"));
+				
 				request.setAttribute("fixedImg", fixedImg);
 			}
 			

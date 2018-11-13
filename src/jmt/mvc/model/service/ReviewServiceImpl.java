@@ -24,8 +24,8 @@ public class ReviewServiceImpl implements ReviewService {
 	{
 
 		int result = reviewDAO.reviewLikeAmount(reviewId);
-		if(result == 0)
-			throw new SQLException("좋아요 수 가져오기에 실패하였습니다.");
+		/*if(result == 0)
+			throw new SQLException("좋아요 수 가져오기에 실패하였습니다.");*/
 		
 		return result;
 	}
