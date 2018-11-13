@@ -41,7 +41,7 @@ public class DeleteController implements Controller {
 
 			mv.setRedirect(true);
 			session.invalidate();
-			mv.setPath("mainView/JmtMain.jsp");
+			mv.setPath("jmt?command=restaurant.selectFive");
 			
 
 		} catch (SQLException e) {

@@ -41,3 +41,4 @@ public interface MemberService {
 	 * */
 	String PassCheckService(String id) throws SQLException;
 }
+

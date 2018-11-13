@@ -11,7 +11,7 @@
 $(function(){
 	 $("#password").keyup(function(){
         	 $.ajax({
-         		url: "../passCheckServlet" , // 서버요청주소
+         		url: "passCheckServlet" , // 서버요청주소
          		type: "post", //get or post요청방식
          		dataType: "text" , //서버가보내오는 데이터타입(text,html,json,xml)
          		data: "password="+ $(this).val() ,

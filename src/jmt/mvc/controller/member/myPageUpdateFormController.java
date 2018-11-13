@@ -51,7 +51,7 @@ public class myPageUpdateFormController implements Controller {
 
 			e.printStackTrace();
 		}
-		mv.setPath("/memberView/myPageUpdate.jsp");
+		mv.setPath("memberView/myPageUpdate.jsp");
 
 		return mv;
 	}

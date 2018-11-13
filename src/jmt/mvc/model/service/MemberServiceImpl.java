@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import jmt.mvc.model.dao.MemberDAO;
 import jmt.mvc.model.dao.MemberDAOImpl;
 import jmt.mvc.model.dto.MemberDTO;
-
 public class MemberServiceImpl implements MemberService {
 	
 	MemberDAO memberDAO  = new MemberDAOImpl();

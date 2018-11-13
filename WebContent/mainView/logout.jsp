@@ -11,7 +11,7 @@
       session.invalidate();
    %>
    <%
-      response.sendRedirect(request.getContextPath()+"/mainView/JmtMain.jsp");
+      response.sendRedirect(request.getContextPath()+"/jmt?command=restaurant.selectFive");
    %>
 </body>
 </html>

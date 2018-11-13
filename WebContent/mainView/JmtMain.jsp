@@ -36,211 +36,106 @@
 <script type="text/javascript">
 	$(function() {
 		$("#popbutton").click(function() {
-			$('div.modal').load("join.jsp")
+			$('div.modal').load("${pageContext.request.contextPath}/mainView/join.jsp")
 			$('div.modal').modal("show");
 		});
  		$("#login").click(function() {
-			$('div.modal').load("login.jsp")
+			$('div.modal').load("${pageContext.request.contextPath}/mainView/login.jsp")
 			$('div.modal').modal("show");
 		});
  		$("#logout").click(function() {
 			top.location.href = "${pageContext.request.contextPath}/mainView/logout.jsp";
 		});
- 		$("#keyWord").keyup(function(){
-			if($(this).val()==""){
- 				$("#suggest").hide();
- 				return;
- 			}
-			$.ajax({
- 				url:"../autoCompleteRestaurant",		//서버주소
- 				type:"post",	//요청방식
- 				dataType:"json",//서버가 보내준 데이터 타입 text,json,xml,html
- 				data:"keyWord="+$(this).val(),	//서버에게 보내는 파라미터 정보
- 				success:function(result){	//성공했을 시 함수
- 					var str="";
- 					$.each(result, function(index, item){
- 						console.log(item);
- 						str+="<a href='#'>"+item+"</a><br>";
- 					})
- 					$("#suggest").html(str);
- 					$("#suggest").show();	
- 				},	
- 				error:function(err){
- 					console.log(err+" --> 발생함 ");
- 				} 	//실패했을 시 함수
- 			});
-			if($(this).val()==""){
- 				$("#suggest").hide();
- 				return;
- 			}
-		});
-		$(document).on("click", "a", function(){
- 			$("#keyWord").val($(this).text());
- 			$("#suggest").hide();
- 		});
 	});
 </script>
 </head>
-
 <body>
 <%@ include file="mainTop.jsp" %>
 	<section id=search>
-		<div>
-			<h3>한식 추천메뉴</h3>
-		</div>
-		<div class="row" style="padding-left:50px">
-			<div class="column">
-				<img src="../img/media-9.jpg" class="bestFiveImg" onclick="location.href='../jmt?command=detail&resId=25398530'" style="cursor:pointer">
-			</div>
-			<div class="column">
-				<img src="../img/media-1.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-9.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-1.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-9.jpg" class="bestFiveImg">
-			</div>
-			<a href="#">+더보기</a>
-		</div>
-		
-		<div>
-			<h3>중식 추천메뉴</h3>
-		</div>
-		<div class="row" style="padding-left:50px">
-			<div class="column">
-				<img src="../img/media-3.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-10.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-3.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-10.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-3.jpg" class="bestFiveImg">
-			</div>
-			<a href="#">+더보기</a>
-		</div>
-		
-		<div>
-			<h3>일식/수산물 추천메뉴</h3>
-		</div>
-		<div class="row" style="padding-left:50px">
-			<div class="column">
-				<img src="../img/media-4.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-5.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-4.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-5.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-4.jpg" class="bestFiveImg">
-			</div>
-			<a href="#">+더보기</a>
-		</div>
-		
-		<div>
-			<h3>패스트푸드 추천메뉴</h3>
-		</div>
-		<div class="row" style="padding-left:50px">
-			<div class="column">
-				<img src="../img/media-9.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-1.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-9.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-1.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-9.jpg" class="bestFiveImg">
-			</div>
-			<a href="#">+더보기</a>
-		</div>
-		
-		<div>
-			<h3>분식 추천메뉴</h3>
-		</div>
-		<div class="row" style="padding-left:50px">
-			<div class="column">
-				<img src="../img/media-9.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-1.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-9.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-1.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-9.jpg" class="bestFiveImg">
-			</div>
-			<a href="#">+더보기</a>
-		</div>
-		
-		<div>
-			<h3>양식 추천메뉴</h3>
-		</div>
-		<div class="row" style="padding-left:50px">
-			<div class="column">
-				<img src="../img/media-9.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-1.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-9.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-1.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-9.jpg" class="bestFiveImg">
-			</div>
-			<a href="#">+더보기</a>
-		</div>
-		
-		<div>
-			<h3>뷔페/퓨전요리 추천메뉴</h3>
-		</div>
-		<div class="row" style="padding-left:50px">
-			<div class="column">
-				<img src="../img/media-9.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-1.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-9.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-1.jpg" class="bestFiveImg">
-			</div>
-			<div class="column">
-				<img src="../img/media-9.jpg" class="bestFiveImg">
-			</div>
-			<a href="#">+더보기</a>
-		</div>
-		
-	</section>
 
+	<form id="hansick" class="row" style="padding-left:7%">
+	<div><h3>한식 추천 메뉴</h3></div>
+		<c:forEach items="${hansickFiveSelect}" var="hansickFive" varStatus="state">
+			   <div class="colunm" style="float:left">
+			   	<div>
+			   		<img src='${hansickFive.reviewImg1}' class="bestFiveImg" 
+			   			onclick="location.href='${pageContext.request.contextPath}/jmt?command=detail&resId=${hansickFive.resId}'" 
+			   			style="cursor:pointer">
+			   	</div>
+			   	<div>${hansickFive.resName}</div>
+			   </div>
+		</c:forEach>
+		<div style="padding-top:15%;padding-left:79%"><input type="button" value="더 보기" onclick="location.href='jmt?command=restaurant.selectAllRestaurant&category=한식'"></div>
+	</form>
+
+		<form id="jungFive" class="row" style="padding-left:7%">
+		<div><h3>중식 추천 메뉴</h3></div>
+			<c:forEach items="${jungsickFiveSelect}" var="jungFiveFive" varStatus="state">
+				   <div class="colunm" style="float:left">
+				   <div><img src='${jungFiveFive.reviewImg1 }' class="bestFiveImg" onclick="location.href='${pageContext.request.contextPath}/jmt?command=detail&resId=${jungFiveFive.resId}'" style="cursor:pointer"></div>
+				   <div>${jungFiveFive.resName}</div>
+				   </div>
+				   
+			</c:forEach>
+			<div style="padding-top:15%;padding-left:79%"><input type="button" value="더 보기" onclick="location.href='jmt?command=restaurant.selectAllRestaurant&category=중식'"></div>
+		</form>
+		
+		<form id="ilsik" class="row" style="padding-left:7%">
+		<div><h3>일식/수산물 추천 메뉴</h3></div>
+			<c:forEach items="${ilsickFiveSelect}" var="ilsickFive" varStatus="state">
+				   <div class="colunm" style="float:left">
+				   <div><img src='${ilsickFive.reviewImg1 }' class="bestFiveImg" onclick="location.href='${pageContext.request.contextPath}/jmt?command=detail&resId=${ilsickFive.resId}'" style="cursor:pointer"></div>
+				   <div>${ilsickFive.resName}</div>
+				   </div>
+				   
+			</c:forEach>
+			<div style="padding-top:15%;padding-left:79%"><input type="button" value="더 보기" onclick="location.href='jmt?command=restaurant.selectAllRestaurant&category=일식'"></div>
+		</form>
+
+		<form id="fastfood" class="row" style="padding-left:7%">
+		<div><h3>패스트푸드 추천 메뉴</h3></div>
+			<c:forEach items="${fastfoodFiveSelect}" var="fastfoodFive" varStatus="state">
+				   <div class="colunm" style="float:left">
+				   <div><img src='${fastfoodFive.reviewImg1}' class="bestFiveImg" onclick="location.href='${pageContext.request.contextPath}/jmt?command=detail&resId=${fastfoodFive.resId}'" style="cursor:pointer"></div>
+				   <div>${fastfoodFive.resName}</div>
+				   </div>
+			</c:forEach>
+			<div style="padding-top:15%;padding-left:79%"><input type="button" value="더 보기" onclick="location.href='jmt?command=restaurant.selectAllRestaurant&category=패스트푸드'"></div>
+		</form>
+		
+		<%-- <form id="bunsick" class="row" style="padding-left:7%">
+		<div><h3>분식 추천 메뉴</h3></div>
+			<c:forEach items="${bunsickFiveSelect}" var="bunsickFive" varStatus="state">
+				   <div class="colunm" style="float:left">
+				   <div><img src='${bunsickFive.reviewImg1 }' class="bestFiveImg" onclick="location.href='${pageContext.request.contextPath}/jmt?command=detail&resId=${bunsickFive.resId}'" style="cursor:pointer"></div>
+				   <div>${bunsickFive.resName}</div>
+				   </div>
+			</c:forEach>
+			<div style="padding-top:15%;padding-left:79%"><input type="button" value="더 보기" onclick="location.href='jmt?command=restaurant.selectAllRestaurant&category=분식'"></div>
+		</form> --%>
+		
+		<form id="yangsick" class="row" style="padding-left:7%">
+		<div><h3>양식 추천 메뉴</h3></div>
+			<c:forEach items="${yangsickFiveSelect}" var="yangsickFive" varStatus="state">
+				   <div class="colunm" style="float:left">
+				   <div><img src='${yangsickFive.reviewImg1 }' class="bestFiveImg" onclick="location.href='${pageContext.request.contextPath}/jmt?command=detail&resId=${yangsickFive.resId}'" style="cursor:pointer"></div>
+				   <div>${yangsickFive.resName}</div>
+				   </div>
+			</c:forEach>
+			<div style="padding-top:15%;padding-left:79%"><input type="button" value="더 보기" onclick="location.href='jmt?command=restaurant.selectAllRestaurant&category=양식'"></div>
+		</form>
+		
+		<%-- <form id="buffet" class="row" style="padding-left:7%">
+		<div><h3>뷔페/퓨전요리 추천 메뉴</h3></div>
+			<c:forEach items="${buffetFiveSelect}" var="buffetFive" varStatus="state">
+				   <div class="colunm" style="float:left">
+				   <div><img src='${buffetFive.reviewImg1 }' class="bestFiveImg" onclick="location.href='${pageContext.request.contextPath}/jmt?command=detail&resId=${buffetFive.resId}'" style="cursor:pointer"></div>
+				   <div>${buffetFive.resName}</div>
+				   </div>
+			</c:forEach>
+			<div style="padding-top:15%;padding-left:79%"><input type="button" value="더 보기" onclick="location.href='jmt?command=restaurant.selectAllRestaurant&category=뷔페/퓨전요리'"></div>
+		</form> --%>
+	</section>
 
 <%@ include file="footer.jsp" %>
 

@@ -9,7 +9,7 @@
 $(function(){
 	$("#memberID").keyup(function(){
     	$.ajax({
-    		url: "../idCheckServlet" , // 서버요청주소
+    		url: "idCheckServlet" , // 서버요청주소
     		type: "post", //get or post요청방식
     		dataType: "text" , //서버가보내오는 데이터타입(text,html,json,xml)
     		data:"id="+ $(this).val(), //서버에게 보내는 parameter정보
@@ -18,7 +18,7 @@ $(function(){
     			$("#idCheck").text(result);
     		} ,
     		error: function(err){
-    			alert(err+"=> 예외발생...");
+    			//alert(err+"=> 예외발생...");
     		}
     	});
     }) 
@@ -34,7 +34,7 @@ $(function(){
 </script>
 <!-- Modal body -->
 <div class="modal-body">
-	<form name="writeForm" method="post" action="../jmt?command=member.signup">
+	<form name="writeForm" method="post" action="${pageContext.request.contextPath}/jmt?command=member.signup">
 
 		<table align="center" cellpadding="5" cellspacing="2" width="600"
 			border="1">

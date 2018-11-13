@@ -30,7 +30,7 @@ h2{color:#fff;font-size:40px;font-weight:600}
 <script type="text/javascript">
 	$(function() {
 		$("#update").click(function() {
-			$('div.modal').load("../jmt?command=member.updateForm")
+			$('div.modal').load("${pageContext.request.contextPath}/jmt?command=member.updateForm")
 			$('div.modal').modal("show");
 		});
 	});
@@ -40,7 +40,7 @@ h2{color:#fff;font-size:40px;font-weight:600}
 	<div class="top-head left">
 		<div class="row" style="padding-left:50px;">
 			<div class="col-md-6 col-lg-4">
-				<div onclick="location.href='${pageContext.request.contextPath}/mainView/JmtMain.jsp'" style="cursor:pointer">
+				<div onclick="location.href='${pageContext.request.contextPath}/jmt?command=restaurant.selectFive'" style="cursor:pointer">
 					<h1>#JMT<br> ÆÇ±³ ¸Àµû¶ó ¸Úµû¶ó</h1><br><br><br>
 				</div>
 				<div style="float: left;margin-top: -19px;">
