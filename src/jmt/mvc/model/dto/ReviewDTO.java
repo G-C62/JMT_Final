@@ -1,5 +1,4 @@
 
-
 package jmt.mvc.model.dto;
 
 public class ReviewDTO
@@ -22,7 +21,13 @@ public class ReviewDTO
 
 	public ReviewDTO(String resName, String reviewImg1)
 	{
+		this.resName = resName;
+		this.reviewImg1 = reviewImg1;
+	}
 
+	public ReviewDTO(int resId, String resName, String reviewImg1) {
+
+		this.resId = resId;
 		this.resName = resName;
 		this.reviewImg1 = reviewImg1;
 
@@ -31,7 +36,6 @@ public class ReviewDTO
 	public ReviewDTO(int reviewId, String reviewTitle, String reviewContents, String memberId, int resId,
 			String resName)
 	{
-
 		this.reviewId = reviewId;
 		this.reviewTitle = reviewTitle;
 		this.reviewContents = reviewContents;

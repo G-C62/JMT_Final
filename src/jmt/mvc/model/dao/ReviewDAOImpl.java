@@ -1,6 +1,7 @@
 package jmt.mvc.model.dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -180,6 +181,26 @@ public class ReviewDAOImpl implements ReviewDAO {
 			DbUtil.dbClose( ps, con);
 		}
 		return result;
-
 	}
+
+	@Override
+	public String getReviewImg(String restaurantsName) throws SQLException {
+		Connection con = DbUtil.getConnection();
+		PreparedStatement ps =null;
+		ResultSet rs =null;
+		String reviewImg = null;
+		try {
+			con=DbUtil.getConnection();
+			ps=con.prepareStatement("SELECT REVIEW_IMG1 FROM REVIEW WHERE RES_NAME=?");
+			ps.setString(1, restaurantsName);
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				reviewImg = rs.getString(1);
+			}
+		}finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return reviewImg;
+	}
+
 }

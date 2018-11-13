@@ -33,16 +33,19 @@ public class DispatcherServlet extends HttpServlet
 		{
 			//key="review.selectAll";
 		}
-
+		//System.out.println(map);
+		//System.out.println(key);
+		//System.out.println(map.get(key));
 		ModelAndView mv = map.get(key).execute(request, response);
-
 		if (mv.isRedirect())
 		{ // redirect 방식으로 이동
+
 			response.sendRedirect(mv.getPath());
 		} else
 		{ // forward 방식으로 이동
 			request.getRequestDispatcher(mv.getPath()).forward(request, response);
 		}
 	}
+	
 
 }

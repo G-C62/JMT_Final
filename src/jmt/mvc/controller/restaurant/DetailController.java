@@ -125,9 +125,8 @@ public class DetailController implements Controller
 			request.setAttribute("memberId", memberId);
 			request.setAttribute("reviewLikeAmountMap", reviewLikeAmountMap);
 			request.setAttribute("reviewLikeYesOrNoMap", reviewLikeYesOrNoMap);
-			
-			url = "final_view/detailView/detail.jsp";
-			
+
+			url = "restaurantDetail/detail.jsp";
 		} catch (Exception e)
 		{
 			e.printStackTrace();

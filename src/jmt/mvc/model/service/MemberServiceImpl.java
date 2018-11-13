@@ -2,22 +2,13 @@ package jmt.mvc.model.service;
 
 import java.sql.SQLException;
 
-
-import java.util.List;
-import java.util.Map;
 import jmt.mvc.model.dao.MemberDAO;
 import jmt.mvc.model.dao.MemberDAOImpl;
-import jmt.mvc.model.dao.RestaurantDAO;
-import jmt.mvc.model.dao.RestaurantDAOImpl;
 import jmt.mvc.model.dto.MemberDTO;
-import jmt.mvc.model.dto.RestaurantDTO;
-import jmt.mvc.model.dto.ReviewDTO;
-
 public class MemberServiceImpl implements MemberService {
-
+	
 	MemberDAO memberDAO  = new MemberDAOImpl();
-	RestaurantDAO resDao = new RestaurantDAOImpl();
-
+	
 	@Override
 	public boolean selectByInfo(MemberDTO memberDTO) throws SQLException {
 		boolean result = memberDAO.selectByInfo(memberDTO);
@@ -26,9 +17,12 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int delete(String id) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int delete(String id) throws SQLException{
+		int result = memberDAO.delete(id);
+		if(result==0)
+			throw new SQLException("삭제 되지 않았습니다.");
+		
+		return result;
 	}
 
 	@Override
@@ -40,30 +34,30 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public boolean idCheck(String id) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean idCheck(String id) throws SQLException  {
+		boolean result = memberDAO.idCheck(id);
+		return result;
 	}
 
 	@Override
-	public int update(MemberDTO memberDTO) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public List<ReviewDTO> selectBookmarkById(String id) throws SQLException{
-		List<String> list = memberDAO.selectBookmarkById(id);
-		List<ReviewDTO> lists = memberDAO.selectReviewByResName(list);
+	public int update(MemberDTO memberDTO) throws SQLException {
 		
-		return lists;
+		int result = memberDAO.update(memberDTO);
+		if(result==0)throw new SQLException("수정되지 않았습니다.");
+		return result;
 	}
 
-	
 	@Override
-	public List<String> autoCompleteRestaurant(String keyWord) throws SQLException {
-		List<String> list = resDao.autoCompleteRestaurant(keyWord);
-		return list;
+	public MemberDTO selectById(String id) throws SQLException {
+		MemberDTO memberDTO = memberDAO.selectById(id); //DAO로 이동
+		
+		return memberDTO;
 	}
 
-	
+	@Override
+	public String PassCheckService(String id) throws SQLException {
+		String result = memberDAO.PassCheckDAO(id);
+		return result;
+	}
+
 }

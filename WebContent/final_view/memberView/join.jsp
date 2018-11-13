@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div class="modal-header">
-	<h4 class="modal-title">회원가입하기</h4>
+	<h4 class="modal-title">�쉶�썝媛��엯�븯湲�</h4>
 	<button type="button" class="close" data-dismiss="modal">&times;</button>
 </div>
 
@@ -15,17 +15,17 @@
 			<tr>
 				<td width="1220" height="20" colspan="2" bgcolor="pink">
 					<p align="center">
-						<font color="black" size="3"><b> 회원가입 </b></font>
+
 					</p>
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2">*는 필수 사항입니다.</td>
+				<td colspan="2">*�뒗 �븘�닔 �궗�빆�엯�땲�떎.</td>
 			</tr>
 			<tr>
 				<td width="150" height="20">
 					<p align="right">
-						<b><span style="font-size: 9pt;">*아이디</span></b>
+						<b><span style="font-size: 9pt;">*�븘�씠�뵒</span></b>
 					</p>
 				</td>
 				<td width="450" height="20"><b><span
@@ -35,7 +35,7 @@
 			<tr>
 				<td width="150" height="20">
 					<p align="right">
-						<b><span style="font-size: 9pt;">*비밀번호</span></b>
+						<b><span style="font-size: 9pt;">*鍮꾨�踰덊샇</span></b>
 					</p>
 				</td>
 				<td width="450" height="20"><b><span
@@ -45,7 +45,7 @@
 			<tr>
 				<td width="150" height="20">
 					<p align="right">
-						<b><span style="font-size: 9pt;">*이름</span></b>
+						<b><span style="font-size: 9pt;">*�씠由�</span></b>
 					</p>
 				</td>
 				<td width="450" height="20"><b><span
@@ -55,7 +55,7 @@
 			<tr>
 				<td width="150" height="20">
 					<p align="right">
-						<b><span style="font-size: 9pt;">*핸드폰 번호</span></b>
+						<b><span style="font-size: 9pt;">*�빖�뱶�룿 踰덊샇</span></b>
 					</p>
 				</td>
 				<td width="450" height="20"><b><span
@@ -66,20 +66,19 @@
 			<tr>
 				<td width="150" height="20">
 					<p align="right">
-						<b><span style="font-size: 9pt;">*성별</span></b>
+						<b><span style="font-size: 9pt;">*�꽦蹂�</span></b>
 					</p>
 				</td>
 				<td width="450" height="20"><b><span
-						style="font-size: 9pt;"> <input type="radio" name="gender"
-							value="man"> 남 <input type="radio" name="gender"
-							value="woman" checked> 여
+						style="font-size: 9pt;"> <input type="radio" name="gender"/>
+
 					</span></b></td>
 			</tr>
 
 			<tr>
 				<td width="150" height="20">
 					<p align="right">
-						<b><span style="font-size: 9pt;">이메일</span></b>
+						<b><span style="font-size: 9pt;">�씠硫붿씪</span></b>
 					</p>
 				</td>
 				<td width="450" height="20"><b><span
@@ -89,8 +88,8 @@
 			</tr>
 			<tr>
 				<td width="450" height="20" colspan="2" align="center"><b><span
-						style="font-size: 9pt;"> <input type=submit value=가입하기>
-							<input type=reset value=다시쓰기></span></b></td>
+						style="font-size: 9pt;"> <input type=submit value=媛��엯�븯湲�>
+							<input type=reset value=�떎�떆�벐湲�></span></b></td>
 			</tr>
 		</table>
 

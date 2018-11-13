@@ -26,7 +26,6 @@ public class LoginController implements Controller {
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
 
-		//String url = "errorView/error.jsp";
 		ModelAndView mv = new ModelAndView();
 		MemberDTO dto = new MemberDTO();
 
@@ -37,24 +36,18 @@ public class LoginController implements Controller {
 		try {
 
 			dto = new MemberDTO(memberID, password);
-System.out.println(memberID);
+			System.out.println(memberID);
 			boolean result = ms.selectByInfo(dto);
-			
+
 			if (result) { // 일치하면 session에 Id 저장 후
 				session.setAttribute("memberID", memberID);
-				
-				out.println("<script>alert('로그인 성공');</script>");
-				
-				mv.setPath("seongho_view/indexEx.jsp");// 로그인 페이지로 이동
+				mv.setPath("jmt?command=restaurant.selectFive");// 로그인 페이지로 이동
 			} else {
-				System.out.println("result 가 false");
-				out.println("<script>alert('로그인 실패');</script>");
-				mv.setPath("seongho_view/indexEx.jsp");
+				mv.setPath("/indexEx.jsp");
 			} // 최종 결과를 받아서 저장해서 뷰로 이동한다
+			mv.setRedirect(true);
 		} catch (SQLException e) {
-			mv.setPath("./errors/error.jsp");
-			//session.setAttribute("errMsg", e.toString());
-			return mv;
+			e.printStackTrace();
 		}
 		return mv;
 	}

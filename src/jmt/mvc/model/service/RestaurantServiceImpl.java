@@ -7,13 +7,15 @@ import org.eclipse.jdt.internal.compiler.ast.ThrowStatement;
 
 import jmt.mvc.model.dao.RestaurantDAO;
 import jmt.mvc.model.dao.RestaurantDAOImpl;
+import jmt.mvc.model.dao.ReviewDAO;
+import jmt.mvc.model.dao.ReviewDAOImpl;
 import jmt.mvc.model.dto.RestaurantDTO;
 import jmt.mvc.model.dto.ReviewDTO;
 
 public class RestaurantServiceImpl implements RestaurantService
 {
 	private static RestaurantDAO dao = new RestaurantDAOImpl();
-	
+	private static ReviewDAO reviewDao = new ReviewDAOImpl();
 	@Override
 	public List<RestaurantDTO> selectAll() throws SQLException
 	{
@@ -168,4 +170,51 @@ public class RestaurantServiceImpl implements RestaurantService
 		
 		return result;
 	}
+
+
+	
+	@Override
+	public List<RestaurantDTO> autoCompleteRestaurant(String keyWord) throws SQLException {
+		List<RestaurantDTO> list = dao.autoCompleteRestaurant(keyWord);
+		return list;
+	}
+	
+
+	@Override
+	public List<ReviewDTO> RestaurantFiveSelect(String category) throws SQLException {
+		List<ReviewDTO> restaurantList = dao.RestaurantFiveSelect(category);
+		return restaurantList;
+	}
+
+	@Override
+	public String getReviewImg(String restaurantsName) throws SQLException {
+		String reviewImg = reviewDao.getReviewImg(restaurantsName);
+		return reviewImg;
+	}
+	
+	@Override
+	public List<ReviewDTO> RestaurantSelectAll(String category) throws SQLException {
+		List<ReviewDTO> list = dao.RestaurantSelectAll(category);
+		return list;
+	}
+
+	public List<ReviewDTO> selectBookmarkById(String id) throws SQLException{
+		List<String> list = dao.selectBookmarkById(id);
+		List<ReviewDTO> lists = dao.selectReviewByResName(list);
+		
+		return lists;
+	}
+
+	@Override
+	public List<ReviewDTO> likeOrderSelectAll(String category) throws SQLException {
+		List<ReviewDTO> list = dao.likeOrderSelectAll(category);
+		return list;
+	}
+
+	@Override
+	public List<ReviewDTO> restaurantNameOrderReview(String category) throws SQLException {
+		List<ReviewDTO> list = dao.restaurantNameOrderReview(category);
+		return list;
+	}
 }
+

@@ -1,6 +1,7 @@
 package jmt.mvc.model.dao;
 
 import java.sql.SQLException;
+
 import java.util.List;
 
 import jmt.mvc.model.dto.ReviewDTO;
@@ -37,7 +38,16 @@ public interface ReviewDAO {
 	/**
 	 * 리뷰 삭제
 	 * */
+
 	int reviewDelete(int reviewId) throws SQLException;
+
+
+	
+	/**
+	 * 호수 - 음식점 이름으로 해당하는 음식점 사진 가져오기
+	 * */
+	String getReviewImg(String restaurantsName) throws SQLException;
+
 	
 	
 	

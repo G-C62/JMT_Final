@@ -49,17 +49,15 @@ public class SignupController implements Controller {
          
          ms.insert(memberDTO);
          
-         
-      // url = "indexEx.html"; 
        mv.setRedirect(true);
-       mv.setPath("seongho_view/indexEx.jsp");
+       mv.setPath("jmt?command=restaurant.selectFive");
 
       } catch (SQLException e) {
-    	  e.printStackTrace();
+         e.printStackTrace();
          request.setAttribute("errorMsg", e.getMessage());
 
       }
-      mv.setPath("seongho_view/indexEx.jsp");
+      mv.setPath("jmt?command=restaurant.selectFive");
       return mv;
    }
 

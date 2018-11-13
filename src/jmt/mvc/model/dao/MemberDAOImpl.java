@@ -4,18 +4,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import jmt.mvc.model.dto.MemberDTO;
-import jmt.mvc.model.dto.ReviewDTO;
 import jmt.mvc.model.util.DbUtil;
 
 public class MemberDAOImpl implements MemberDAO {
-	
 
 	@Override
 	public boolean selectByInfo(MemberDTO memberDTO) throws SQLException{
+		//로그인시 필요한 DAO
 		Connection con=null;
 		PreparedStatement ps =null;
 		ResultSet rs=null;
@@ -40,13 +37,23 @@ public class MemberDAOImpl implements MemberDAO {
 	
 
 	@Override
-	public int delete(String id) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int delete(String id) throws SQLException {
+		Connection con = DbUtil.getConnection();
+		PreparedStatement ps =null;
+		int result =0;
+		try{
+			ps = con.prepareStatement("delete member where member_id=?");
+			ps.setString(1, id);
+			result = ps.executeUpdate();
+		}finally{
+			DbUtil.dbClose( ps, con);
+		}
+		return result;
 	}
 
 	   @Override
 	   public int insert(MemberDTO memberDTO) throws SQLException {
+		   //회원가입
 		  Connection con = DbUtil.getConnection();
 	      PreparedStatement ps =null;
 	      int result = 0;
@@ -69,65 +76,92 @@ public class MemberDAOImpl implements MemberDAO {
 	   }
 
 	@Override
-	public boolean idCheck(String id) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean idCheck(String id) throws SQLException {
+		PreparedStatement ps = null;
+		  ResultSet rs = null;
+		  Connection con = null;
+		  boolean result=false;
+		  try {
+		   con=DbUtil.getConnection();
+		   ps = con.prepareStatement("select member_id from member where member_id=?");
+		   ps.setString(1, id);
+		   rs = ps.executeQuery();
+		   if(rs.next()){
+		    result=true;
+		  }
+		  }finally {
+		   DbUtil.dbClose(rs, ps, con);
+		  }
+		  return result;
+		 
 	}
 
 	@Override
-	public int update(MemberDTO memberDTO) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int update(MemberDTO memberDTO) throws SQLException{
+		//수정하기
+		Connection con =DbUtil.getConnection();
+		PreparedStatement ps =null;
+		int result = 0;
+		try{
+			//쿼리문
+			ps = con.prepareStatement(
+					"update member set member_pwd=?,member_name=?,member_phone=?,member_email=? where member_id=?");
+			
+			ps.setString(1, memberDTO.getMemberPwd());
+			ps.setString(2, memberDTO.getMemberName());
+			ps.setString(3, memberDTO.getMemberPhone());
+			ps.setString(4, memberDTO.getMemberEmail());
+			ps.setString(5, memberDTO.getMemberId());
+			result = ps.executeUpdate(); //수정 성공 갯수
+			System.out.println(result);
+		}finally{
+			DbUtil.dbClose( ps, con);
+		}
+		return result;
 	}
 
-	public List<String> selectBookmarkById(String id) throws SQLException {
-		Connection con =null;
+	@Override
+	public MemberDTO selectById(String id) throws SQLException {
+		//수정하기 시 아이디 불러오기
+		Connection con =DbUtil.getConnection();
+		PreparedStatement ps =null;
+		ResultSet rs=null;
+		MemberDTO memberDTO = null;
+		try {
+			//아이디를 이용해서 그아이디에 해당하는 컬럼들을 불러온다
+			con=DbUtil.getConnection();
+			ps=con.prepareStatement("SELECT * FROM MEMBER WHERE MEMBER_ID=?");
+			//수정시 아이디 불러오기 쿼리
+			ps.setString(1, id);
+			rs=ps.executeQuery(); //아이디 불러오기 성공 여부???
+			while(rs.next()) {
+				//해당 아이디에 들어있는 데이터 불러오기
+				memberDTO = new MemberDTO(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+			}
+		} finally {
+			DbUtil.dbClose(rs, ps, con);
+		}
+		return memberDTO;
+	}
+
+	@Override
+	public String PassCheckDAO(String id) throws SQLException {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		List<String> list = new ArrayList<>();
+		Connection con = null;
+		String result=null;
 		try {
-			con= DbUtil.getConnection();
-			ps = con.prepareStatement("SELECT RES_ID FROM BOOKMARK WHERE MEMBER_ID=?");
+			con = DbUtil.getConnection();
+			ps=con.prepareStatement("select MEMBER_PWD from member where MEMBER_ID=?");
 			ps.setString(1, id);
 			rs=ps.executeQuery();
-			
 			while(rs.next()) {
-				System.out.println(rs.getInt(1));
-				list.add(Integer.toString(rs.getInt(1)));
+				result=rs.getString(1);
 			}
-		} catch (Exception e) {
-			e.printStackTrace();
 		} finally {
 			DbUtil.dbClose(rs, ps, con);
 		}
-		return list;
+		return result;
 	}
 
-	@Override
-	public List<ReviewDTO> selectReviewByResName(List<String> list) throws SQLException {
-		Connection con =null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		List<ReviewDTO> lists=new ArrayList<>();
-		
-		try {
-			con=DbUtil.getConnection();
-			ps=con.prepareStatement("SELECT RES_NAME,REVIEW_IMG1 FROM REVIEW WHERE RES_ID=?");
-			for(int i=0;i<list.size();i++) {
-				ps.setInt(1, Integer.parseInt(list.get(i)));
-				rs=ps.executeQuery();
-				while(rs.next()) {
-					lists.add(new ReviewDTO(rs.getString(1), rs.getString(2)));
-				}
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			DbUtil.dbClose(rs, ps, con);
-		}
-		return lists;
-	}
-
-	
 }
