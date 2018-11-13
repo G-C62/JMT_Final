@@ -9,7 +9,7 @@
 $(function(){
 	$("#memberID").keyup(function(){
     	$.ajax({
-    		url: "../idCheckServlet" , // 서버요청주소
+    		url: "idCheckServlet" , // 서버요청주소
     		type: "post", //get or post요청방식
     		dataType: "text" , //서버가보내오는 데이터타입(text,html,json,xml)
     		data:"id="+ $(this).val(), //서버에게 보내는 parameter정보
